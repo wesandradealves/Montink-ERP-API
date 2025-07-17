@@ -5,6 +5,178 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.3.0] - 2025-07-17
+
+### Adicionado
+- **Documentação Swagger/OpenAPI Completa**
+  - Interface Swagger UI interativa acessível em `/docs`
+  - Pacote L5-Swagger instalado e configurado
+  - ViewServiceProvider adicionado para suporte completo
+  - Documentação JSON disponível em `/docs.json`
+  - Redirecionamentos automáticos de `/` e `/api/` para `/docs`
+
+- **Endpoints Documentados**
+  - GET /api/products - Listar produtos com filtros
+  - GET /api/products/{id} - Buscar produto específico
+  - POST /api/products - Criar novo produto
+  - PUT /api/products/{id} - Atualizar produto
+  - DELETE /api/products/{id} - Excluir produto
+  - GET /api/health - Verificação de saúde da API
+
+- **Schemas Reutilizáveis**
+  - Schema Product com todas as propriedades
+  - Schema ApiResponse para respostas padronizadas
+  - Schema ApiListResponse para listagens
+  - Schema ApiErrorResponse para erros
+  - Schema ValidationError para validações
+  - Schemas preparados para Order, Coupon e Stock
+
+- **HealthController**
+  - Controller dedicado para endpoint de saúde
+  - Documentação Swagger integrada
+  - Resposta padronizada com status, timestamp e versão
+
+### Funcionalidades
+- **Interface Swagger UI**
+  - Tela padrão do Swagger/OpenAPI
+  - Possibilidade de testar endpoints diretamente
+  - Filtros e parâmetros organizados
+  - Códigos de status HTTP documentados
+  - Exemplos práticos em português
+
+- **Documentação Interativa**
+  - Formulários para teste de requests
+  - Schemas de resposta detalhados
+  - Exemplos de payloads JSON
+  - Validações documentadas
+  - Descrições em português
+
+### Configurações
+- **L5-Swagger**
+  - Configuração completa em config/l5-swagger.php
+  - URLs customizadas para documentação
+  - Assets do Swagger UI integrados
+  - Views customizadas para paths corretos
+
+- **Redirecionamentos**
+  - Raiz do site (/) redireciona para /docs
+  - Rota /api/ redireciona para /docs  
+  - Acesso direto à documentação facilitado
+
+### Técnico
+- **Annotations Swagger**
+  - Controller base com informações da API
+  - Todos os endpoints do Products documentados
+  - Tags organizadas por módulo
+  - Security schemes preparados para JWT
+
+- **Assets e Views**
+  - Views customizadas do L5-Swagger
+  - Assets do Swagger UI copiados para public/vendor
+  - Configuração de paths corrigida
+  - Suporte completo a CSS e JavaScript
+
+---
+
+**Meta da v0.3.0**: Documentação completa e interativa da API com Swagger/OpenAPI, facilitando o desenvolvimento e uso da API Montink ERP.
+
+## [0.2.0] - 2025-01-17
+
+### Adicionado
+- **Módulo Products Completo com CRUD**
+  - API REST completa para gestão de produtos
+  - Model Product com casts e validações automáticas
+  - ProductRepository implementando interface com padrão DRY
+  - ProductsUseCase consolidando todas operações de negócio
+  - ProductController com responses JSON padronizadas
+  - CreateProductRequest e UpdateProductRequest com validações Laravel
+  - CreateProductDTO e UpdateProductDTO para transferência de dados
+  - ProductsServiceProvider para injeção de dependência
+
+- **ApiResponseTrait para Padronização DRY**
+  - Trait reutilizável para respostas JSON consistentes
+  - Métodos successResponse, successListResponse e errorResponse
+  - Eliminação completa de duplicação de código de resposta
+  - Padrão aplicado em todos os controllers da aplicação
+
+- **Configuração API-Only Otimizada**
+  - Laravel configurado exclusivamente para API sem frontend
+  - RouteServiceProvider customizado para rotas API
+  - Remoção de providers desnecessários (View, Session)
+  - HTTP Kernel simplificado apenas com essentials
+  - Health check endpoint funcional em /api/health
+
+### Funcionalidades
+- **Endpoints Products API**
+  - `GET /api/products` - Listagem com filtros (ativo, busca)
+  - `GET /api/products/{id}` - Busca individual
+  - `POST /api/products` - Criação com validação completa
+  - `PUT /api/products/{id}` - Atualização parcial
+  - `DELETE /api/products/{id}` - Exclusão com verificação
+
+- **Validações Implementadas**
+  - Nome obrigatório (máx. 255 caracteres)
+  - SKU único no sistema
+  - Preço numérico obrigatório (mín. 0)
+  - Descrição opcional
+  - Status ativo (boolean, padrão true)
+  - Variações em formato JSON opcional
+
+- **Responses Padronizadas**
+  - Estrutura consistente com data/message/meta
+  - Códigos HTTP apropriados (200, 201, 404, 422)
+  - Mensagens de erro descritivas em português
+  - Metadata com contagem total em listagens
+
+### Removido
+- **Limpeza Rigorosa DRY**
+  - 40+ diretórios vazios removidos
+  - Arquivos frontend eliminados (CSS, JS, Views)
+  - Views compiladas removidas do storage
+  - Middleware não utilizados excluídos
+  - Migrações órfãs de módulos não implementados
+  - Configurações desnecessárias (view.php, broadcasting.php)
+  - 2 imports não utilizados identificados e removidos
+
+### Refatorado
+- **Princípios DRY Aplicados**
+  - Método buildQuery() privado no Repository eliminando duplicação
+  - Validação única no Request (removida duplicação no UseCase)
+  - 5 arquivos UseCase consolidados em 1 ProductsUseCase
+  - Código de resposta JSON centralizado em trait
+  - Imports limpos em todos os arquivos
+
+### Técnico
+- **Arquitetura Clean Implementada**
+  - Repository Pattern com interface abstrata
+  - Use Case único concentrando regras de negócio
+  - DTOs para isolamento de dados entre camadas
+  - Service Provider gerenciando injeção de dependência
+  - Controller fino apenas delegando para Use Case
+
+- **Banco de Dados Configurado**
+  - Migration products executada com sucesso
+  - Conexão MySQL via Docker funcional
+  - Índices criados para performance (SKU, active+name)
+  - Timestamps automáticos configurados
+
+- **Docker Environment**
+  - Ambiente completamente funcional
+  - Containers: MySQL, Redis, Nginx, Mailpit, PHP-FPM
+  - Volumes persistentes configurados
+  - Network interna para comunicação entre serviços
+
+### Melhorias de Qualidade
+- **Processo de Desenvolvimento Otimizado**
+  - Testes funcionais integrados ao fluxo
+  - Padrão de commits consistente
+  - Versionamento semântico aplicado
+  - Controle de qualidade automatizado
+
+---
+
+**Meta da v0.2.0**: Módulo Products completamente funcional seguindo Clean Architecture e princípios DRY, estabelecendo padrão ouro para todos os próximos módulos do sistema.
+
 ## [0.1.0] - 2025-01-16
 
 ### Adicionado
