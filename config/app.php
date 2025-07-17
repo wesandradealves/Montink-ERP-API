@@ -15,7 +15,23 @@ return [
     'version' => '0.1.0',
 
     'providers' => [
+        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
+        Illuminate\Database\MigrationServiceProvider::class,
+        Illuminate\Foundation\Providers\ComposerServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Redis\RedisServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Session\SessionServiceProvider::class,
+        Illuminate\Queue\QueueServiceProvider::class,
+        Illuminate\Log\LogServiceProvider::class,
+        Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Routing\RoutingServiceProvider::class,
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
         App\Infrastructure\Providers\AppServiceProvider::class,
+        App\Infrastructure\Providers\RouteServiceProvider::class,
+        App\Modules\Products\Providers\ProductsServiceProvider::class,
     ],
 
     'aliases' => [

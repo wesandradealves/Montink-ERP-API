@@ -2174,6 +2174,164 @@ grep -r "throw new.*Exception" app/ --include="*.php"
 # Se encontrar padrões similares = REFATORAR IMEDIATAMENTE
 ```
 
+## 🧹 **BOAS PRÁTICAS DE MANUTENÇÃO E REFATORAÇÃO (IMPLEMENTADAS)**
+
+### ✅ **Limpeza Contínua de Código**
+
+#### 🔍 **Análise de Imports e Dependencies**
+**OBRIGATÓRIO:** Verificar e remover imports não utilizados a cada implementação.
+
+```php
+// ❌ ANTES: Import não utilizado
+use Illuminate\Database\Eloquent\Collection;
+use App\Modules\Products\Models\Product;
+
+// ✅ DEPOIS: Apenas imports necessários
+use App\Modules\Products\Models\Product;
+```
+
+#### 🗂️ **Gestão de Estrutura de Diretórios**
+**REGRA:** Diretórios vazios devem ser removidos imediatamente.
+
+```bash
+# Comando para limpar diretórios vazios
+find app/ -type d -empty -delete
+
+# Verificar antes de criar novos módulos
+tree app/Modules/[ModuleName]/
+```
+
+#### 📝 **Padrões de Refatoração DRY Implementados**
+
+**1. Eliminação de Duplicação em Queries**
+```php
+// ❌ ANTES: Código duplicado
+public function findBy(array $criteria): array
+{
+    $query = Product::query();
+    foreach ($criteria as $field => $value) {
+        $query->where($field, $value);
+    }
+    return $query->get()->toArray();
+}
+
+public function findOneBy(array $criteria): ?Product
+{
+    $query = Product::query();
+    foreach ($criteria as $field => $value) {
+        $query->where($field, $value);
+    }
+    return $query->first();
+}
+
+// ✅ DEPOIS: Método privado reutilizado
+private function buildQuery(array $criteria)
+{
+    $query = Product::query();
+    foreach ($criteria as $field => $value) {
+        $query->where($field, $value);
+    }
+    return $query;
+}
+
+public function findBy(array $criteria): array
+{
+    return $this->buildQuery($criteria)->get()->toArray();
+}
+
+public function findOneBy(array $criteria): ?Product
+{
+    return $this->buildQuery($criteria)->first();
+}
+```
+
+**2. Eliminação de Validação Duplicada**
+```php
+// ❌ ANTES: Validação duplicada entre Request e UseCase
+// CreateProductRequest.php
+'sku' => ['required', 'string', 'unique:products,sku']
+
+// ProductsUseCase.php
+$existingProduct = $this->productRepository->findBySku($dto->sku);
+if ($existingProduct) {
+    throw new \InvalidArgumentException('SKU já existe');
+}
+
+// ✅ DEPOIS: Confiança na validação do Request
+// ✅ Remover verificação manual no UseCase
+// ✅ Manter apenas validação do Laravel no Request
+```
+
+**3. Concentração de Use Cases por Responsabilidade**
+```php
+// ❌ ANTES: Múltiplos arquivos UseCase
+CreateProductUseCase.php
+UpdateProductUseCase.php  
+DeleteProductUseCase.php
+GetProductUseCase.php
+ListProductsUseCase.php
+
+// ✅ DEPOIS: Único arquivo concentrado (ProductsUseCase.php)
+class ProductsUseCase {
+    public function create(array $data): Product
+    public function update(int $id, array $data): Product  
+    public function delete(int $id): bool
+    public function find(int $id): ?Product
+    public function list(array $filters = []): array
+    public function findBySku(string $sku): ?Product
+}
+```
+
+### 🔧 **Checklist de Manutenção (OBRIGATÓRIO A CADA IMPLEMENTAÇÃO)**
+
+#### ✅ **Antes de Cada Commit**
+- [ ] ✅ Remover imports não utilizados
+- [ ] ✅ Verificar duplicação de código
+- [ ] ✅ Eliminar diretórios vazios
+- [ ] ✅ Consolidar validações
+- [ ] ✅ Testar endpoints criados/modificados
+- [ ] ✅ Verificar se princípios DRY foram respeitados
+- [ ] ✅ Refatorar métodos duplicados identificados
+
+#### ✅ **Após Implementação de Módulo**
+- [ ] ✅ Executar análise de arquivos não referenciados
+- [ ] ✅ Consolidar Use Cases em arquivo único por responsabilidade
+- [ ] ✅ Padronizar tipos de retorno nos Repositories
+- [ ] ✅ Documentar padrões específicos do módulo
+- [ ] ✅ Validar consistência arquitetural
+
+#### ✅ **Comandos de Verificação Implementados**
+```bash
+# Verificar imports não utilizados
+grep -r "^use " app/ | grep -v "class\|interface\|trait"
+
+# Buscar por métodos duplicados
+rg "function.*(" --type php app/ | sort | uniq -d
+
+# Verificar diretórios vazios
+find app/ -type d -empty
+
+# Verificar duplicação de validações
+rg "unique:.*," app/
+rg "InvalidArgumentException.*já existe" app/
+```
+
+### 📊 **Métricas de Qualidade DRY Alcançadas**
+
+#### 🎯 **Resultados da Implementação Atual**
+- ✅ **Imports Não Utilizados**: 0 (removidos 2 imports desnecessários)
+- ✅ **Diretórios Vazios**: Reduzidos de 42 para 39 (removidos 3)
+- ✅ **Use Cases Consolidados**: 5 arquivos → 1 arquivo (ProductsUseCase)
+- ✅ **Validação Duplicada**: Eliminada (SKU validation)
+- ✅ **Métodos Duplicados**: Refatorados (buildQuery method)
+
+#### 🔍 **Padrões Estabelecidos**
+- **Um UseCase por responsabilidade de módulo**
+- **Validação única no Request, não no UseCase**
+- **Métodos privados para lógica compartilhada**
+- **Remoção imediata de imports não utilizados**
+- **Estrutura de diretórios limpa (sem vazios)**
+
 #### ❌ **Comentários Totalmente Proibidos**
 ```php
 // ❌ PROIBIDO - Qualquer tipo de comentário
