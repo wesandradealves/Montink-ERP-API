@@ -5,6 +5,97 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.4.0] - 2025-07-17
+
+### Adicionado
+- **Sistema de Carrinho Completo**
+  - Módulo Cart com Clean Architecture
+  - Gerenciamento via sessão PHP
+  - Validação automática de estoque
+  - CRUD completo para itens do carrinho
+  - Cálculo automático de subtotais
+
+- **Cálculo de Frete Inteligente**
+  - Regras de frete conforme briefing Montink
+  - R$ 52,00 a R$ 166,59: Frete R$ 15,00
+  - Acima de R$ 200,00: Frete grátis
+  - Outros valores: Frete R$ 20,00
+  - Cálculo automático integrado ao carrinho
+
+- **Endpoints do Carrinho**
+  - GET /api/cart - Obter carrinho atual
+  - POST /api/cart - Adicionar produto ao carrinho
+  - PUT /api/cart/{id} - Atualizar quantidade
+  - DELETE /api/cart/{id} - Remover item
+  - DELETE /api/cart - Limpar carrinho
+
+- **Modelo Stock**
+  - Controle de estoque com quantidade disponível
+  - Validação automática no carrinho
+  - Suporte a variações de produtos
+  - Cálculo de disponibilidade (quantidade - reservado)
+
+### Funcionalidades
+- **Carrinho de Sessão**
+  - Persistência durante navegação
+  - Validação de estoque em tempo real
+  - Cálculo automático de totais
+  - Suporte a variações de produtos
+
+- **Sistema de Frete**
+  - Aplicação automática de regras
+  - Descrições amigáveis (ex: "Frete grátis")
+  - Integração transparente com carrinho
+  - Cálculo total final com frete
+
+- **Validações Robustas**
+  - Verificação de estoque disponível
+  - Validação de produtos existentes
+  - Tratamento de erros específicos
+  - Mensagens em português
+
+### Técnico
+- **CartUseCase**
+  - Lógica de negócio centralizada
+  - Validação de estoque integrada
+  - Cálculo de frete automático
+  - Gerenciamento de sessão
+
+- **ShippingService**
+  - Serviço dedicado para cálculo de frete
+  - Regras de negócio isoladas
+  - Métodos reutilizáveis
+  - Formatação consistente
+
+- **DTOs Específicos**
+  - CartDTO com informações completas
+  - CartItemDTO para itens individuais
+  - AddToCartDTO para requisições
+  - Tipagem forte e consistente
+
+- **Documentação Swagger**
+  - Schemas Cart e CartItem
+  - Exemplos práticos de uso
+  - Documentação completa de endpoints
+  - Integração com schemas existentes
+
+### Melhorias
+- **ApiResponseTrait**
+  - Trait para respostas padronizadas
+  - Métodos successResponse e errorResponse
+  - Consistência em toda aplicação
+  - Eliminação de duplicação de código
+
+- **BaseModel**
+  - Classe base para todos os models
+  - Configurações padrão centralizadas
+  - Scope active reutilizável
+  - Estrutura consistente
+
+---
+
+**Meta da v0.4.0**: Sistema de carrinho e frete completamente funcional seguindo regras de negócio específicas do briefing Montink, com validações robustas e experiência de usuário otimizada.
+
 ## [0.3.0] - 2025-07-17
 
 ### Adicionado

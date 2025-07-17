@@ -12,7 +12,7 @@ return [
     'faker_locale' => 'pt_BR',
     'key' => env('APP_KEY'),
     'cipher' => 'AES-256-CBC',
-    'version' => '0.1.0',
+    'version' => '0.4.0',
 
     'providers' => [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
@@ -30,10 +30,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        L5Swagger\L5SwaggerServiceProvider::class,
+        // L5Swagger\L5SwaggerServiceProvider::class,
         App\Infrastructure\Providers\AppServiceProvider::class,
         App\Infrastructure\Providers\RouteServiceProvider::class,
         App\Modules\Products\Providers\ProductsServiceProvider::class,
+        App\Modules\Cart\Providers\CartServiceProvider::class,
     ],
 
     'aliases' => [

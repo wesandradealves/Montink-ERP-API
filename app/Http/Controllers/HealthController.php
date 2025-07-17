@@ -25,7 +25,7 @@ class HealthController extends Controller
         return [
             'status' => 'healthy',
             'timestamp' => date('c'),
-            'version' => '0.2.0'
+            'version' => '0.4.0'
         ];
     }
 }

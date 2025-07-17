@@ -124,8 +124,34 @@ namespace App\Http\Controllers\Schemas;
  *     @OA\Property(property="timestamp", type="string", format="date-time", example="2024-01-01T00:00:00-03:00"),
  *     @OA\Property(property="version", type="string", example="0.2.0")
  * )
+ * 
+ * @OA\Schema(
+ *     schema="CartItem",
+ *     type="object",
+ *     title="Cart Item",
+ *     description="Item do carrinho",
+ *     @OA\Property(property="id", type="integer", example=1),
+ *     @OA\Property(property="product_id", type="integer", example=1),
+ *     @OA\Property(property="product_name", type="string", example="Notebook Dell"),
+ *     @OA\Property(property="quantity", type="integer", example=2),
+ *     @OA\Property(property="price", type="number", format="float", example=2999.90),
+ *     @OA\Property(property="subtotal", type="number", format="float", example=5999.80),
+ *     @OA\Property(property="variations", type="object", example={"cor": "preto", "memoria": "16GB"})
+ * )
+ * 
+ * @OA\Schema(
+ *     schema="Cart",
+ *     type="object",
+ *     title="Cart",
+ *     description="Carrinho de compras",
+ *     @OA\Property(property="items", type="array", @OA\Items(ref="#/components/schemas/CartItem")),
+ *     @OA\Property(property="subtotal", type="number", format="float", example=199.98),
+ *     @OA\Property(property="total_items", type="integer", example=2),
+ *     @OA\Property(property="shipping_cost", type="number", format="float", example=15.00),
+ *     @OA\Property(property="total", type="number", format="float", example=214.98),
+ *     @OA\Property(property="shipping_description", type="string", example="Frete: R$ 15,00")
+ * )
  */
 class SwaggerSchemas
 {
-    // Esta classe existe apenas para definir schemas do Swagger
 }
