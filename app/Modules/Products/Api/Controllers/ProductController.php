@@ -147,7 +147,7 @@ class ProductController extends BaseApiController
     }
 
     /**
-     * @OA\Put(
+     * @OA\Patch(
      *     path="/api/products/{id}",
      *     summary="Atualizar produto",
      *     description="Atualiza um produto existente",

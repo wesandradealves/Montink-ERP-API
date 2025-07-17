@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Modules\Stock\Services;
+
+use App\Modules\Products\Models\Product;
+use App\Modules\Stock\Models\Stock;
+
+class StockValidationService
+{
+    public function validateStock(Product $product, int $quantity, ?array $variations = null): void
+    {
+        $stock = Stock::where('product_id', $product->id);
+        
+        if ($variations) {
+            $stock->where('variations', json_encode($variations));
+        }
+        
+        $stock = $stock->first();
+        
+        if (!$stock) {
+            throw new \Exception("Produto não encontrado no estoque");
+        }
+        
+        $available = $stock->quantity - $stock->reserved;
+        
+        if ($available < $quantity) {
+            throw new \Exception("Estoque insuficiente. Disponível: {$available}");
+        }
+    }
+
+    public function getAvailableQuantity(int $productId, ?array $variations = null): int
+    {
+        $stock = Stock::where('product_id', $productId);
+        
+        if ($variations) {
+            $stock->where('variations', json_encode($variations));
+        }
+        
+        $stock = $stock->first();
+        
+        if (!$stock) {
+            return 0;
+        }
+        
+        return $stock->quantity - $stock->reserved;
+    }
+
+    public function reserveStock(int $productId, int $quantity, ?array $variations = null): void
+    {
+        $stock = Stock::where('product_id', $productId);
+        
+        if ($variations) {
+            $stock->where('variations', json_encode($variations));
+        }
+        
+        $stock = $stock->first();
+        
+        if ($stock) {
+            $stock->increment('reserved', $quantity);
+        }
+    }
+
+    public function releaseStock(int $productId, int $quantity, ?array $variations = null): void
+    {
+        $stock = Stock::where('product_id', $productId);
+        
+        if ($variations) {
+            $stock->where('variations', json_encode($variations));
+        }
+        
+        $stock = $stock->first();
+        
+        if ($stock) {
+            $stock->decrement('reserved', $quantity);
+        }
+    }
+}

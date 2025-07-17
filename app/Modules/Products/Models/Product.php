@@ -2,10 +2,10 @@
 
 namespace App\Modules\Products\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Common\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends Model
+class Product extends BaseModel
 {
     use HasFactory;
 
@@ -22,8 +22,6 @@ class Product extends Model
         'price' => 'decimal:2',
         'active' => 'boolean',
         'variations' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
     ];
 
     protected $hidden = [];

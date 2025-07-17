@@ -151,6 +151,23 @@ namespace App\Http\Controllers\Schemas;
  *     @OA\Property(property="total", type="number", format="float", example=214.98),
  *     @OA\Property(property="shipping_description", type="string", example="Frete: R$ 15,00")
  * )
+ * 
+ * @OA\Schema(
+ *     schema="Address",
+ *     type="object",
+ *     title="Address",
+ *     description="Endereço",
+ *     @OA\Property(property="cep", type="string", example="01310-100"),
+ *     @OA\Property(property="logradouro", type="string", example="Avenida Paulista"),
+ *     @OA\Property(property="complemento", type="string", example="de 612 a 1510 - lado par"),
+ *     @OA\Property(property="bairro", type="string", example="Bela Vista"),
+ *     @OA\Property(property="localidade", type="string", example="São Paulo"),
+ *     @OA\Property(property="uf", type="string", example="SP"),
+ *     @OA\Property(property="ibge", type="string", example="3550308"),
+ *     @OA\Property(property="gia", type="string", example="1004"),
+ *     @OA\Property(property="ddd", type="string", example="11"),
+ *     @OA\Property(property="siafi", type="string", example="7107")
+ * )
  */
 class SwaggerSchemas
 {

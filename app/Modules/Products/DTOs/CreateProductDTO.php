@@ -2,7 +2,9 @@
 
 namespace App\Modules\Products\DTOs;
 
-class CreateProductDTO
+use App\Common\Base\BaseDTO;
+
+class CreateProductDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $name,
@@ -14,15 +16,4 @@ class CreateProductDTO
     ) {
     }
 
-    public function toArray(): array
-    {
-        return [
-            'name' => $this->name,
-            'sku' => $this->sku,
-            'price' => $this->price,
-            'description' => $this->description,
-            'active' => $this->active,
-            'variations' => $this->variations,
-        ];
-    }
 }
