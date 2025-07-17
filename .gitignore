@@ -1,4 +1,5 @@
 *.md
+!README.md
+!CHANGELOG.md
 .claude
-laravel-clean-architecture-guide.md
 vendor
