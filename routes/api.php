@@ -20,6 +20,15 @@ Route::prefix('address')->group(function () {
     Route::post('/validate-cep', [\App\Modules\Address\Api\Controllers\AddressController::class, 'validateCep']);
 });
 
+Route::prefix('orders')->group(function () {
+    Route::get('/', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'index']);
+    Route::post('/', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'store']);
+    Route::get('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'show']);
+    Route::get('/number/{orderNumber}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'showByNumber']);
+    Route::patch('/{id}/status', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'updateStatus']);
+    Route::delete('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'destroy']);
+});
+
 Route::get('/', function () {
     return redirect('/docs');
 });

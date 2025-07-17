@@ -356,6 +356,404 @@
                 }
             }
         },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Listar pedidos",
+                "description": "Lista pedidos com filtros opcionais",
+                "operationId": "listOrders",
+                "parameters": [
+                    {
+                        "name": "customer_email",
+                        "in": "query",
+                        "description": "Filtrar por email do cliente",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filtrar por status",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "processing",
+                                "shipped",
+                                "delivered",
+                                "cancelled"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Data inicial (YYYY-MM-DD)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Data final (YYYY-MM-DD)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de pedidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Order"
+                                            }
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Criar novo pedido",
+                "description": "Finaliza o carrinho e cria um novo pedido",
+                "operationId": "createOrder",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "customer_name",
+                                    "customer_email",
+                                    "customer_cep",
+                                    "customer_address",
+                                    "customer_neighborhood",
+                                    "customer_city",
+                                    "customer_state"
+                                ],
+                                "properties": {
+                                    "customer_name": {
+                                        "type": "string",
+                                        "example": "João Silva"
+                                    },
+                                    "customer_email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "joao@email.com"
+                                    },
+                                    "customer_phone": {
+                                        "type": "string",
+                                        "example": "(11) 98765-4321"
+                                    },
+                                    "customer_cpf": {
+                                        "type": "string",
+                                        "example": "123.456.789-00"
+                                    },
+                                    "customer_cep": {
+                                        "type": "string",
+                                        "example": "01310-100"
+                                    },
+                                    "customer_address": {
+                                        "type": "string",
+                                        "example": "Avenida Paulista, 1000"
+                                    },
+                                    "customer_complement": {
+                                        "type": "string",
+                                        "example": "Apto 101"
+                                    },
+                                    "customer_neighborhood": {
+                                        "type": "string",
+                                        "example": "Bela Vista"
+                                    },
+                                    "customer_city": {
+                                        "type": "string",
+                                        "example": "São Paulo"
+                                    },
+                                    "customer_state": {
+                                        "type": "string",
+                                        "maxLength": 2,
+                                        "example": "SP"
+                                    },
+                                    "coupon_code": {
+                                        "type": "string",
+                                        "example": "DESC10"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Order"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido criado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Carrinho vazio ou dados inválidos"
+                    },
+                    "422": {
+                        "description": "Erro de validação"
+                    }
+                }
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Buscar pedido por ID",
+                "description": "Retorna detalhes de um pedido específico",
+                "operationId": "getOrder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dados do pedido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Order"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido encontrado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Cancelar pedido",
+                "description": "Cancela um pedido se possível",
+                "operationId": "cancelOrder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pedido cancelado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Order"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido cancelado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Pedido não pode ser cancelado no status atual"
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/orders/number/{orderNumber}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Buscar pedido por número",
+                "description": "Retorna detalhes de um pedido pelo número",
+                "operationId": "getOrderByNumber",
+                "parameters": [
+                    {
+                        "name": "orderNumber",
+                        "in": "path",
+                        "description": "Número do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "ORD-20250117-0001"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dados do pedido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Order"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido encontrado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/orders/{id}/status": {
+            "patch": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Atualizar status do pedido",
+                "description": "Atualiza o status de um pedido",
+                "operationId": "updateOrderStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "status"
+                                ],
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "pending",
+                                            "processing",
+                                            "shipped",
+                                            "delivered",
+                                            "cancelled"
+                                        ],
+                                        "example": "processing"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Status atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Order"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Status do pedido atualizado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Status inválido ou pedido não pode ser atualizado"
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
@@ -1223,6 +1621,10 @@
         {
             "name": "Address",
             "description": "Endpoints para validação de endereços e CEP"
+        },
+        {
+            "name": "Orders",
+            "description": "Endpoints para gestão de pedidos"
         },
         {
             "name": "Health",
