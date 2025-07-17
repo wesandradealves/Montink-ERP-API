@@ -2,7 +2,9 @@
 
 namespace App\Modules\Cart\DTOs;
 
-class CartDTO
+use App\Common\Base\BaseDTO;
+
+class CartDTO extends BaseDTO
 {
     public function __construct(
         public readonly array $items,

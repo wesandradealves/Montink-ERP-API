@@ -2,17 +2,15 @@
 
 namespace App\Modules\Cart\Api\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Common\Base\BaseApiController;
 use App\Modules\Cart\Api\Requests\AddToCartRequest;
 use App\Modules\Cart\Api\Requests\UpdateCartItemRequest;
 use App\Modules\Cart\DTOs\AddToCartDTO;
 use App\Modules\Cart\UseCases\CartUseCase;
-use App\Common\Traits\ApiResponseTrait;
 use Illuminate\Http\JsonResponse;
 
-class CartController extends Controller
+class CartController extends BaseApiController
 {
-    use ApiResponseTrait;
 
     public function __construct(
         private CartUseCase $cartUseCase

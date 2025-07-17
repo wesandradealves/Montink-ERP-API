@@ -2,6 +2,7 @@
 
 namespace App\Modules\Cart\UseCases;
 
+use App\Common\Services\SessionService;
 use App\Modules\Cart\DTOs\AddToCartDTO;
 use App\Modules\Cart\DTOs\CartDTO;
 use App\Modules\Cart\DTOs\CartItemDTO;
@@ -9,7 +10,6 @@ use App\Modules\Cart\Models\CartItem;
 use App\Modules\Cart\Services\ShippingService;
 use App\Modules\Products\Models\Product;
 use App\Modules\Stock\Models\Stock;
-use Illuminate\Support\Facades\Session;
 
 class CartUseCase
 {
@@ -22,7 +22,7 @@ class CartUseCase
         
         $this->validateStock($product, $dto->quantity, $dto->variations);
         
-        $sessionId = Session::getId();
+        $sessionId = SessionService::getCurrentId();
         
         $existingItem = CartItem::where('session_id', $sessionId)
             ->where('product_id', $dto->productId)
@@ -51,7 +51,7 @@ class CartUseCase
 
     public function removeFromCart(int $itemId): CartDTO
     {
-        $sessionId = Session::getId();
+        $sessionId = SessionService::getCurrentId();
         
         CartItem::where('session_id', $sessionId)
             ->where('id', $itemId)
@@ -62,7 +62,7 @@ class CartUseCase
 
     public function updateQuantity(int $itemId, int $quantity): CartDTO
     {
-        $sessionId = Session::getId();
+        $sessionId = SessionService::getCurrentId();
         
         $cartItem = CartItem::where('session_id', $sessionId)
             ->where('id', $itemId)
@@ -77,7 +77,7 @@ class CartUseCase
 
     public function getCart(): CartDTO
     {
-        $sessionId = Session::getId();
+        $sessionId = SessionService::getCurrentId();
         
         $cartItems = CartItem::with('product')
             ->where('session_id', $sessionId)
@@ -113,7 +113,7 @@ class CartUseCase
 
     public function clearCart(): void
     {
-        $sessionId = Session::getId();
+        $sessionId = SessionService::getCurrentId();
         
         CartItem::where('session_id', $sessionId)->delete();
     }

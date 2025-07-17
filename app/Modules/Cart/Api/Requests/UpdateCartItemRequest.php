@@ -2,6 +2,7 @@
 
 namespace App\Modules\Cart\Api\Requests;
 
+use App\Common\Rules\QuantityRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCartItemRequest extends FormRequest
@@ -9,7 +10,7 @@ class UpdateCartItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'quantity' => ['required', 'integer', 'min:1'],
+            'quantity' => ['required', new QuantityRule],
         ];
     }
 
@@ -17,7 +18,6 @@ class UpdateCartItemRequest extends FormRequest
     {
         return [
             'quantity.required' => 'A quantidade é obrigatória',
-            'quantity.min' => 'A quantidade deve ser maior que zero',
         ];
     }
 }
