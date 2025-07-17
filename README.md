@@ -7,31 +7,31 @@
 
 Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architecture e Domain-Driven Design (DDD). Focado em gestão de produtos, pedidos, cupons e estoque com API REST completa e documentação Swagger interativa.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-### ✅ Implementado
+### Implementado
 - **API Products** - CRUD completo de produtos com validações
 - **Documentação Swagger** - Interface interativa para testes
 - **Health Check** - Monitoramento da saúde da API
 - **Validações** - Sistema robusto de validação de dados
 - **Responses Padronizadas** - Estrutura JSON consistente
 
-### 📋 Planejado
+### Planejado
 - **Orders** - Sistema completo de pedidos
 - **Coupons** - Gestão de cupons e descontos
 - **Stock** - Controle de estoque em tempo real
 - **Authentication** - Sistema de autenticação JWT
 - **Integration ViaCEP** - Busca automática de endereços
 
-## 📖 Documentação da API
+## Documentação da API
 
-### 🌐 Acesso à Documentação
+### Acesso à Documentação
 A documentação Swagger está disponível em:
 - **Interface Principal**: `http://localhost/docs`
 - **JSON Spec**: `http://localhost/docs.json`
 - **Redirecionamentos**: `/` e `/api/` → `/docs`
 
-### 🛠️ Endpoints Disponíveis
+### Endpoints Disponíveis
 
 #### Products
 ```http
@@ -47,7 +47,7 @@ DELETE /api/products/{id}     # Excluir produto
 GET    /api/health            # Verificar saúde da API
 ```
 
-### 📝 Exemplos de Uso
+### Exemplos de Uso
 
 #### Criar Produto
 ```bash
@@ -86,7 +86,7 @@ curl -X GET "http://localhost/api/products?only_active=true&search=notebook"
 }
 ```
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ### Clean Architecture + DDD
 O projeto segue rigorosamente os princípios de Clean Architecture e Domain-Driven Design:
@@ -114,7 +114,7 @@ app/
 - **Repository Pattern** - Abstração da persistência de dados
 - **Use Cases** - Lógica de negócio isolada e testável
 
-## 🐳 Instalação e Configuração
+## Instalação e Configuração
 
 ### Pré-requisitos
 - Docker & Docker Compose
@@ -165,7 +165,7 @@ curl http://localhost/api/health
 # Abrir http://localhost/docs no navegador
 ```
 
-## 🏃‍♂️ Comandos Disponíveis
+## Comandos Disponíveis
 
 ### Docker
 ```bash
@@ -209,7 +209,7 @@ php artisan test
 php artisan tinker
 ```
 
-## 🏭 Ambiente Docker
+## Ambiente Docker
 
 ### Containers Disponíveis
 - **app** - Aplicação Laravel (PHP 8.3-FPM)
@@ -229,7 +229,7 @@ php artisan tinker
 - Dados MySQL persistentes
 - Configurações customizadas PHP e Nginx
 
-## 🧪 Testes
+## Testes
 
 ### Executar Testes
 ```bash
@@ -253,7 +253,7 @@ tests/
 └── TestCase.php   # Base para testes
 ```
 
-## 🔧 Configuração Avançada
+## Configuração Avançada
 
 ### Variáveis de Ambiente
 ```env
@@ -285,7 +285,7 @@ MAIL_PORT=1025
 - **Connection Pooling** - MySQL configurado
 - **Opcache** - PHP otimizado para produção
 
-## 📚 Documentação Adicional
+## Documentação Adicional
 
 ### Changelog
 Veja `CHANGELOG.md` para:
@@ -300,7 +300,7 @@ Consulte `README-SWAGGER.md` para:
 - Comandos de manutenção
 - Troubleshooting da documentação
 
-## 🤝 Contribuição
+## Contribuição
 
 ### Padrões de Desenvolvimento
 - **Commits em português** - `feat: adicionar endpoint de produtos`
@@ -317,7 +317,7 @@ Consulte `README-SWAGGER.md` para:
 5. **Commit** - Mensagens descritivas em português
 6. **Pull Request** - Review obrigatório
 
-## 📋 Roadmap
+## Roadmap
 
 ### v0.4.0 - Sistema de Pedidos
 - [ ] Módulo Orders completo
@@ -343,11 +343,11 @@ Consulte `README-SWAGGER.md` para:
 - [ ] Dashboard administrativo
 - [ ] Relatórios e métricas
 
-## 📄 Licença
+## Licença
 
 Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🆘 Suporte
+## Suporte
 
 ### Problemas Comuns
 - **Swagger em branco**: Execute os comandos de setup do Swagger
@@ -360,4 +360,4 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICEN
 
 ---
 
-**Montink ERP** - Sistema Mini ERP moderno com Clean Architecture 🚀
+**Montink ERP** - Sistema Mini ERP moderno com Clean Architecture
