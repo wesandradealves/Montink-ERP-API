@@ -9,19 +9,22 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 
 ## Funcionalidades
 
-### Implementado
+### Implementado (v0.5.0)
 - **API Products** - CRUD completo de produtos com validações
-- **Documentação Swagger** - Interface interativa para testes
+- **Sistema de Carrinho** - Gestão completa via sessão com cálculo de frete
+- **Integração ViaCEP** - Busca e validação automática de endereços
+- **Controle de Estoque** - Validação em tempo real com reservas
+- **Documentação Swagger** - Interface interativa para todos os módulos
 - **Health Check** - Monitoramento da saúde da API
-- **Validações** - Sistema robusto de validação de dados
-- **Responses Padronizadas** - Estrutura JSON consistente
+- **Validações** - Sistema robusto com mensagens em português
+- **Responses Padronizadas** - Estrutura JSON consistente com ApiResponseTrait
+- **Arquitetura DRY** - BaseModels, BaseDTOs, Traits reutilizáveis
 
-### Planejado
-- **Orders** - Sistema completo de pedidos
+### Em Desenvolvimento
+- **Orders** - Sistema completo de finalização de pedidos
 - **Coupons** - Gestão de cupons e descontos
-- **Stock** - Controle de estoque em tempo real
 - **Authentication** - Sistema de autenticação JWT
-- **Integration ViaCEP** - Busca automática de endereços
+- **Testes Automatizados** - Cobertura completa da aplicação
 
 ## Documentação da API
 
@@ -38,8 +41,23 @@ A documentação Swagger está disponível em:
 GET    /api/products          # Listar produtos com filtros
 GET    /api/products/{id}     # Buscar produto específico  
 POST   /api/products          # Criar novo produto
-PUT    /api/products/{id}     # Atualizar produto
+PATCH  /api/products/{id}     # Atualizar produto (parcial)
 DELETE /api/products/{id}     # Excluir produto
+```
+
+#### Cart (Carrinho)
+```http
+GET    /api/cart              # Visualizar carrinho atual
+POST   /api/cart              # Adicionar produto ao carrinho
+PATCH  /api/cart/{id}         # Atualizar quantidade do item
+DELETE /api/cart/{id}         # Remover item do carrinho
+DELETE /api/cart              # Limpar carrinho completo
+```
+
+#### Address (Endereços)
+```http
+GET    /api/address/cep/{cep} # Buscar endereço por CEP
+POST   /api/address/validate-cep # Validar se CEP existe
 ```
 
 #### Health Check
@@ -64,6 +82,32 @@ curl -X POST http://localhost/api/products \
 #### Listar Produtos
 ```bash
 curl -X GET "http://localhost/api/products?only_active=true&search=notebook"
+```
+
+#### Atualizar Produto (PATCH)
+```bash
+curl -X PATCH http://localhost/api/products/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "price": 2799.90,
+    "description": "Atualização parcial do produto"
+  }'
+```
+
+#### Adicionar ao Carrinho
+```bash
+curl -X POST http://localhost/api/cart \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1,
+    "quantity": 2,
+    "variations": {"cor": "preto", "memoria": "16GB"}
+  }'
+```
+
+#### Buscar CEP
+```bash
+curl -X GET http://localhost/api/address/cep/01310100
 ```
 
 #### Resposta Padrão
@@ -93,18 +137,44 @@ O projeto segue rigorosamente os princípios de Clean Architecture e Domain-Driv
 
 ```
 app/
-├── Domain/              # Camada de Domínio - Regras de negócio
-├── Infrastructure/      # Camada de Infraestrutura - Integrações
-├── Modules/            # Módulos de Funcionalidades
-│   └── Products/       # Módulo Products
-│       ├── Api/        # Controllers, Requests, Resources
-│       ├── UseCases/   # Casos de uso de negócio
-│       ├── DTOs/       # Data Transfer Objects
-│       ├── Models/     # Models Eloquent
-│       └── Providers/  # Service Providers
-├── Http/              # Camada de Apresentação HTTP
-├── Functions/         # Jobs, Events, Processors
-└── Common/           # Código compartilhado
+├── Common/                    # Código compartilhado e base
+│   ├── Base/                 # Classes base (BaseModel, BaseDTO, BaseFormRequest)
+│   ├── Traits/               # Traits reutilizáveis (ApiResponseTrait, ValidationMessagesTrait)
+│   ├── Exceptions/           # Exceptions customizadas (ResourceNotFoundException)
+│   ├── Rules/                # Regras de validação (QuantityRule)
+│   └── Services/             # Serviços compartilhados (SessionService)
+├── Domain/                   # Camada de Domínio - Regras de negócio
+│   ├── Commons/              # Elementos compartilhados do domínio
+│   ├── Entities/             # Entidades base
+│   ├── Interfaces/           # Contratos do domínio
+│   └── Repositories/         # Interfaces de repositórios
+├── Infrastructure/           # Camada de Infraestrutura - Integrações
+│   ├── Providers/            # Service Providers
+│   └── External/             # Integrações externas
+├── Modules/                  # Módulos de Funcionalidades
+│   ├── Products/             # Módulo de Produtos
+│   │   ├── Api/              # Controllers, Requests, Resources
+│   │   ├── UseCases/         # ProductsUseCase consolidado
+│   │   ├── DTOs/             # CreateProductDTO, UpdateProductDTO
+│   │   ├── Models/           # Product extends BaseModel
+│   │   └── Providers/        # ProductsServiceProvider
+│   ├── Cart/                 # Módulo de Carrinho
+│   │   ├── Api/              # CartController extends BaseApiController
+│   │   ├── UseCases/         # CartUseCase com lógica de sessão
+│   │   ├── DTOs/             # CartDTO, CartItemDTO, AddToCartDTO
+│   │   ├── Models/           # CartItem
+│   │   ├── Services/         # ShippingService (cálculo de frete)
+│   │   └── Providers/        # CartServiceProvider
+│   ├── Address/              # Módulo de Endereços
+│   │   ├── Api/              # AddressController
+│   │   ├── DTOs/             # AddressDTO extends BaseDTO
+│   │   └── Services/         # ViaCepService (integração)
+│   └── Stock/                # Módulo de Estoque
+│       ├── Models/           # Stock
+│       └── Services/         # StockValidationService
+└── Http/                     # Camada de Apresentação HTTP
+    ├── Controllers/          # Controller base com Swagger tags
+    └── Schemas/              # SwaggerSchemas com definições
 ```
 
 ### Princípios Aplicados
@@ -112,7 +182,9 @@ app/
 - **Inversão de Dependências** - Dependências apontam para o domínio
 - **DRY (Don't Repeat Yourself)** - Código reutilizável e centralizado
 - **Repository Pattern** - Abstração da persistência de dados
-- **Use Cases** - Lógica de negócio isolada e testável
+- **Use Cases** - Lógica de negócio consolidada por módulo
+- **Single Responsibility** - Classes e métodos com propósito único
+- **RESTful Best Practices** - Uso correto de verbos HTTP (GET, POST, PATCH, DELETE)
 
 ## Instalação e Configuração
 

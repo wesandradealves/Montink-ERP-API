@@ -189,6 +189,131 @@ infrastructure/
 - **Roles:** Sistema de perfis hierárquicos
 - **MFA:** Two-Factor Authentication integrado
 
+## 🏗️ Implementação no Projeto Montink
+
+### Estrutura Atualizada (v0.5.0)
+
+O projeto Montink implementa Clean Architecture + DDD com as seguintes adaptações:
+
+```
+app/
+├── Common/                         # Código compartilhado (v0.5.0)
+│   ├── Base/                      # Classes base DRY
+│   │   ├── BaseModel.php         # Model base com casts padrão
+│   │   ├── BaseDTO.php           # DTO base com toArray()
+│   │   ├── BaseApiController.php # Controller com handleUseCaseExecution
+│   │   └── BaseFormRequest.php   # Request base com authorize()
+│   ├── Traits/                    # Traits reutilizáveis
+│   │   ├── ApiResponseTrait.php  # Respostas padronizadas JSON
+│   │   └── ValidationMessagesTrait.php # Mensagens em português
+│   ├── Exceptions/                # Exceções customizadas
+│   │   └── ResourceNotFoundException.php # 404 padronizado
+│   ├── Rules/                     # Regras de validação
+│   │   └── QuantityRule.php      # Validação de quantidade
+│   └── Services/                  # Serviços compartilhados
+│       └── SessionService.php     # Gestão de sessão
+├── Domain/                        # Camada de Domínio
+├── Infrastructure/                # Camada de Infraestrutura
+├── Modules/                       # Módulos implementados
+│   ├── Products/                  # CRUD completo com DRY
+│   ├── Cart/                      # Carrinho com sessão
+│   ├── Address/                   # Integração ViaCEP
+│   └── Stock/                     # Validação de estoque
+└── Http/                         # Camada de Apresentação HTTP
+```
+
+### Padrões DRY Implementados
+
+#### 1. BaseModel - Elimina Duplicação de Casts
+```php
+namespace App\Common\Base;
+
+abstract class BaseModel extends Model
+{
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+    
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+}
+```
+
+#### 2. BaseApiController - Elimina Try-Catch Duplicado
+```php
+namespace App\Common\Base;
+
+abstract class BaseApiController extends Controller
+{
+    use ApiResponseTrait;
+    
+    protected function handleUseCaseExecution(callable $useCase)
+    {
+        try {
+            $result = $useCase();
+            return is_array($result) && isset($result['items']) 
+                ? $this->successListResponse($result['items'], meta: ['total' => $result['total'] ?? count($result['items'])])
+                : $this->successResponse($result);
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), $this->getStatusCode($e));
+        }
+    }
+}
+```
+
+#### 3. ValidationMessagesTrait - Centraliza Mensagens
+```php
+namespace App\Common\Traits;
+
+trait ValidationMessagesTrait
+{
+    protected function getCommonValidationMessages(): array
+    {
+        return [
+            'required' => 'O campo :attribute é obrigatório',
+            'string' => 'O campo :attribute deve ser um texto',
+            'numeric' => 'O campo :attribute deve ser um número',
+            'unique' => 'Este :attribute já está em uso',
+            // ... mais mensagens
+        ];
+    }
+    
+    public function messages(): array
+    {
+        return array_merge($this->getCommonValidationMessages(), $this->customMessages ?? []);
+    }
+}
+```
+
+### Mudanças Arquiteturais Implementadas
+
+#### 1. Use Cases Consolidados
+Seguindo DRY, consolidamos múltiplos Use Cases em um único por módulo:
+- `ProductsUseCase` - Todas operações de produtos
+- `CartUseCase` - Todas operações do carrinho
+- Métodos privados para lógica compartilhada
+
+#### 2. RESTful Best Practices
+- Todos endpoints de atualização mudados de PUT para PATCH
+- Suporte a atualizações parciais com 'sometimes' nas validações
+- Respostas HTTP consistentes
+
+#### 3. Serviços Especializados
+- `StockValidationService` - Centraliza lógica de estoque
+- `ShippingService` - Cálculo de frete isolado
+- `ViaCepService` - Integração externa encapsulada
+
+### Fluxo de Dados Atualizado
+```
+Request → FormRequest → Controller → UseCase → Service/Repository → Response
+   ↓           ↓            ↓           ↓              ↓                ↓
+Validation  DTO Creation  Handle     Business    Infrastructure    JSON Response
+Messages    from Request  Execution   Logic        Layer          with Trait
+```
+
 ## 🎯 Implementação Prática
 
 ### 1. Domain Layer - A Base de Tudo
@@ -2889,3 +3014,83 @@ Toda implementação deve resultar em:
 ---
 
 **⚠️ IMPORTANTE:** Estas regras são **OBRIGATÓRIAS** e baseadas nos padrões consolidados dos projetos Dourado. Seguir rigorosamente garante consistência, qualidade e manutenibilidade do código.
+
+## 📋 Fluxo de Desenvolvimento Atualizado (v0.5.0)
+
+### 1. Antes de Iniciar Qualquer Tarefa
+```bash
+# Ler documentação completa (em partes por limite de tokens)
+- CHANGELOG.md
+- laravel-clean-architecture-guide.md  
+- projeto-montink-briefing.md
+```
+
+### 2. Durante o Desenvolvimento
+- ✅ Aplicar padrões DRY rigorosamente
+- ✅ Usar classes base (BaseModel, BaseDTO, BaseApiController, BaseFormRequest)
+- ✅ Centralizar lógica em Traits e Services
+- ✅ Seguir RESTful best practices (PATCH para updates)
+- ✅ Manter consistência com módulos existentes
+
+### 3. Após Implementação - Fluxo de Qualidade
+```bash
+# 1. Testar todos endpoints
+curl -X GET http://localhost/api/products
+curl -X POST http://localhost/api/cart -d '{"product_id": 1, "quantity": 2}'
+curl -X PATCH http://localhost/api/products/1 -d '{"price": 99.90}'
+
+# 2. Verificar qualidade do código
+php artisan route:list    # Confirmar rotas
+composer format           # Formatar código
+composer analyse          # Análise estática
+
+# 3. Verificar Swagger
+php artisan l5-swagger:generate
+# Acessar http://localhost/docs e testar todos módulos
+
+# 4. Análise de redundâncias
+grep -r "authorize.*true" app/Modules/  # Deve retornar vazio (usando BaseFormRequest)
+grep -r "try.*catch.*Exception" app/Modules/*/Api/Controllers/  # Deve retornar vazio
+
+# 5. Testes de regressão
+php artisan test         # Se houver testes implementados
+```
+
+### 4. Atualizar Documentação
+```bash
+# 1. Atualizar README.md
+- Novas funcionalidades em "Implementado"
+- Novos endpoints documentados
+- Exemplos de uso atualizados
+
+# 2. Atualizar CHANGELOG.md
+- Seguir formato semântico
+- Detalhar mudanças técnicas
+- Documentar breaking changes
+
+# 3. Regenerar Swagger
+php artisan l5-swagger:generate
+```
+
+### 5. Commit e Versionamento
+```bash
+# Verificar mensagem do commit
+git log -1 | grep -i "claude\|ia\|ai"  # DEVE retornar vazio
+
+# Commit seguindo padrão
+git add .
+git commit -m "[MONT-XXX] tipo: descrição em português"
+
+# Criar tag se milestone completo
+git tag -a v0.5.0 -m "Sistema DRY com integração ViaCEP"
+git push origin v0.5.0
+```
+
+### 6. Checklist Final
+- [ ] Todos endpoints funcionando e aparecendo no Swagger
+- [ ] Nenhuma lógica duplicada (DRY aplicado)
+- [ ] Código sem comentários desnecessários
+- [ ] Validações em português centralizadas
+- [ ] README e CHANGELOG atualizados
+- [ ] Swagger regenerado e funcional
+- [ ] Commits sem menções a IA/assistentes

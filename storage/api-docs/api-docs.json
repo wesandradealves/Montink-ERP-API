@@ -41,6 +41,321 @@
                 }
             }
         },
+        "/api/address/cep/{cep}": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Buscar endereço por CEP",
+                "description": "Consulta endereço através da API ViaCEP",
+                "operationId": "getAddressByCep",
+                "parameters": [
+                    {
+                        "name": "cep",
+                        "in": "path",
+                        "description": "CEP para consulta (8 dígitos)",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[0-9]{8}$",
+                            "example": "01310100"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Endereço encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Address"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Endereço encontrado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CEP não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "CEP não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "CEP inválido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "CEP deve conter 8 dígitos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/address/validate-cep": {
+            "post": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Validar CEP",
+                "description": "Valida se um CEP existe na base ViaCEP",
+                "operationId": "validateCep",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "cep"
+                                ],
+                                "properties": {
+                                    "cep": {
+                                        "description": "CEP para validação",
+                                        "type": "string",
+                                        "example": "01310100"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Resultado da validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "valid": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "cep": {
+                                                    "type": "string",
+                                                    "example": "01310100"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "CEP validado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cart": {
+            "get": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Obter carrinho atual",
+                "operationId": "e1bc6d03f0b8ceb524a277008581b4c9",
+                "responses": {
+                    "200": {
+                        "description": "Carrinho retornado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "items": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/CartItem"
+                                                    }
+                                                },
+                                                "subtotal": {
+                                                    "type": "number",
+                                                    "example": 199.98
+                                                },
+                                                "total_items": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Adicionar produto ao carrinho",
+                "operationId": "7856fec4cde2bf1409b38b36d6edf2ff",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "product_id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "product_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "variations": {
+                                        "type": "object",
+                                        "example": {
+                                            "size": "M",
+                                            "color": "blue"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Produto adicionado ao carrinho",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro de validação ou estoque insuficiente"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Limpar carrinho",
+                "operationId": "3b3b5bfe36351657211aec2e597b36ad",
+                "responses": {
+                    "200": {
+                        "description": "Carrinho limpo com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/cart/{id}": {
+            "delete": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Remover item do carrinho",
+                "operationId": "568d7ed8881e9e40b6e83a6e6df16384",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Item removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Item não encontrado"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Atualizar quantidade de item do carrinho",
+                "operationId": "e53e741fac97b1862e473759b244a09f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 3
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Quantidade atualizada com sucesso"
+                    },
+                    "400": {
+                        "description": "Erro de validação ou estoque insuficiente"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
@@ -251,7 +566,63 @@
                     }
                 }
             },
-            "put": {
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Excluir produto",
+                "description": "Remove um produto do sistema",
+                "operationId": "deleteProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto excluído com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "null"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Produto excluído com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Produto não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Produto não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
                 "tags": [
                     "Products"
                 ],
@@ -359,62 +730,6 @@
                                         "error": {
                                             "type": "string",
                                             "example": "SKU já existe no sistema"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Products"
-                ],
-                "summary": "Excluir produto",
-                "description": "Remove um produto do sistema",
-                "operationId": "deleteProduct",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID do produto",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Produto excluído com sucesso",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {
-                                            "type": "null"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Produto excluído com sucesso"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Produto não encontrado",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "Produto não encontrado"
                                         }
                                     },
                                     "type": "object"
@@ -763,6 +1078,129 @@
                     }
                 },
                 "type": "object"
+            },
+            "CartItem": {
+                "title": "Cart Item",
+                "description": "Item do carrinho",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "product_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "product_name": {
+                        "type": "string",
+                        "example": "Notebook Dell"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 2999.9
+                    },
+                    "subtotal": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 5999.8
+                    },
+                    "variations": {
+                        "type": "object",
+                        "example": {
+                            "cor": "preto",
+                            "memoria": "16GB"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Cart": {
+                "title": "Cart",
+                "description": "Carrinho de compras",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CartItem"
+                        }
+                    },
+                    "subtotal": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 199.98
+                    },
+                    "total_items": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "shipping_cost": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 15
+                    },
+                    "total": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 214.98
+                    },
+                    "shipping_description": {
+                        "type": "string",
+                        "example": "Frete: R$ 15,00"
+                    }
+                },
+                "type": "object"
+            },
+            "Address": {
+                "title": "Address",
+                "description": "Endereço",
+                "properties": {
+                    "cep": {
+                        "type": "string",
+                        "example": "01310-100"
+                    },
+                    "logradouro": {
+                        "type": "string",
+                        "example": "Avenida Paulista"
+                    },
+                    "complemento": {
+                        "type": "string",
+                        "example": "de 612 a 1510 - lado par"
+                    },
+                    "bairro": {
+                        "type": "string",
+                        "example": "Bela Vista"
+                    },
+                    "localidade": {
+                        "type": "string",
+                        "example": "São Paulo"
+                    },
+                    "uf": {
+                        "type": "string",
+                        "example": "SP"
+                    },
+                    "ibge": {
+                        "type": "string",
+                        "example": "3550308"
+                    },
+                    "gia": {
+                        "type": "string",
+                        "example": "1004"
+                    },
+                    "ddd": {
+                        "type": "string",
+                        "example": "11"
+                    },
+                    "siafi": {
+                        "type": "string",
+                        "example": "7107"
+                    }
+                },
+                "type": "object"
             }
         },
         "securitySchemes": {
@@ -777,6 +1215,14 @@
         {
             "name": "Products",
             "description": "Endpoints para gestão de produtos"
+        },
+        {
+            "name": "Cart",
+            "description": "Endpoints para gestão do carrinho de compras"
+        },
+        {
+            "name": "Address",
+            "description": "Endpoints para validação de endereços e CEP"
         },
         {
             "name": "Health",
