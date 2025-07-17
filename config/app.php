@@ -29,6 +29,8 @@ return [
         Illuminate\Routing\RoutingServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
         App\Infrastructure\Providers\AppServiceProvider::class,
         App\Infrastructure\Providers\RouteServiceProvider::class,
         App\Modules\Products\Providers\ProductsServiceProvider::class,
