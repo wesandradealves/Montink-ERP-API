@@ -25,6 +25,7 @@ class Order extends BaseModel
         'total',
         'status',
         'coupon_code',
+        'coupon_id',
         'session_id',
     ];
 

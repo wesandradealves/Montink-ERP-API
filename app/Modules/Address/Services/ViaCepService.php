@@ -2,17 +2,19 @@
 
 namespace App\Modules\Address\Services;
 
+use App\Common\Traits\DocumentFormatter;
 use Illuminate\Support\Facades\Http;
 
 class ViaCepService
 {
+    use DocumentFormatter;
     private const BASE_URL = 'https://viacep.com.br/ws';
 
     public function getAddressByCep(string $cep): ?array
     {
-        $cep = preg_replace('/\D/', '', $cep);
+        $cep = $this->unformatCep($cep);
         
-        if (strlen($cep) !== 8) {
+        if (!$this->isValidCepFormat($cep)) {
             throw new \InvalidArgumentException('CEP deve conter 8 dígitos');
         }
 

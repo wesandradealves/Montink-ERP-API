@@ -2,6 +2,7 @@
 
 namespace App\Modules\Cart\UseCases;
 
+use App\Common\Exceptions\ResourceNotFoundException;
 use App\Common\Services\SessionService;
 use App\Modules\Cart\DTOs\AddToCartDTO;
 use App\Modules\Cart\DTOs\CartDTO;
@@ -130,7 +131,7 @@ class CartUseCase
             ->first();
 
         if (!$stock) {
-            throw new \Exception("Produto não encontrado no estoque");
+            throw new ResourceNotFoundException('Produto', 'estoque');
         }
 
         if ($stock->available_quantity < $quantity) {
