@@ -2468,6 +2468,7 @@ curl -X POST "http://localhost:8080/api/users" \
 - [ ] **🚨 VERIFICAR: Mensagem NÃO menciona IA, Claude, ChatGPT ou similares**
 - [ ] Verificar mensagem de commit em português
 - [ ] Confirmar referência ao ticket
+- [ ] **📝 ATUALIZAR CHANGELOG.md com mudanças implementadas**
 - [ ] Gerar documentação para stakeholders
 
 #### **🚨 VERIFICAÇÃO CRÍTICA DE COMMITS:**
@@ -2508,6 +2509,69 @@ if echo "$COMMIT_MSG" | grep -i "$FORBIDDEN_WORDS" > /dev/null; then
 fi
 
 echo "✅ Commit aprovado - sem menções proibidas"
+```
+
+#### **📝 CHANGELOG - Atualização Obrigatória:**
+
+**🚨 REGRA CRÍTICA:** Após cada sessão de trabalho ou funcionalidade implementada, o CHANGELOG.md DEVE ser atualizado antes do commit.
+
+**Processo Obrigatório:**
+1. **Implementar funcionalidade** seguindo Clean Architecture
+2. **Testar e validar** todas as mudanças 
+3. **Atualizar CHANGELOG.md** com as mudanças implementadas
+4. **Fazer commits** divididos por responsabilidade
+5. **Criar tag** de versão quando apropriado
+
+**Formato do CHANGELOG:**
+```markdown
+## [X.Y.Z] - AAAA-MM-DD
+
+### Adicionado
+- **Nome da Funcionalidade**
+  - Descrição detalhada da implementação
+  - Benefícios e impacto da mudança
+  - Integração com outros módulos
+
+### Melhorado
+- **Otimização específica**
+  - Performance melhorada
+  - UX aprimorada
+
+### Corrigido
+- **Bug específico**
+  - Descrição do problema resolvido
+  - Impacto da correção
+
+### Técnico
+- **Mudanças de arquitetura**
+  - Refatorações importantes
+  - Atualizações de dependências
+```
+
+**Quando Atualizar:**
+- ✅ **Após implementar nova funcionalidade** (Products CRUD, Orders, etc.)
+- ✅ **Após corrigir bugs importantes**
+- ✅ **Após melhorias de performance**
+- ✅ **Após mudanças de arquitetura**
+- ✅ **Antes de finalizar sessão de desenvolvimento**
+
+**Quando Criar Tag:**
+- 🏷️ **Funcionalidade principal completa** (ex: v0.2.0 - CRUD Products)
+- 🏷️ **Milestone do projeto** (ex: v1.0.0 - Mini ERP Completo)
+- 🏷️ **Release candidate** (ex: v1.0.0-rc1)
+
+**Comandos de Versionamento:**
+```bash
+# Após atualizar CHANGELOG.md
+git add CHANGELOG.md
+git commit -m "[PROJ-XXX] docs: atualiza CHANGELOG versão X.Y.Z"
+
+# Criar tag de versão
+git tag -a v0.2.0 -m "Versão 0.2.0 - CRUD Products implementado"
+git push origin v0.2.0
+
+# Verificar tags
+git tag -l
 ```
 
 #### **Comandos Essenciais:**
