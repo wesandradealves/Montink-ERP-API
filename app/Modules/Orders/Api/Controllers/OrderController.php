@@ -3,6 +3,7 @@
 namespace App\Modules\Orders\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
+use App\Common\Enums\ResponseMessage;
 use App\Modules\Orders\Api\Requests\CreateOrderRequest;
 use App\Modules\Orders\Api\Requests\UpdateOrderStatusRequest;
 use App\Modules\Orders\DTOs\CreateOrderDTO;
@@ -12,10 +13,6 @@ use Illuminate\Http\Request;
 
 class OrderController extends BaseApiController
 {
-    private const MSG_ORDER_FOUND = 'Pedido encontrado com sucesso';
-    private const MSG_ORDER_CREATED = 'Pedido criado com sucesso';
-    private const MSG_STATUS_UPDATED = 'Status do pedido atualizado com sucesso';
-    private const MSG_ORDER_CANCELLED = 'Pedido cancelado com sucesso';
 
     public function __construct(
         private OrdersUseCase $ordersUseCase
@@ -69,7 +66,7 @@ class OrderController extends BaseApiController
             $dto = CreateOrderDTO::fromArray($request->validated());
             $order = $this->ordersUseCase->createOrder($dto);
             
-            return $this->successResponse($order, self::MSG_ORDER_CREATED, 201);
+            return $this->successResponse($order, ResponseMessage::ORDER_CREATED->get(), 201);
         });
     }
 
@@ -158,7 +155,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($id) {
             $order = $this->ordersUseCase->getOrder($id);
-            return $this->successResponse($order, self::MSG_ORDER_FOUND);
+            return $this->successResponse($order, ResponseMessage::ORDER_FOUND->get());
         });
     }
 
@@ -194,7 +191,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($orderNumber) {
             $order = $this->ordersUseCase->getOrderByNumber($orderNumber);
-            return $this->successResponse($order, self::MSG_ORDER_FOUND);
+            return $this->successResponse($order, ResponseMessage::ORDER_FOUND->get());
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Modules\Orders\UseCases;
 
+use App\Common\Enums\ResponseMessage;
 use App\Common\Services\SessionService;
 use App\Modules\Orders\DTOs\CreateOrderDTO;
 use App\Modules\Orders\DTOs\OrderDTO;
@@ -33,7 +34,7 @@ class OrdersUseCase
                 ->get();
 
             if ($cartItems->isEmpty()) {
-                throw new \InvalidArgumentException("Carrinho vazio. Adicione produtos antes de finalizar o pedido.");
+                throw new \InvalidArgumentException(ResponseMessage::ORDER_EMPTY_CART->get());
             }
 
             $subtotal = $cartItems->sum(fn($item) => $item->getSubtotal());

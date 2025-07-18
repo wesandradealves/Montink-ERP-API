@@ -2,6 +2,7 @@
 
 namespace App\Modules\Coupons\UseCases;
 
+use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
 use App\Common\Traits\MoneyFormatter;
 use App\Modules\Coupons\DTOs\CouponDTO;
@@ -19,7 +20,7 @@ class CouponsUseCase
     {
         $existingCoupon = Coupon::where('code', $dto->code)->first();
         if ($existingCoupon) {
-            throw new \InvalidArgumentException('Cupom com este código já existe');
+            throw new \InvalidArgumentException(ResponseMessage::COUPON_ALREADY_EXISTS->get());
         }
 
         $coupon = Coupon::create($dto->toArray());
@@ -139,7 +140,7 @@ class CouponsUseCase
         } catch (\Exception $e) {
             return [
                 'valid' => false,
-                'message' => 'Erro ao validar cupom'
+                'message' => ResponseMessage::COUPON_INVALID->get()
             ];
         }
     }

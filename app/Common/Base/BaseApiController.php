@@ -4,6 +4,7 @@ namespace App\Common\Base;
 
 use App\Http\Controllers\Controller;
 use App\Common\Traits\ApiResponseTrait;
+use App\Common\Enums\ResponseMessage;
 use Illuminate\Http\JsonResponse;
 
 abstract class BaseApiController extends Controller
@@ -14,7 +15,7 @@ abstract class BaseApiController extends Controller
     {
         try {
             $result = $callback();
-            return $this->successResponse($result, 'Operação realizada com sucesso');
+            return $this->successResponse($result, ResponseMessage::OPERATION_SUCCESS->get());
         } catch (\InvalidArgumentException $e) {
             return $this->errorResponse($e->getMessage(), 422);
         } catch (\Exception $e) {
