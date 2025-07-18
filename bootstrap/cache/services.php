@@ -29,6 +29,8 @@
     25 => 'App\\Modules\\Products\\Providers\\ProductsServiceProvider',
     26 => 'App\\Modules\\Cart\\Providers\\CartServiceProvider',
     27 => 'App\\Modules\\Orders\\Providers\\OrdersServiceProvider',
+    28 => 'App\\Modules\\Coupons\\Providers\\CouponsServiceProvider',
+    29 => 'App\\Modules\\Email\\Providers\\EmailServiceProvider',
   ),
   'eager' => 
   array (
@@ -50,6 +52,8 @@
     15 => 'App\\Modules\\Products\\Providers\\ProductsServiceProvider',
     16 => 'App\\Modules\\Cart\\Providers\\CartServiceProvider',
     17 => 'App\\Modules\\Orders\\Providers\\OrdersServiceProvider',
+    18 => 'App\\Modules\\Coupons\\Providers\\CouponsServiceProvider',
+    19 => 'App\\Modules\\Email\\Providers\\EmailServiceProvider',
   ),
   'deferred' => 
   array (

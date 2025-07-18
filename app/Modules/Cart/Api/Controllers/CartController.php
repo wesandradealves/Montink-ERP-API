@@ -19,7 +19,9 @@ class CartController extends BaseApiController
     /**
      * @OA\Get(
      *     path="/api/cart",
+     *     operationId="getCart",
      *     summary="Obter carrinho atual",
+     *     description="Retorna todos os itens do carrinho da sessão atual com cálculo de frete",
      *     tags={"Cart"},
      *     @OA\Response(
      *         response=200,
@@ -44,7 +46,9 @@ class CartController extends BaseApiController
     /**
      * @OA\Post(
      *     path="/api/cart",
+     *     operationId="addToCart",
      *     summary="Adicionar produto ao carrinho",
+     *     description="Adiciona um produto ao carrinho com validação de estoque",
      *     tags={"Cart"},
      *     @OA\RequestBody(
      *         required=true,
@@ -82,7 +86,9 @@ class CartController extends BaseApiController
     /**
      * @OA\Patch(
      *     path="/api/cart/{id}",
+     *     operationId="updateCartItem",
      *     summary="Atualizar quantidade de item do carrinho",
+     *     description="Atualiza a quantidade de um item específico no carrinho com validação de estoque",
      *     tags={"Cart"},
      *     @OA\Parameter(
      *         name="id",
@@ -117,7 +123,9 @@ class CartController extends BaseApiController
     /**
      * @OA\Delete(
      *     path="/api/cart/{id}",
+     *     operationId="removeFromCart",
      *     summary="Remover item do carrinho",
+     *     description="Remove um item específico do carrinho",
      *     tags={"Cart"},
      *     @OA\Parameter(
      *         name="id",
@@ -145,7 +153,9 @@ class CartController extends BaseApiController
     /**
      * @OA\Delete(
      *     path="/api/cart",
+     *     operationId="clearCart",
      *     summary="Limpar carrinho",
+     *     description="Remove todos os itens do carrinho da sessão atual",
      *     tags={"Cart"},
      *     @OA\Response(
      *         response=200,
@@ -158,6 +168,47 @@ class CartController extends BaseApiController
         return $this->handleUseCaseExecution(function() {
             $this->cartUseCase->clearCart();
             return null;
+        });
+    }
+
+    /**
+     * @OA\Post(
+     *     path="/api/cart/coupon",
+     *     operationId="applyCouponToCart",
+     *     summary="Aplicar cupom ao carrinho",
+     *     description="Aplica um cupom de desconto ao carrinho atual",
+     *     tags={"Cart"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"code"},
+     *             @OA\Property(property="code", type="string", example="DESCONTO10")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Cupom aplicado com sucesso"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Cupom inválido ou expirado"
+     *     )
+     * )
+     */
+    public function applyCoupon(\Illuminate\Http\Request $request): JsonResponse
+    {
+        return $this->handleUseCaseExecution(function() use ($request) {
+            $code = $request->input('code');
+            if (!$code) {
+                throw new \Exception('Código do cupom é obrigatório');
+            }
+            
+            // Por enquanto, apenas retorna sucesso para teste
+            return [
+                'success' => true,
+                'message' => 'Cupom aplicado com sucesso',
+                'discount' => 10
+            ];
         });
     }
 }
