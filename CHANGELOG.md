@@ -66,6 +66,14 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
   - Exemplos de uso
   - Códigos de resposta detalhados
 
+### Testado
+- **Fluxo Completo Validado**
+  - Criação de cupons fixos e percentuais
+  - Validação de cupons com regras de negócio
+  - Aplicação de desconto em pedidos
+  - Incremento automático de uso
+  - Cálculos corretos de desconto e frete
+
 ---
 
 **Meta da v0.7.0**: Sistema de cupons de desconto funcional permitindo criar promoções com regras flexíveis e integração completa com o sistema de pedidos.
