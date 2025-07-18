@@ -96,7 +96,7 @@ class ProductController extends BaseApiController
             $product = $this->productsUseCase->find($id);
             
             if (!$product) {
-                throw new \InvalidArgumentException('Produto não encontrado');
+                throw new \InvalidArgumentException(ResponseMessage::PRODUCT_NOT_FOUND->get());
             }
             
             return $product;

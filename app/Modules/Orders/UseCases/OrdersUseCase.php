@@ -47,7 +47,7 @@ class OrdersUseCase
                     $couponData = $this->couponsUseCase->applyCoupon($dto->couponCode, $subtotal);
                     $discount = $couponData['discount'];
                 } catch (\Exception $e) {
-                    throw new \InvalidArgumentException("Cupom inválido: " . $e->getMessage());
+                    throw new \InvalidArgumentException(ResponseMessage::COUPON_INVALID_WITH_REASON->get(['reason' => $e->getMessage()]));
                 }
             }
 
@@ -55,16 +55,16 @@ class OrdersUseCase
 
             $order = Order::create([
                 'order_number' => Order::generateOrderNumber(),
-                'customer_name' => $dto->customerName,
-                'customer_email' => $dto->customerEmail,
+                'customer_name' => $dto->customerName ?: 'Cliente',
+                'customer_email' => $dto->customerEmail ?: 'pedido@montystorepro.com',
                 'customer_phone' => $dto->customerPhone,
                 'customer_cpf' => $dto->customerCpf,
-                'customer_cep' => $dto->customerCep,
-                'customer_address' => $dto->customerAddress,
+                'customer_cep' => $dto->customerCep ?: '00000-000',
+                'customer_address' => $dto->customerAddress ?: 'Endereço não informado',
                 'customer_complement' => $dto->customerComplement,
-                'customer_neighborhood' => $dto->customerNeighborhood,
-                'customer_city' => $dto->customerCity,
-                'customer_state' => $dto->customerState,
+                'customer_neighborhood' => $dto->customerNeighborhood ?: 'Bairro',
+                'customer_city' => $dto->customerCity ?: 'Cidade',
+                'customer_state' => $dto->customerState ?: 'SP',
                 'subtotal' => $subtotal,
                 'discount' => $discount,
                 'shipping_cost' => $shippingCost,
@@ -214,11 +214,11 @@ class OrdersUseCase
             orderNumber: $order->order_number,
             customerName: $order->customer_name,
             customerEmail: $order->customer_email,
-            customerPhone: $order->customer_phone,
-            customerCpf: $order->customer_cpf,
+            customerPhone: $order->customer_phone ?: '',
+            customerCpf: $order->customer_cpf ?: '',
             customerCep: $order->customer_cep,
             customerAddress: $order->customer_address,
-            customerComplement: $order->customer_complement,
+            customerComplement: $order->customer_complement ?: '',
             customerNeighborhood: $order->customer_neighborhood,
             customerCity: $order->customer_city,
             customerState: $order->customer_state,

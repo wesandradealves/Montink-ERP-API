@@ -3,6 +3,8 @@
 namespace App\Modules\Cart\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
+use App\Common\Enums\ResponseMessage;
+use App\Common\Services\SessionService;
 use App\Modules\Cart\Api\Requests\AddToCartRequest;
 use App\Modules\Cart\Api\Requests\UpdateCartItemRequest;
 use App\Modules\Cart\DTOs\AddToCartDTO;
@@ -15,6 +17,13 @@ class CartController extends BaseApiController
     public function __construct(
         private CartUseCase $cartUseCase
     ) {}
+    
+    private function withSessionCookie(JsonResponse $response): JsonResponse
+    {
+        $sessionId = SessionService::getCurrentId();
+        $cookie = new \Symfony\Component\HttpFoundation\Cookie('session_id', $sessionId, time() + (60 * 60 * 24));
+        return $response->withCookie($cookie);
+    }
 
     /**
      * @OA\Get(
@@ -38,9 +47,11 @@ class CartController extends BaseApiController
      */
     public function index(): JsonResponse
     {
-        return $this->handleUseCaseExecution(function() {
+        $response = $this->handleUseCaseExecution(function() {
             return $this->cartUseCase->getCart();
         });
+        
+        return $this->withSessionCookie($response);
     }
 
     /**
@@ -72,7 +83,7 @@ class CartController extends BaseApiController
      */
     public function store(AddToCartRequest $request): JsonResponse
     {
-        return $this->handleUseCaseExecution(function() use ($request) {
+        $response = $this->handleUseCaseExecution(function() use ($request) {
             $dto = new AddToCartDTO(
                 productId: $request->input('product_id'),
                 quantity: $request->input('quantity'),
@@ -81,6 +92,8 @@ class CartController extends BaseApiController
 
             return $this->cartUseCase->addToCart($dto);
         });
+        
+        return $this->withSessionCookie($response);
     }
 
     /**
@@ -113,10 +126,14 @@ class CartController extends BaseApiController
      *     )
      * )
      */
-    public function update(UpdateCartItemRequest $request, int $id): JsonResponse
+    public function update(UpdateCartItemRequest $request, int $id = null): JsonResponse
     {
         return $this->handleUseCaseExecution(function() use ($request, $id) {
-            return $this->cartUseCase->updateQuantity($id, $request->input('quantity'));
+            $itemId = $id ?? $request->input('id');
+            if (!$itemId) {
+                throw new \InvalidArgumentException(ResponseMessage::CART_ITEM_ID_REQUIRED->get());
+            }
+            return $this->cartUseCase->updateQuantity($itemId, $request->input('quantity'));
         });
     }
 
@@ -200,7 +217,7 @@ class CartController extends BaseApiController
         return $this->handleUseCaseExecution(function() use ($request) {
             $code = $request->input('code');
             if (!$code) {
-                throw new \Exception('Código do cupom é obrigatório');
+                throw new \Exception(ResponseMessage::CART_COUPON_CODE_REQUIRED->get());
             }
             
             // Por enquanto, apenas retorna sucesso para teste

@@ -2,6 +2,7 @@
 
 namespace App\Modules\Products\UseCases;
 
+use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
 use App\Modules\Products\DTOs\CreateProductDTO;
 use App\Modules\Products\DTOs\UpdateProductDTO;
@@ -48,7 +49,7 @@ class ProductsUseCase
     public function delete(int $id): bool
     {
         if (!$this->productRepository->exists($id)) {
-            throw new ResourceNotFoundException('Produto');
+            throw new ResourceNotFoundException(ResponseMessage::PRODUCT_NOT_FOUND->get());
         }
 
         return $this->productRepository->delete($id);

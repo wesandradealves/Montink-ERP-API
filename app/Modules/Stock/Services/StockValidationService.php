@@ -2,6 +2,7 @@
 
 namespace App\Modules\Stock\Services;
 
+use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
 use App\Modules\Products\Models\Product;
 use App\Modules\Stock\Models\Stock;
@@ -19,13 +20,13 @@ class StockValidationService
         $stock = $stock->first();
         
         if (!$stock) {
-            throw new ResourceNotFoundException('Produto', 'estoque');
+            throw new ResourceNotFoundException(ResponseMessage::PRODUCT_STOCK_NOT_FOUND->get());
         }
         
         $available = $stock->quantity - $stock->reserved;
         
         if ($available < $quantity) {
-            throw new \Exception("Estoque insuficiente. Disponível: {$available}");
+            throw new \Exception(ResponseMessage::STOCK_INSUFFICIENT_AVAILABLE->get(['available' => $available]));
         }
     }
 

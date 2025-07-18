@@ -2,6 +2,7 @@
 
 namespace App\Modules\Address\Services;
 
+use App\Common\Enums\ResponseMessage;
 use App\Common\Traits\DocumentFormatter;
 use Illuminate\Support\Facades\Http;
 
@@ -15,13 +16,13 @@ class ViaCepService
         $cep = $this->unformatCep($cep);
         
         if (!$this->isValidCepFormat($cep)) {
-            throw new \InvalidArgumentException('CEP deve conter 8 dígitos');
+            throw new \InvalidArgumentException(ResponseMessage::ADDRESS_CEP_INVALID_FORMAT->get());
         }
 
         $response = Http::timeout(10)->get(self::BASE_URL . "/{$cep}/json/");
 
         if (!$response->successful()) {
-            throw new \Exception('Erro ao consultar CEP na API ViaCEP');
+            throw new \Exception(ResponseMessage::ADDRESS_CEP_API_ERROR->get());
         }
 
         $data = $response->json();

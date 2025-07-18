@@ -3,11 +3,11 @@
 namespace App\Modules\Products\Api\Requests;
 
 use App\Common\Base\BaseFormRequest;
-use App\Common\Traits\ValidationMessagesTrait;
+use App\Common\Traits\UnifiedValidationMessages;
 
 class UpdateProductRequest extends BaseFormRequest
 {
-    use ValidationMessagesTrait;
+    use UnifiedValidationMessages;
 
     public function rules(): array
     {

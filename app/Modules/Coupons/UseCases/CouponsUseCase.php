@@ -33,7 +33,7 @@ class CouponsUseCase
         $coupon = Coupon::find($id);
         
         if (!$coupon) {
-            throw new ResourceNotFoundException('Cupom não encontrado');
+            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
         }
 
         $updateData = array_filter($dto->toArray(), fn($value) => $value !== null);
@@ -50,7 +50,7 @@ class CouponsUseCase
         $coupon = Coupon::find($id);
         
         if (!$coupon) {
-            throw new ResourceNotFoundException('Cupom não encontrado');
+            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
         }
 
         $coupon->delete();
@@ -61,7 +61,7 @@ class CouponsUseCase
         $coupon = Coupon::find($id);
         
         if (!$coupon) {
-            throw new ResourceNotFoundException('Cupom não encontrado');
+            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
         }
 
         return $this->toCouponDTO($coupon);
@@ -72,7 +72,7 @@ class CouponsUseCase
         $coupon = Coupon::where('code', $code)->first();
         
         if (!$coupon) {
-            throw new ResourceNotFoundException('Cupom não encontrado');
+            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
         }
 
         return $this->toCouponDTO($coupon);
@@ -114,7 +114,7 @@ class CouponsUseCase
             if (!$coupon) {
                 return [
                     'valid' => false,
-                    'message' => 'Cupom não encontrado'
+                    'message' => ResponseMessage::COUPON_NOT_FOUND->get()
                 ];
             }
 
@@ -151,7 +151,7 @@ class CouponsUseCase
             $coupon = Coupon::where('code', $code)->lockForUpdate()->first();
             
             if (!$coupon) {
-                throw new ResourceNotFoundException('Cupom não encontrado');
+                throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
             }
 
             $error = $coupon->getValidationError($value);

@@ -4,11 +4,11 @@ namespace App\Modules\Orders\Api\Requests;
 
 use App\Common\Base\BaseFormRequest;
 use App\Common\Traits\DocumentFormatter;
-use App\Common\Traits\ValidationMessagesTrait;
+use App\Common\Traits\UnifiedValidationMessages;
 
 class CreateOrderRequest extends BaseFormRequest
 {
-    use ValidationMessagesTrait, DocumentFormatter;
+    use UnifiedValidationMessages, DocumentFormatter;
 
     public function rules(): array
     {

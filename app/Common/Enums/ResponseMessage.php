@@ -15,6 +15,7 @@ enum ResponseMessage: string
     case PRODUCT_DELETED = 'messages.product.deleted';
     case PRODUCT_FOUND = 'messages.product.found';
     case PRODUCT_NOT_FOUND = 'messages.product.not_found';
+    case PRODUCT_STOCK_NOT_FOUND = 'messages.product.stock_not_found';
     
     // Mensagens de pedidos
     case ORDER_CREATED = 'messages.order.created';
@@ -23,6 +24,8 @@ enum ResponseMessage: string
     case ORDER_CANCELLED = 'messages.order.cancelled';
     case ORDER_NOT_FOUND = 'messages.order.not_found';
     case ORDER_EMPTY_CART = 'messages.order.empty_cart';
+    case ORDER_CANNOT_CANCEL = 'messages.order.cannot_cancel';
+    case ORDER_INVALID_STATUS = 'messages.order.invalid_status';
     
     // Mensagens de carrinho
     case CART_ITEM_ADDED = 'messages.cart.item_added';
@@ -30,6 +33,8 @@ enum ResponseMessage: string
     case CART_ITEM_REMOVED = 'messages.cart.item_removed';
     case CART_CLEARED = 'messages.cart.cleared';
     case CART_INSUFFICIENT_STOCK = 'messages.cart.insufficient_stock';
+    case CART_ITEM_ID_REQUIRED = 'messages.cart.item_id_required';
+    case CART_COUPON_CODE_REQUIRED = 'messages.cart.coupon_code_required';
     
     // Mensagens de cupons
     case COUPON_CREATED = 'messages.coupon.created';
@@ -42,19 +47,51 @@ enum ResponseMessage: string
     case COUPON_MINIMUM_NOT_MET = 'messages.coupon.minimum_not_met';
     case COUPON_USAGE_LIMIT_REACHED = 'messages.coupon.usage_limit_reached';
     case COUPON_ALREADY_EXISTS = 'messages.coupon.already_exists';
+    case COUPON_INVALID_WITH_REASON = 'messages.coupon.invalid_with_reason';
     
     // Mensagens de endereço
     case ADDRESS_FOUND = 'messages.address.found';
     case ADDRESS_NOT_FOUND = 'messages.address.not_found';
     case ADDRESS_CEP_INVALID = 'messages.address.cep_invalid';
+    case ADDRESS_CEP_INVALID_FORMAT = 'messages.address.cep_invalid_format';
+    case ADDRESS_CEP_API_ERROR = 'messages.address.cep_api_error';
     
     // Mensagens de estoque
     case STOCK_INSUFFICIENT = 'messages.stock.insufficient';
     case STOCK_UPDATED = 'messages.stock.updated';
+    case STOCK_INSUFFICIENT_AVAILABLE = 'messages.stock.insufficient_available';
     
-    public function get(): string
+    // Mensagens de validação
+    case VALIDATION_REQUIRED = 'messages.validation.required';
+    case VALIDATION_STRING = 'messages.validation.string';
+    case VALIDATION_NUMERIC = 'messages.validation.numeric';
+    case VALIDATION_INTEGER = 'messages.validation.integer';
+    case VALIDATION_EMAIL = 'messages.validation.email';
+    case VALIDATION_MIN = 'messages.validation.min';
+    case VALIDATION_MAX = 'messages.validation.max';
+    case VALIDATION_UNIQUE = 'messages.validation.unique';
+    case VALIDATION_EXISTS = 'messages.validation.exists';
+    case VALIDATION_BOOLEAN = 'messages.validation.boolean';
+    case VALIDATION_ARRAY = 'messages.validation.array';
+    case VALIDATION_DATE = 'messages.validation.date';
+    case VALIDATION_DATE_FORMAT = 'messages.validation.date_format';
+    case VALIDATION_IN = 'messages.validation.in';
+    case VALIDATION_DECIMAL = 'messages.validation.decimal';
+    case VALIDATION_SIZE = 'messages.validation.size';
+    case VALIDATION_GT = 'messages.validation.gt';
+    case VALIDATION_AFTER = 'messages.validation.after';
+    
+    public function get(array $replace = []): string
     {
-        return config($this->value) ?? $this->getDefault();
+        $message = config($this->value) ?? $this->getDefault();
+        
+        if (!empty($replace)) {
+            foreach ($replace as $key => $value) {
+                $message = str_replace(':' . $key, $value, $message);
+            }
+        }
+        
+        return $message;
     }
     
     private function getDefault(): string
@@ -71,6 +108,7 @@ enum ResponseMessage: string
             self::PRODUCT_DELETED => 'Produto excluído com sucesso',
             self::PRODUCT_FOUND => 'Produto encontrado com sucesso',
             self::PRODUCT_NOT_FOUND => 'Produto não encontrado',
+            self::PRODUCT_STOCK_NOT_FOUND => 'Produto com identificador \'estoque\' não encontrado',
             
             // Mensagens de pedidos
             self::ORDER_CREATED => 'Pedido criado com sucesso',
@@ -79,6 +117,8 @@ enum ResponseMessage: string
             self::ORDER_CANCELLED => 'Pedido cancelado com sucesso',
             self::ORDER_NOT_FOUND => 'Pedido não encontrado',
             self::ORDER_EMPTY_CART => 'Carrinho vazio. Adicione produtos antes de finalizar o pedido.',
+            self::ORDER_CANNOT_CANCEL => 'Pedido não pode ser cancelado no status atual: :status',
+            self::ORDER_INVALID_STATUS => 'Status inválido: :status',
             
             // Mensagens de carrinho
             self::CART_ITEM_ADDED => 'Produto adicionado ao carrinho',
@@ -86,6 +126,8 @@ enum ResponseMessage: string
             self::CART_ITEM_REMOVED => 'Produto removido do carrinho',
             self::CART_CLEARED => 'Carrinho limpo com sucesso',
             self::CART_INSUFFICIENT_STOCK => 'Estoque insuficiente para o produto',
+            self::CART_ITEM_ID_REQUIRED => 'ID do item é obrigatório',
+            self::CART_COUPON_CODE_REQUIRED => 'Código do cupom é obrigatório',
             
             // Mensagens de cupons
             self::COUPON_CREATED => 'Cupom criado com sucesso',
@@ -98,15 +140,39 @@ enum ResponseMessage: string
             self::COUPON_MINIMUM_NOT_MET => 'Valor mínimo não atingido para usar este cupom',
             self::COUPON_USAGE_LIMIT_REACHED => 'Limite de uso do cupom atingido',
             self::COUPON_ALREADY_EXISTS => 'Cupom com este código já existe',
+            self::COUPON_INVALID_WITH_REASON => 'Cupom inválido: :reason',
             
             // Mensagens de endereço
             self::ADDRESS_FOUND => 'Endereço encontrado com sucesso',
             self::ADDRESS_NOT_FOUND => 'CEP não encontrado',
             self::ADDRESS_CEP_INVALID => 'CEP inválido',
+            self::ADDRESS_CEP_INVALID_FORMAT => 'CEP deve conter 8 dígitos',
+            self::ADDRESS_CEP_API_ERROR => 'Erro ao consultar CEP na API ViaCEP',
             
             // Mensagens de estoque
             self::STOCK_INSUFFICIENT => 'Estoque insuficiente',
             self::STOCK_UPDATED => 'Estoque atualizado com sucesso',
+            self::STOCK_INSUFFICIENT_AVAILABLE => 'Estoque insuficiente. Disponível: :available',
+            
+            // Mensagens de validação
+            self::VALIDATION_REQUIRED => 'O campo :attribute é obrigatório',
+            self::VALIDATION_STRING => 'O campo :attribute deve ser um texto',
+            self::VALIDATION_NUMERIC => 'O campo :attribute deve ser um número',
+            self::VALIDATION_INTEGER => 'O campo :attribute deve ser um número inteiro',
+            self::VALIDATION_EMAIL => 'O campo :attribute deve ser um email válido',
+            self::VALIDATION_MIN => 'O campo :attribute deve ser no mínimo :min',
+            self::VALIDATION_MAX => 'O campo :attribute não pode ser maior que :max',
+            self::VALIDATION_UNIQUE => 'Este :attribute já está em uso',
+            self::VALIDATION_EXISTS => ':Attribute não encontrado',
+            self::VALIDATION_BOOLEAN => 'O campo :attribute deve ser verdadeiro ou falso',
+            self::VALIDATION_ARRAY => 'O campo :attribute deve ser uma lista',
+            self::VALIDATION_DATE => 'O campo :attribute deve ser uma data válida',
+            self::VALIDATION_DATE_FORMAT => 'O campo :attribute deve estar no formato :format',
+            self::VALIDATION_IN => 'O campo :attribute selecionado é inválido',
+            self::VALIDATION_DECIMAL => 'O campo :attribute deve ter :decimal casas decimais',
+            self::VALIDATION_SIZE => 'O campo :attribute deve ter :size caracteres',
+            self::VALIDATION_GT => 'O campo :attribute deve ser maior que :value',
+            self::VALIDATION_AFTER => 'O campo :attribute deve ser uma data posterior a :date',
         };
     }
 }

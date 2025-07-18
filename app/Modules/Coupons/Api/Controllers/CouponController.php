@@ -3,6 +3,7 @@
 namespace App\Modules\Coupons\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
+use App\Common\Enums\ResponseMessage;
 use App\Modules\Coupons\Api\Requests\CreateCouponRequest;
 use App\Modules\Coupons\Api\Requests\UpdateCouponRequest;
 use App\Modules\Coupons\Api\Requests\ValidateCouponRequest;
@@ -246,7 +247,7 @@ class CouponController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function () use ($id) {
             $this->couponsUseCase->deleteCoupon($id);
-            return ['message' => 'Cupom excluído com sucesso'];
+            return ['message' => ResponseMessage::COUPON_DELETED->get()];
         });
     }
 

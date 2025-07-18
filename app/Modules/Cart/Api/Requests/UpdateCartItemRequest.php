@@ -4,11 +4,11 @@ namespace App\Modules\Cart\Api\Requests;
 
 use App\Common\Base\BaseFormRequest;
 use App\Common\Rules\QuantityRule;
-use App\Common\Traits\ValidationMessagesTrait;
+use App\Common\Traits\UnifiedValidationMessages;
 
 class UpdateCartItemRequest extends BaseFormRequest
 {
-    use ValidationMessagesTrait;
+    use UnifiedValidationMessages;
     public function rules(): array
     {
         return [
