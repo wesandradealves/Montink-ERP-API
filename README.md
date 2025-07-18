@@ -226,6 +226,7 @@ app/
 - **Use Cases** - Lógica de negócio consolidada por módulo
 - **Single Responsibility** - Classes e métodos com propósito único
 - **RESTful Best Practices** - Uso correto de verbos HTTP (GET, POST, PATCH, DELETE)
+- **Mensagens Configuráveis** - Sistema de ENUMs com suporte a customização via .env
 
 ## Instalação e Configuração
 
@@ -277,6 +278,33 @@ curl http://localhost/api/health
 # Acessar documentação
 # Abrir http://localhost/docs no navegador
 ```
+
+## Sistema de Mensagens Configuráveis
+
+O sistema utiliza ENUMs para gerenciar todas as mensagens de resposta da API, permitindo customização via variáveis de ambiente.
+
+### Como Funciona
+1. **ENUMs**: Todas as mensagens estão centralizadas em `app/Common/Enums/ResponseMessage.php`
+2. **Configuração**: Arquivo `config/messages.php` mapeia as mensagens para variáveis de ambiente
+3. **Customização**: Adicione variáveis no `.env` para sobrescrever mensagens padrão
+
+### Exemplo de Customização
+```bash
+# No arquivo .env
+MSG_OPERATION_SUCCESS="Tudo certo!"
+MSG_PRODUCT_CREATED="Produto cadastrado com sucesso!"
+MSG_ORDER_CREATED="Seu pedido foi criado!"
+MSG_COUPON_INVALID="Este cupom não é válido"
+```
+
+### Mensagens Disponíveis
+- Mensagens gerais (sucesso, erro, validação)
+- Mensagens de produtos (criado, atualizado, excluído)
+- Mensagens de pedidos (criado, encontrado, cancelado)
+- Mensagens de carrinho (adicionado, atualizado, removido)
+- Mensagens de cupons (criado, inválido, expirado)
+- Mensagens de endereço (encontrado, CEP inválido)
+- Mensagens de estoque (insuficiente, atualizado)
 
 ## Comandos Disponíveis
 

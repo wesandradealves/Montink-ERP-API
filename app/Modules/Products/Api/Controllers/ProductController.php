@@ -3,6 +3,7 @@
 namespace App\Modules\Products\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
+use App\Common\Enums\ResponseMessage;
 use App\Modules\Products\Api\Requests\CreateProductRequest;
 use App\Modules\Products\Api\Requests\UpdateProductRequest;
 use App\Modules\Products\UseCases\ProductsUseCase;
@@ -143,7 +144,7 @@ class ProductController extends BaseApiController
     {
         return $this->handleUseCaseCreation(function() use ($request) {
             return $this->productsUseCase->create($request->validated());
-        }, 'Produto criado com sucesso');
+        }, ResponseMessage::PRODUCT_CREATED->get());
     }
 
     /**

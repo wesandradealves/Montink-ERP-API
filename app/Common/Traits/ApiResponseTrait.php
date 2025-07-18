@@ -2,6 +2,7 @@
 
 namespace App\Common\Traits;
 
+use App\Common\Enums\ResponseMessage;
 use Illuminate\Http\JsonResponse;
 
 trait ApiResponseTrait
