@@ -5,6 +5,71 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.7.0] - 2025-07-17
+
+### Adicionado
+- **Sistema de Cupons de Desconto Completo**
+  - Módulo Coupons com Clean Architecture
+  - Suporte a cupons de valor fixo e porcentagem
+  - Validação de valor mínimo para aplicação
+  - Controle de limite de uso e contagem
+  - Validação de datas de validade (valid_from/valid_until)
+  - Status ativo/inativo para cupons
+  - Integração completa com sistema de pedidos
+
+- **Endpoints de Cupons**
+  - POST /api/coupons - Criar novo cupom
+  - GET /api/coupons - Listar cupons com filtros
+  - GET /api/coupons/{id} - Buscar cupom por ID
+  - GET /api/coupons/code/{code} - Buscar por código
+  - PATCH /api/coupons/{id} - Atualizar cupom
+  - DELETE /api/coupons/{id} - Excluir cupom
+  - POST /api/coupons/validate - Validar cupom
+
+- **Validações de Cupom**
+  - Código único obrigatório
+  - Validação de tipo (fixed/percentage)
+  - Verificação de valor mínimo do pedido
+  - Controle de limite de uso
+  - Validação de período de validade
+  - Mensagens de erro específicas em português
+
+### Funcionalidades
+- **Aplicação de Descontos**
+  - Cálculo automático no checkout
+  - Desconto fixo ou percentual
+  - Incremento automático de uso
+  - Validação em tempo real
+
+- **Integração com Pedidos**
+  - Campo coupon_code no pedido
+  - Aplicação automática do desconto
+  - Registro do cupom usado (coupon_id)
+  - Cálculo correto do total final
+
+### Técnico
+- **CouponsUseCase**
+  - Validação completa de regras
+  - Método applyCoupon com transação
+  - Formatação de valores monetários
+  - Controle de concorrência com lockForUpdate
+
+- **Model Coupon**
+  - Scopes para consultas (valid, byCode)
+  - Métodos de validação (isValid, canBeUsedWithValue)
+  - Cálculo de desconto automático
+  - Formatação de valores para exibição
+
+- **Documentação Swagger**
+  - Todos endpoints documentados
+  - Schema Coupon completo
+  - Exemplos de uso
+  - Códigos de resposta detalhados
+
+---
+
+**Meta da v0.7.0**: Sistema de cupons de desconto funcional permitindo criar promoções com regras flexíveis e integração completa com o sistema de pedidos.
+
 ## [0.6.0] - 2025-07-17
 
 ### Adicionado

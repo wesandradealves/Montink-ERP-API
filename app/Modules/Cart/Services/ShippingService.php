@@ -2,8 +2,11 @@
 
 namespace App\Modules\Cart\Services;
 
+use App\Common\Traits\MoneyFormatter;
+
 class ShippingService
 {
+    use MoneyFormatter;
     public function calculateShipping(float $subtotal): float
     {
         if ($subtotal >= 200.00) {
@@ -25,6 +28,6 @@ class ShippingService
             return 'Frete grátis';
         }
         
-        return "Frete: R$ " . number_format($shippingCost, 2, ',', '.');
+        return "Frete: " . $this->formatMoney($shippingCost);
     }
 }

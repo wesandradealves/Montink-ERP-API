@@ -10,12 +10,14 @@ use App\Modules\Orders\Models\OrderItem;
 use App\Modules\Cart\Models\CartItem;
 use App\Modules\Cart\Services\ShippingService;
 use App\Modules\Stock\Models\Stock;
+use App\Modules\Coupons\UseCases\CouponsUseCase;
 use Illuminate\Support\Facades\DB;
 
 class OrdersUseCase
 {
     public function __construct(
-        private ShippingService $shippingService
+        private ShippingService $shippingService,
+        private CouponsUseCase $couponsUseCase
     ) {}
 
     public function createOrder(CreateOrderDTO $dto): OrderDTO
@@ -34,9 +36,15 @@ class OrdersUseCase
             $subtotal = $cartItems->sum(fn($item) => $item->getSubtotal());
             $shippingCost = $this->shippingService->calculateShipping($subtotal);
             $discount = 0;
+            $couponData = null;
 
             if ($dto->couponCode) {
-                $discount = $this->calculateCouponDiscount($dto->couponCode, $subtotal);
+                try {
+                    $couponData = $this->couponsUseCase->applyCoupon($dto->couponCode, $subtotal);
+                    $discount = $couponData['discount'];
+                } catch (\Exception $e) {
+                    throw new \InvalidArgumentException("Cupom inválido: " . $e->getMessage());
+                }
             }
 
             $total = $subtotal - $discount + $shippingCost;
@@ -59,6 +67,7 @@ class OrdersUseCase
                 'total' => $total,
                 'status' => 'pending',
                 'coupon_code' => $dto->couponCode,
+                'coupon_id' => $couponData ? $couponData['coupon_id'] : null,
                 'session_id' => $sessionId,
             ]);
 
@@ -152,10 +161,6 @@ class OrdersUseCase
         return OrderDTO::fromModel($order);
     }
 
-    private function calculateCouponDiscount(string $couponCode, float $subtotal): float
-    {
-        return 0;
-    }
 
     private function updateStockReservation(int $productId, int $quantity, ?array $variations = null): void
     {

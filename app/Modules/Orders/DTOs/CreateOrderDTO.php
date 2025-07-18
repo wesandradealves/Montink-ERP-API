@@ -20,7 +20,7 @@ class CreateOrderDTO extends BaseDTO
         public readonly ?string $couponCode = null,
     ) {}
 
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): static
     {
         return new self(
             customerName: $data['customer_name'],

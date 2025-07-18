@@ -2,11 +2,13 @@
 
 namespace App\Modules\Cart\Api\Requests;
 
+use App\Common\Base\BaseFormRequest;
 use App\Common\Rules\QuantityRule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Common\Traits\ValidationMessagesTrait;
 
-class UpdateCartItemRequest extends FormRequest
+class UpdateCartItemRequest extends BaseFormRequest
 {
+    use ValidationMessagesTrait;
     public function rules(): array
     {
         return [
@@ -14,10 +16,5 @@ class UpdateCartItemRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'quantity.required' => 'A quantidade é obrigatória',
-        ];
-    }
+    protected array $customMessages = [];
 }

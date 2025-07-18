@@ -29,6 +29,16 @@ Route::prefix('orders')->group(function () {
     Route::delete('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'destroy']);
 });
 
+Route::prefix('coupons')->group(function () {
+    Route::get('/', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'index']);
+    Route::post('/', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'store']);
+    Route::get('/{id}', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'show']);
+    Route::get('/code/{code}', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'showByCode']);
+    Route::patch('/{id}', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'update']);
+    Route::delete('/{id}', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'destroy']);
+    Route::post('/validate', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'validateCoupon']);
+});
+
 Route::get('/', function () {
     return redirect('/docs');
 });

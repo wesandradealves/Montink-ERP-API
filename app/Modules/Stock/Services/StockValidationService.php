@@ -2,6 +2,7 @@
 
 namespace App\Modules\Stock\Services;
 
+use App\Common\Exceptions\ResourceNotFoundException;
 use App\Modules\Products\Models\Product;
 use App\Modules\Stock\Models\Stock;
 
@@ -18,7 +19,7 @@ class StockValidationService
         $stock = $stock->first();
         
         if (!$stock) {
-            throw new \Exception("Produto não encontrado no estoque");
+            throw new ResourceNotFoundException('Produto', 'estoque');
         }
         
         $available = $stock->quantity - $stock->reserved;

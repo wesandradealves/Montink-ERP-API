@@ -12,7 +12,8 @@ class OrdersServiceProvider extends ServiceProvider
             \App\Modules\Orders\UseCases\OrdersUseCase::class,
             function ($app) {
                 return new \App\Modules\Orders\UseCases\OrdersUseCase(
-                    $app->make(\App\Modules\Cart\Services\ShippingService::class)
+                    $app->make(\App\Modules\Cart\Services\ShippingService::class),
+                    $app->make(\App\Modules\Coupons\UseCases\CouponsUseCase::class)
                 );
             }
         );
