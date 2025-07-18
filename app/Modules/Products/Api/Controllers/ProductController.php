@@ -2,16 +2,14 @@
 
 namespace App\Modules\Products\Api\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Traits\ApiResponseTrait;
+use App\Common\Base\BaseApiController;
 use App\Modules\Products\Api\Requests\CreateProductRequest;
 use App\Modules\Products\Api\Requests\UpdateProductRequest;
 use App\Modules\Products\UseCases\ProductsUseCase;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends BaseApiController
 {
-    use ApiResponseTrait;
     
     public function __construct(
         private readonly ProductsUseCase $productsUseCase,
@@ -49,14 +47,15 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function index(Request $request): array
+    public function index(Request $request)
     {
-        $products = $this->productsUseCase->list([
-            'only_active' => $request->boolean('only_active'),
-            'search' => $request->get('search'),
-        ]);
-
-        return $this->successListResponse($products);
+        return $this->handleUseCaseExecution(function() use ($request) {
+            $products = $this->productsUseCase->list([
+                'only_active' => $request->boolean('only_active'),
+                'search' => $request->get('search'),
+            ]);
+            return $products;
+        });
     }
 
     /**
@@ -90,15 +89,17 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function show(int $id): array
+    public function show(int $id)
     {
-        $product = $this->productsUseCase->find($id);
-
-        if (!$product) {
-            return $this->errorResponse('Produto não encontrado', 404);
-        }
-
-        return $this->successResponse($product);
+        return $this->handleUseCaseExecution(function() use ($id) {
+            $product = $this->productsUseCase->find($id);
+            
+            if (!$product) {
+                throw new \InvalidArgumentException('Produto não encontrado');
+            }
+            
+            return $product;
+        });
     }
 
     /**
@@ -138,14 +139,11 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function store(CreateProductRequest $request): array
+    public function store(CreateProductRequest $request)
     {
-        try {
-            $product = $this->productsUseCase->create($request->validated());
-            return $this->successResponse($product, 'Produto criado com sucesso', 201);
-        } catch (\InvalidArgumentException $e) {
-            return $this->errorResponse($e->getMessage(), 422);
-        }
+        return $this->handleUseCaseExecution(function() use ($request) {
+            return $this->productsUseCase->create($request->validated());
+        });
     }
 
     /**
@@ -198,14 +196,11 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function update(UpdateProductRequest $request, int $id): array
+    public function update(UpdateProductRequest $request, int $id)
     {
-        try {
-            $product = $this->productsUseCase->update($id, $request->validated());
-            return $this->successResponse($product, 'Produto atualizado com sucesso');
-        } catch (\InvalidArgumentException $e) {
-            return $this->errorResponse($e->getMessage(), 422);
-        }
+        return $this->handleUseCaseExecution(function() use ($request, $id) {
+            return $this->productsUseCase->update($id, $request->validated());
+        });
     }
 
     /**
@@ -239,13 +234,11 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function destroy(int $id): array
+    public function destroy(int $id)
     {
-        try {
+        return $this->handleUseCaseExecution(function() use ($id) {
             $this->productsUseCase->delete($id);
-            return $this->successResponse(null, 'Produto excluído com sucesso');
-        } catch (\InvalidArgumentException $e) {
-            return $this->errorResponse($e->getMessage(), 404);
-        }
+            return null;
+        });
     }
 }

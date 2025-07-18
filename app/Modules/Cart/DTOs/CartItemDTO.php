@@ -2,7 +2,9 @@
 
 namespace App\Modules\Cart\DTOs;
 
-class CartItemDTO
+use App\Common\Base\BaseDTO;
+
+class CartItemDTO extends BaseDTO
 {
     public function __construct(
         public readonly int $id,
