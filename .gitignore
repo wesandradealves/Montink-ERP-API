@@ -1,2 +1,4 @@
 *.md
 .claude
+laravel-clean-architecture-guide.md
+vendor
