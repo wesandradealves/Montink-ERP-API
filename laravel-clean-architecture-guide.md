@@ -2062,6 +2062,118 @@ Co-Authored-By: ChatGPT <ai@openai.com>
 
 ### 🚫 **CÓDIGO LIMPO - PROIBIÇÕES ABSOLUTAS**
 
+#### 🚫 **DRY - Don't Repeat Yourself (OBRIGATÓRIO)**
+
+**REGRA CRÍTICA:** Código duplicado é **TERMINANTEMENTE PROIBIDO**. Sempre extrair para funções, classes ou métodos reutilizáveis.
+
+**❌ EXEMPLOS PROIBIDOS:**
+```php
+// ❌ PROIBIDO - Validação duplicada
+public function createUser($data) {
+    if (!isset($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        throw new InvalidArgumentException('Email inválido');
+    }
+    // lógica...
+}
+
+public function updateUser($data) {
+    if (!isset($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        throw new InvalidArgumentException('Email inválido');
+    }
+    // lógica...
+}
+
+// ❌ PROIBIDO - Formatação duplicada
+public function formatCurrency($value) {
+    return 'R$ ' . number_format($value, 2, ',', '.');
+}
+
+public function formatPrice($price) {
+    return 'R$ ' . number_format($price, 2, ',', '.');
+}
+```
+
+**✅ EXEMPLOS CORRETOS:**
+```php
+// ✅ APROVADO - Validação extraída
+private function validateEmail(?string $email): void {
+    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new InvalidArgumentException('Email inválido');
+    }
+}
+
+public function createUser($data) {
+    $this->validateEmail($data['email'] ?? null);
+    // lógica...
+}
+
+// ✅ APROVADO - Formatação unificada
+public function formatBrazilianCurrency(float $value): string {
+    return 'R$ ' . number_format($value, 2, ',', '.');
+}
+
+// ✅ APROVADO - Uso da função unificada
+public function formatProductPrice($product) {
+    return $this->formatBrazilianCurrency($product->price);
+}
+```
+
+**🎯 ESTRATÉGIAS DRY OBRIGATÓRIAS:**
+
+1. **Traits para comportamentos comuns**
+```php
+trait HasCurrencyFormatting {
+    protected function formatBrazilianCurrency(float $value): string {
+        return 'R$ ' . number_format($value, 2, ',', '.');
+    }
+}
+```
+
+2. **Classes utilitárias para lógicas repetidas**
+```php
+class CepValidator {
+    public static function validate(string $cep): bool {
+        return preg_match('/^\d{5}-?\d{3}$/', $cep);
+    }
+    
+    public static function format(string $cep): string {
+        return preg_replace('/(\d{5})(\d{3})/', '$1-$2', preg_replace('/\D/', '', $cep));
+    }
+}
+```
+
+3. **Base classes para funcionalidades compartilhadas**
+```php
+abstract class BaseRepository {
+    protected function validateId(int $id): void {
+        if ($id <= 0) {
+            throw new InvalidArgumentException('ID deve ser positivo');
+        }
+    }
+}
+```
+
+4. **Constantes para valores repetidos**
+```php
+class ShippingRules {
+    public const FREE_SHIPPING_THRESHOLD = 200.00;
+    public const STANDARD_SHIPPING_COST = 20.00;
+    public const REDUCED_SHIPPING_COST = 15.00;
+    public const REDUCED_SHIPPING_MIN = 52.00;
+    public const REDUCED_SHIPPING_MAX = 166.59;
+}
+```
+
+**🚨 VERIFICAÇÃO DRY OBRIGATÓRIA:**
+```bash
+# Procurar por código potencialmente duplicado
+grep -r "function.*validate" app/ --include="*.php"
+grep -r "number_format.*2.*," app/ --include="*.php"
+grep -r "throw new.*Exception" app/ --include="*.php"
+
+# Se encontrar padrões similares = REFATORAR IMEDIATAMENTE
+```
+
 #### ❌ **Comentários Totalmente Proibidos**
 ```php
 // ❌ PROIBIDO - Qualquer tipo de comentário
@@ -2453,6 +2565,7 @@ curl -X POST "http://localhost:8080/api/users" \
 #### **Durante Implementação:**
 - [ ] Código sem comentários
 - [ ] Seguir padrões Clean Architecture
+- [ ] **🚫 DRY - Don't Repeat Yourself rigorosamente**
 - [ ] Usar early returns
 - [ ] Constantes descritivas
 - [ ] Validações defensivas
