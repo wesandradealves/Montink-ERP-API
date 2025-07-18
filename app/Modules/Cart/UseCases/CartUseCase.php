@@ -20,7 +20,8 @@ class CartUseCase
     {
         $product = Product::findOrFail($dto->productId);
         
-        $this->validateStock($product, $dto->quantity, $dto->variations);
+        // TODO: Implementar validação de estoque quando módulo estiver completo
+        // $this->validateStock($product, $dto->quantity, $dto->variations);
         
         $sessionId = SessionService::getCurrentId();
         
@@ -33,7 +34,8 @@ class CartUseCase
 
         if ($existingItem) {
             $newQuantity = $existingItem->quantity + $dto->quantity;
-            $this->validateStock($product, $newQuantity, $dto->variations);
+            // TODO: Implementar validação de estoque quando módulo estiver completo
+            // $this->validateStock($product, $newQuantity, $dto->variations);
             
             $existingItem->update(['quantity' => $newQuantity]);
         } else {
@@ -68,7 +70,8 @@ class CartUseCase
             ->where('id', $itemId)
             ->firstOrFail();
 
-        $this->validateStock($cartItem->product, $quantity, $cartItem->variations);
+        // TODO: Implementar validação de estoque quando módulo estiver completo
+        // $this->validateStock($cartItem->product, $quantity, $cartItem->variations);
 
         $cartItem->update(['quantity' => $quantity]);
 

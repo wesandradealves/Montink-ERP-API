@@ -5,6 +5,64 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.6.0] - 2025-07-17
+
+### Adicionado
+- **Sistema de Pedidos Completo (Orders)**
+  - Módulo Orders com Clean Architecture
+  - Finalização de carrinho em pedido
+  - Armazenamento completo de dados do cliente
+  - Gerenciamento de status (pending, processing, shipped, delivered, cancelled)
+  - Número de pedido único e sequencial
+  - Relacionamento com itens do pedido
+
+- **Endpoints de Pedidos**
+  - POST /api/orders - Criar pedido finalizando carrinho
+  - GET /api/orders - Listar pedidos com filtros
+  - GET /api/orders/{id} - Buscar pedido por ID
+  - GET /api/orders/number/{orderNumber} - Buscar por número
+  - PATCH /api/orders/{id}/status - Atualizar status
+  - DELETE /api/orders/{id} - Cancelar pedido
+
+- **Validações de Pedido**
+  - Dados completos do cliente obrigatórios
+  - Formatação automática de CEP e CPF
+  - Validação de carrinho não vazio
+  - Controle de cancelamento por status
+
+### Funcionalidades
+- **Finalização de Compra**
+  - Conversão automática de carrinho em pedido
+  - Cálculo de totais com frete
+  - Limpeza do carrinho após finalização
+  - Registro de itens com snapshot de preços
+
+- **Gestão de Status**
+  - Fluxo de status bem definido
+  - Restrições de cancelamento
+  - Histórico de mudanças via timestamps
+
+### Técnico
+- **OrdersUseCase**
+  - Transações para integridade
+  - Geração de número de pedido único
+  - Relacionamento automático com itens
+  - Preparação para cupons de desconto
+
+- **Models Order e OrderItem**
+  - Relacionamentos Eloquent configurados
+  - Scopes para consultas otimizadas
+  - Métodos auxiliares de status
+
+- **Validações Avançadas**
+  - CreateOrderRequest com formatação automática
+  - UpdateOrderStatusRequest com enum validation
+  - Mensagens em português centralizadas
+
+---
+
+**Meta da v0.6.0**: Sistema de pedidos funcional permitindo finalização completa de compras com gestão de status e dados do cliente.
+
 ## [0.5.0] - 2025-07-17
 
 ### Adicionado

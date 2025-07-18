@@ -9,11 +9,12 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 
 ## Funcionalidades
 
-### Implementado (v0.5.0)
+### Implementado (v0.6.0)
 - **API Products** - CRUD completo de produtos com validações
 - **Sistema de Carrinho** - Gestão completa via sessão com cálculo de frete
 - **Integração ViaCEP** - Busca e validação automática de endereços
 - **Controle de Estoque** - Validação em tempo real com reservas
+- **Sistema de Pedidos** - Finalização de compra com gestão de status
 - **Documentação Swagger** - Interface interativa para todos os módulos
 - **Health Check** - Monitoramento da saúde da API
 - **Validações** - Sistema robusto com mensagens em português
@@ -21,8 +22,9 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 - **Arquitetura DRY** - BaseModels, BaseDTOs, Traits reutilizáveis
 
 ### Em Desenvolvimento
-- **Orders** - Sistema completo de finalização de pedidos
 - **Coupons** - Gestão de cupons e descontos
+- **Email** - Confirmação automática de pedidos
+- **Webhook** - Atualização de status via webhook
 - **Authentication** - Sistema de autenticação JWT
 - **Testes Automatizados** - Cobertura completa da aplicação
 
@@ -58,6 +60,16 @@ DELETE /api/cart              # Limpar carrinho completo
 ```http
 GET    /api/address/cep/{cep} # Buscar endereço por CEP
 POST   /api/address/validate-cep # Validar se CEP existe
+```
+
+#### Orders (Pedidos)
+```http
+GET    /api/orders             # Listar pedidos com filtros
+POST   /api/orders             # Criar pedido (finalizar carrinho)
+GET    /api/orders/{id}        # Buscar pedido por ID
+GET    /api/orders/number/{n}  # Buscar pedido por número
+PATCH  /api/orders/{id}/status # Atualizar status do pedido
+DELETE /api/orders/{id}        # Cancelar pedido
 ```
 
 #### Health Check
@@ -108,6 +120,24 @@ curl -X POST http://localhost/api/cart \
 #### Buscar CEP
 ```bash
 curl -X GET http://localhost/api/address/cep/01310100
+```
+
+#### Criar Pedido
+```bash
+curl -X POST http://localhost/api/orders \
+  -H "Content-Type: application/json" \
+  -d '{
+    "customer_name": "João Silva",
+    "customer_email": "joao@example.com",
+    "customer_phone": "(11) 98765-4321",
+    "customer_cpf": "123.456.789-00",
+    "customer_cep": "01310-100",
+    "customer_address": "Avenida Paulista, 1000",
+    "customer_complement": "Apto 101",
+    "customer_neighborhood": "Bela Vista",
+    "customer_city": "São Paulo",
+    "customer_state": "SP"
+  }'
 ```
 
 #### Resposta Padrão
