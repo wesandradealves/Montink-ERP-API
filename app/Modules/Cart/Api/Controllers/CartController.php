@@ -36,18 +36,9 @@ class CartController extends BaseApiController
      */
     public function index(): JsonResponse
     {
-        try {
-            $cart = $this->cartUseCase->getCart();
-            
-            return $this->successResponse(
-                data: $cart,
-                message: 'Carrinho obtido com sucesso'
-            );
-        } catch (\Exception $e) {
-            return $this->errorResponse(
-                message: 'Erro ao obter carrinho: ' . $e->getMessage()
-            );
-        }
+        return $this->handleUseCaseExecution(function() {
+            return $this->cartUseCase->getCart();
+        });
     }
 
     /**
@@ -77,30 +68,19 @@ class CartController extends BaseApiController
      */
     public function store(AddToCartRequest $request): JsonResponse
     {
-        try {
+        return $this->handleUseCaseExecution(function() use ($request) {
             $dto = new AddToCartDTO(
                 productId: $request->input('product_id'),
                 quantity: $request->input('quantity'),
                 variations: $request->input('variations'),
             );
 
-            $cart = $this->cartUseCase->addToCart($dto);
-
-            return $this->successResponse(
-                data: $cart,
-                message: 'Produto adicionado ao carrinho com sucesso',
-                statusCode: 201
-            );
-        } catch (\Exception $e) {
-            return $this->errorResponse(
-                message: 'Erro ao adicionar produto: ' . $e->getMessage(),
-                statusCode: 400
-            );
-        }
+            return $this->cartUseCase->addToCart($dto);
+        });
     }
 
     /**
-     * @OA\Put(
+     * @OA\Patch(
      *     path="/api/cart/{id}",
      *     summary="Atualizar quantidade de item do carrinho",
      *     tags={"Cart"},
@@ -129,19 +109,9 @@ class CartController extends BaseApiController
      */
     public function update(UpdateCartItemRequest $request, int $id): JsonResponse
     {
-        try {
-            $cart = $this->cartUseCase->updateQuantity($id, $request->input('quantity'));
-
-            return $this->successResponse(
-                data: $cart,
-                message: 'Quantidade atualizada com sucesso'
-            );
-        } catch (\Exception $e) {
-            return $this->errorResponse(
-                message: 'Erro ao atualizar quantidade: ' . $e->getMessage(),
-                statusCode: 400
-            );
-        }
+        return $this->handleUseCaseExecution(function() use ($request, $id) {
+            return $this->cartUseCase->updateQuantity($id, $request->input('quantity'));
+        });
     }
 
     /**
@@ -167,19 +137,9 @@ class CartController extends BaseApiController
      */
     public function destroy(int $id): JsonResponse
     {
-        try {
-            $cart = $this->cartUseCase->removeFromCart($id);
-
-            return $this->successResponse(
-                data: $cart,
-                message: 'Item removido do carrinho com sucesso'
-            );
-        } catch (\Exception $e) {
-            return $this->errorResponse(
-                message: 'Erro ao remover item: ' . $e->getMessage(),
-                statusCode: 404
-            );
-        }
+        return $this->handleUseCaseExecution(function() use ($id) {
+            return $this->cartUseCase->removeFromCart($id);
+        });
     }
 
     /**
@@ -195,16 +155,9 @@ class CartController extends BaseApiController
      */
     public function clear(): JsonResponse
     {
-        try {
+        return $this->handleUseCaseExecution(function() {
             $this->cartUseCase->clearCart();
-
-            return $this->successResponse(
-                message: 'Carrinho limpo com sucesso'
-            );
-        } catch (\Exception $e) {
-            return $this->errorResponse(
-                message: 'Erro ao limpar carrinho: ' . $e->getMessage()
-            );
-        }
+            return null;
+        });
     }
 }

@@ -38,6 +38,16 @@ use Illuminate\Routing\Controller as BaseController;
  * )
  * 
  * @OA\Tag(
+ *     name="Cart",
+ *     description="Endpoints para gestão do carrinho de compras"
+ * )
+ * 
+ * @OA\Tag(
+ *     name="Address",
+ *     description="Endpoints para validação de endereços e CEP"
+ * )
+ * 
+ * @OA\Tag(
  *     name="Orders",
  *     description="Endpoints para gestão de pedidos"
  * )

@@ -2,14 +2,12 @@
 
 namespace App\Modules\Products\Api\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Common\Base\BaseFormRequest;
+use App\Common\Traits\ValidationMessagesTrait;
 
-class CreateProductRequest extends FormRequest
+class CreateProductRequest extends BaseFormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
+    use ValidationMessagesTrait;
 
     public function rules(): array
     {
@@ -23,15 +21,8 @@ class CreateProductRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'O nome do produto é obrigatório',
-            'sku.required' => 'O SKU é obrigatório',
-            'sku.unique' => 'Este SKU já está em uso',
-            'price.required' => 'O preço é obrigatório',
-            'price.numeric' => 'O preço deve ser um número',
-            'price.min' => 'O preço deve ser maior que zero',
-        ];
-    }
+    protected array $customMessages = [
+        'sku.unique' => 'Este SKU já está em uso',
+        'price.min' => 'O preço deve ser maior que zero',
+    ];
 }
