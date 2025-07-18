@@ -16,9 +16,5 @@ class UpdateProductDTO extends BaseDTO
     ) {
     }
 
-    public function toArray(): array
-    {
-        return array_filter(parent::toArray(), fn($value) => $value !== null);
-    }
 
 }

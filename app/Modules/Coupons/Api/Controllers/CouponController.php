@@ -103,7 +103,7 @@ class CouponController extends BaseApiController
      */
     public function store(CreateCouponRequest $request): JsonResponse
     {
-        return $this->handleUseCaseExecution(function () use ($request) {
+        return $this->handleUseCaseCreation(function () use ($request) {
             $validated = $request->validated();
             $dto = new CreateCouponDTO(
                 code: $validated['code'],

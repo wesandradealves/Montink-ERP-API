@@ -9,12 +9,14 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 
 ## Funcionalidades
 
-### Implementado (v0.6.0)
+### Implementado (v0.8.0)
 - **API Products** - CRUD completo de produtos com validações
 - **Sistema de Carrinho** - Gestão completa via sessão com cálculo de frete
 - **Integração ViaCEP** - Busca e validação automática de endereços
 - **Controle de Estoque** - Validação em tempo real com reservas
 - **Sistema de Pedidos** - Finalização de compra com gestão de status
+- **Sistema de Cupons** - Descontos fixos e percentuais com validações
+- **Email de Confirmação** - Envio automático ao finalizar pedido via Mailpit
 - **Documentação Swagger** - Interface interativa para todos os módulos
 - **Health Check** - Monitoramento da saúde da API
 - **Validações** - Sistema robusto com mensagens em português
@@ -22,8 +24,6 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 - **Arquitetura DRY** - BaseModels, BaseDTOs, Traits reutilizáveis
 
 ### Em Desenvolvimento
-- **Coupons** - Gestão de cupons e descontos
-- **Email** - Confirmação automática de pedidos
 - **Webhook** - Atualização de status via webhook
 - **Authentication** - Sistema de autenticação JWT
 - **Testes Automatizados** - Cobertura completa da aplicação
@@ -65,11 +65,22 @@ POST   /api/address/validate-cep # Validar se CEP existe
 #### Orders (Pedidos)
 ```http
 GET    /api/orders             # Listar pedidos com filtros
-POST   /api/orders             # Criar pedido (finalizar carrinho)
+POST   /api/orders             # Criar pedido (finalizar carrinho + enviar email)
 GET    /api/orders/{id}        # Buscar pedido por ID
 GET    /api/orders/number/{n}  # Buscar pedido por número
 PATCH  /api/orders/{id}/status # Atualizar status do pedido
 DELETE /api/orders/{id}        # Cancelar pedido
+```
+
+#### Coupons (Cupons)
+```http
+GET    /api/coupons            # Listar cupons com filtros
+POST   /api/coupons            # Criar novo cupom
+GET    /api/coupons/{id}       # Buscar cupom por ID
+GET    /api/coupons/code/{code} # Buscar cupom por código
+PATCH  /api/coupons/{id}       # Atualizar cupom
+DELETE /api/coupons/{id}       # Excluir cupom
+POST   /api/coupons/validate   # Validar cupom
 ```
 
 #### Health Check

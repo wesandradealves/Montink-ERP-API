@@ -33,4 +33,16 @@ abstract class BaseApiController extends Controller
             return $this->errorResponse($e->getMessage(), 500);
         }
     }
+
+    protected function handleUseCaseCreation(callable $callback, string $successMessage = 'Criado com sucesso'): JsonResponse
+    {
+        try {
+            $result = $callback();
+            return $this->successResponse($result, $successMessage, 201);
+        } catch (\InvalidArgumentException $e) {
+            return $this->errorResponse($e->getMessage(), 422);
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
+        }
+    }
 }

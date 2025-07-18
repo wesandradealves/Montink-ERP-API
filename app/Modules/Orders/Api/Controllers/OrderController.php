@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class OrderController extends BaseApiController
 {
+    private const MSG_ORDER_FOUND = 'Pedido encontrado com sucesso';
+    private const MSG_ORDER_CREATED = 'Pedido criado com sucesso';
+    private const MSG_STATUS_UPDATED = 'Status do pedido atualizado com sucesso';
+    private const MSG_ORDER_CANCELLED = 'Pedido cancelado com sucesso';
+
     public function __construct(
         private OrdersUseCase $ordersUseCase
     ) {}
@@ -20,7 +25,7 @@ class OrderController extends BaseApiController
      * @OA\Post(
      *     path="/api/orders",
      *     summary="Criar novo pedido",
-     *     description="Finaliza o carrinho e cria um novo pedido",
+     *     description="Finaliza o carrinho e cria um novo pedido. Um email de confirmação será enviado automaticamente para o endereço informado.",
      *     operationId="createOrder",
      *     tags={"Orders"},
      *     @OA\RequestBody(
@@ -42,7 +47,7 @@ class OrderController extends BaseApiController
      *     ),
      *     @OA\Response(
      *         response=201,
-     *         description="Pedido criado com sucesso",
+     *         description="Pedido criado com sucesso e email de confirmação enviado",
      *         @OA\JsonContent(
      *             @OA\Property(property="data", ref="#/components/schemas/Order"),
      *             @OA\Property(property="message", type="string", example="Pedido criado com sucesso")
@@ -64,7 +69,7 @@ class OrderController extends BaseApiController
             $dto = CreateOrderDTO::fromArray($request->validated());
             $order = $this->ordersUseCase->createOrder($dto);
             
-            return $this->successResponse($order, 'Pedido criado com sucesso', 201);
+            return $this->successResponse($order, self::MSG_ORDER_CREATED, 201);
         });
     }
 
@@ -153,7 +158,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($id) {
             $order = $this->ordersUseCase->getOrder($id);
-            return $this->successResponse($order, 'Pedido encontrado com sucesso');
+            return $this->successResponse($order, self::MSG_ORDER_FOUND);
         });
     }
 
@@ -189,7 +194,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($orderNumber) {
             $order = $this->ordersUseCase->getOrderByNumber($orderNumber);
-            return $this->successResponse($order, 'Pedido encontrado com sucesso');
+            return $this->successResponse($order, self::MSG_ORDER_FOUND);
         });
     }
 
