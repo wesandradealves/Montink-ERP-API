@@ -37,6 +37,7 @@ return [
         App\Modules\Cart\Providers\CartServiceProvider::class,
         App\Modules\Orders\Providers\OrdersServiceProvider::class,
         App\Modules\Coupons\Providers\CouponsServiceProvider::class,
+        App\Modules\Email\Providers\EmailServiceProvider::class,
     ],
 
     'aliases' => [

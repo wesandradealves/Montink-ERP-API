@@ -141,9 +141,9 @@ class ProductController extends BaseApiController
      */
     public function store(CreateProductRequest $request)
     {
-        return $this->handleUseCaseExecution(function() use ($request) {
+        return $this->handleUseCaseCreation(function() use ($request) {
             return $this->productsUseCase->create($request->validated());
-        });
+        }, 'Produto criado com sucesso');
     }
 
     /**

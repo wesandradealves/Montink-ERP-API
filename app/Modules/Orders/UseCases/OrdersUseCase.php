@@ -11,13 +11,16 @@ use App\Modules\Cart\Models\CartItem;
 use App\Modules\Cart\Services\ShippingService;
 use App\Modules\Stock\Models\Stock;
 use App\Modules\Coupons\UseCases\CouponsUseCase;
+use App\Modules\Email\Services\EmailService;
+use App\Modules\Email\DTOs\OrderConfirmationEmailDTO;
 use Illuminate\Support\Facades\DB;
 
 class OrdersUseCase
 {
     public function __construct(
         private ShippingService $shippingService,
-        private CouponsUseCase $couponsUseCase
+        private CouponsUseCase $couponsUseCase,
+        private EmailService $emailService
     ) {}
 
     public function createOrder(CreateOrderDTO $dto): OrderDTO
@@ -30,7 +33,7 @@ class OrdersUseCase
                 ->get();
 
             if ($cartItems->isEmpty()) {
-                throw new \Exception("Carrinho vazio. Adicione produtos antes de finalizar o pedido.");
+                throw new \InvalidArgumentException("Carrinho vazio. Adicione produtos antes de finalizar o pedido.");
             }
 
             $subtotal = $cartItems->sum(fn($item) => $item->getSubtotal());
@@ -89,6 +92,8 @@ class OrdersUseCase
             CartItem::where('session_id', $sessionId)->delete();
 
             $order->load('items');
+
+            $this->sendOrderConfirmationEmail($order);
 
             return OrderDTO::fromModel($order);
         });
@@ -190,5 +195,41 @@ class OrdersUseCase
                 $stock->save();
             }
         }
+    }
+
+    private function sendOrderConfirmationEmail(Order $order): void
+    {
+        $items = $order->items->map(function ($item) {
+            return [
+                'productName' => $item->product_name,
+                'quantity' => $item->quantity,
+                'price' => $item->price,
+                'subtotal' => $item->subtotal,
+                'variations' => $item->variations
+            ];
+        })->toArray();
+
+        $emailDTO = new OrderConfirmationEmailDTO(
+            orderNumber: $order->order_number,
+            customerName: $order->customer_name,
+            customerEmail: $order->customer_email,
+            customerPhone: $order->customer_phone,
+            customerCpf: $order->customer_cpf,
+            customerCep: $order->customer_cep,
+            customerAddress: $order->customer_address,
+            customerComplement: $order->customer_complement,
+            customerNeighborhood: $order->customer_neighborhood,
+            customerCity: $order->customer_city,
+            customerState: $order->customer_state,
+            items: $items,
+            subtotal: $order->subtotal,
+            discount: $order->discount,
+            couponCode: $order->coupon_code,
+            shippingCost: $order->shipping_cost,
+            total: $order->total,
+            createdAt: $order->created_at
+        );
+
+        $this->emailService->sendOrderConfirmationEmail($emailDTO);
     }
 }

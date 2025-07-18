@@ -42,7 +42,7 @@ class ProductsUseCase
         );
 
 
-        return $this->productRepository->update($id, $dto->toArray());
+        return $this->productRepository->update($id, $dto->toArrayWithoutNulls());
     }
 
     public function delete(int $id): bool

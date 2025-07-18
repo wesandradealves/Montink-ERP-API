@@ -5,6 +5,65 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.8.0] - 2025-07-18
+
+### Adicionado
+- **Sistema de Email de Confirmação**
+  - Módulo Email com Clean Architecture
+  - Serviço de envio via Mailpit configurado
+  - Template responsivo de email para pedidos
+  - Integração automática ao criar pedido
+  - Dados completos do pedido no email
+  - Formatação profissional com HTML
+
+- **Melhorias no Base Controller**
+  - Método `handleUseCaseCreation` para retornar status 201
+  - Suporte adequado para diferentes status HTTP
+  - Maior flexibilidade nas respostas
+
+### Melhorado
+- **Qualidade de Código**
+  - Removida duplicação no `UpdateProductDTO`
+  - Uso correto de `toArrayWithoutNulls()` do BaseDTO
+  - Constantes para mensagens no `OrderController`
+  - Status HTTP corrigidos (201 para criação)
+  - Testes de regressão automatizados
+
+- **Documentação**
+  - README atualizado com novos endpoints
+  - Swagger indica envio de email ao criar pedido
+  - Exemplos de uso atualizados
+  - Remoção de funcionalidades não planejadas (Bootstrap)
+
+### Técnico
+- **EmailService**
+  - Usa traits `MoneyFormatter` e `DocumentFormatter`
+  - Tratamento de erros com log
+  - Preparação de dados estruturada
+  - Template Blade otimizado
+
+- **OrdersUseCase**
+  - Integração com `EmailService` via DI
+  - Método privado `sendOrderConfirmationEmail`
+  - Mapeamento de dados do pedido para DTO de email
+  - Envio assíncrono não bloqueia criação
+
+- **Testes de Regressão**
+  - Script `test-api-regression.sh` criado
+  - 15 testes automatizados passando
+  - Validação de todos os módulos
+  - Status HTTP verificados
+
+### Corrigido
+- **Status HTTP**
+  - POST retorna 201 (Created) ao invés de 200
+  - Erros de validação retornam 422 consistentemente
+  - Exceções apropriadas para cada tipo de erro
+
+---
+
+**Meta da v0.8.0**: Sistema de notificações por email funcional, permitindo confirmação automática de pedidos com templates profissionais e integração transparente.
+
 ## [0.7.0] - 2025-07-17
 
 ### Adicionado
