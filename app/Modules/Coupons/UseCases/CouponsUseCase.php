@@ -23,7 +23,10 @@ class CouponsUseCase
             throw new \InvalidArgumentException(ResponseMessage::COUPON_ALREADY_EXISTS->get());
         }
 
-        $coupon = Coupon::create($dto->toArray());
+        $couponData = $dto->toArray();
+        $couponData['used_count'] = 0;
+        
+        $coupon = Coupon::create($couponData);
 
         return $this->toCouponDTO($coupon);
     }

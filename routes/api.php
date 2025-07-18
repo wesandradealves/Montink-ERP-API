@@ -25,8 +25,8 @@ Route::prefix('address')->group(function () {
 Route::prefix('orders')->group(function () {
     Route::get('/', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'index']);
     Route::post('/', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'store']);
-    Route::get('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'show']);
     Route::get('/number/{orderNumber}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'showByNumber']);
+    Route::get('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'show']);
     Route::patch('/{id}/status', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'updateStatus']);
     Route::delete('/{id}', [\App\Modules\Orders\Api\Controllers\OrderController::class, 'destroy']);
 });

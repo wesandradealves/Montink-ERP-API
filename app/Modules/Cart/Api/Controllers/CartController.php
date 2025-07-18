@@ -83,7 +83,7 @@ class CartController extends BaseApiController
      */
     public function store(AddToCartRequest $request): JsonResponse
     {
-        $response = $this->handleUseCaseExecution(function() use ($request) {
+        $response = $this->handleUseCaseCreation(function() use ($request) {
             $dto = new AddToCartDTO(
                 productId: $request->input('product_id'),
                 quantity: $request->input('quantity'),
@@ -91,7 +91,7 @@ class CartController extends BaseApiController
             );
 
             return $this->cartUseCase->addToCart($dto);
-        });
+        }, ResponseMessage::PRODUCT_ADDED_TO_CART->get());
         
         return $this->withSessionCookie($response);
     }
@@ -126,10 +126,10 @@ class CartController extends BaseApiController
      *     )
      * )
      */
-    public function update(UpdateCartItemRequest $request, int $id = null): JsonResponse
+    public function update(UpdateCartItemRequest $request, $id = null): JsonResponse
     {
         return $this->handleUseCaseExecution(function() use ($request, $id) {
-            $itemId = $id ?? $request->input('id');
+            $itemId = $id ? (int)$id : $request->input('id');
             if (!$itemId) {
                 throw new \InvalidArgumentException(ResponseMessage::CART_ITEM_ID_REQUIRED->get());
             }
@@ -217,7 +217,7 @@ class CartController extends BaseApiController
         return $this->handleUseCaseExecution(function() use ($request) {
             $code = $request->input('code');
             if (!$code) {
-                throw new \Exception(ResponseMessage::CART_COUPON_CODE_REQUIRED->get());
+                throw new \InvalidArgumentException(ResponseMessage::CART_COUPON_CODE_REQUIRED->get());
             }
             
             // Por enquanto, apenas retorna sucesso para teste

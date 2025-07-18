@@ -16,7 +16,7 @@ class CreateProductRequest extends BaseFormRequest
             'sku' => ['required', 'string', 'max:100', 'unique:products,sku'],
             'price' => ['required', 'numeric', 'min:0'],
             'description' => ['nullable', 'string'],
-            'active' => ['boolean'],
+            'active' => ['required', 'boolean'],
             'variations' => ['nullable', 'array'],
         ];
     }

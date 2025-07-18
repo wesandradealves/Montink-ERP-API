@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('customer_city');
             $table->string('customer_state', 2);
             $table->decimal('subtotal', 10, 2);
-            $table->decimal('discount', 10, 2)->default(0);
+            $table->decimal('discount', 10, 2);
             $table->decimal('shipping_cost', 10, 2);
             $table->decimal('total', 10, 2);
-            $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled']);
             $table->string('coupon_code')->nullable();
             $table->string('session_id')->nullable();
             $table->timestamps();

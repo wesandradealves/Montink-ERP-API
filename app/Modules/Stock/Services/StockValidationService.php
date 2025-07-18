@@ -26,7 +26,7 @@ class StockValidationService
         $available = $stock->quantity - $stock->reserved;
         
         if ($available < $quantity) {
-            throw new \Exception(ResponseMessage::STOCK_INSUFFICIENT_AVAILABLE->get(['available' => $available]));
+            throw new \InvalidArgumentException(ResponseMessage::STOCK_INSUFFICIENT_AVAILABLE->get(['available' => $available]));
         }
     }
 

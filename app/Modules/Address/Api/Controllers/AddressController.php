@@ -4,6 +4,7 @@ namespace App\Modules\Address\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
 use App\Common\Enums\ResponseMessage;
+use App\Common\Exceptions\ResourceNotFoundException;
 use App\Modules\Address\Services\ViaCepService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class AddressController extends BaseApiController
             $address = $this->viaCepService->getAddressByCep($cep);
             
             if (!$address) {
-                throw new \InvalidArgumentException(ResponseMessage::ADDRESS_NOT_FOUND->get());
+                throw new ResourceNotFoundException(ResponseMessage::ADDRESS_NOT_FOUND->get());
             }
             
             return $address;

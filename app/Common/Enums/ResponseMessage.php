@@ -35,6 +35,7 @@ enum ResponseMessage: string
     case CART_INSUFFICIENT_STOCK = 'messages.cart.insufficient_stock';
     case CART_ITEM_ID_REQUIRED = 'messages.cart.item_id_required';
     case CART_COUPON_CODE_REQUIRED = 'messages.cart.coupon_code_required';
+    case PRODUCT_ADDED_TO_CART = 'messages.cart.product_added';
     
     // Mensagens de cupons
     case COUPON_CREATED = 'messages.coupon.created';
@@ -128,6 +129,7 @@ enum ResponseMessage: string
             self::CART_INSUFFICIENT_STOCK => 'Estoque insuficiente para o produto',
             self::CART_ITEM_ID_REQUIRED => 'ID do item é obrigatório',
             self::CART_COUPON_CODE_REQUIRED => 'Código do cupom é obrigatório',
+            self::PRODUCT_ADDED_TO_CART => 'Produto adicionado ao carrinho com sucesso',
             
             // Mensagens de cupons
             self::COUPON_CREATED => 'Cupom criado com sucesso',

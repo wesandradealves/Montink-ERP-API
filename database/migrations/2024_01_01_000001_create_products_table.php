@@ -14,7 +14,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('sku')->unique();
-            $table->boolean('active')->default(true);
+            $table->boolean('active');
             $table->json('variations')->nullable();
             $table->timestamps();
             

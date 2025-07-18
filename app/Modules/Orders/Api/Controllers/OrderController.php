@@ -62,12 +62,10 @@ class OrderController extends BaseApiController
      */
     public function store(CreateOrderRequest $request): JsonResponse
     {
-        return $this->handleUseCaseExecution(function() use ($request) {
+        return $this->handleUseCaseCreation(function() use ($request) {
             $dto = CreateOrderDTO::fromArray($request->validated());
-            $order = $this->ordersUseCase->createOrder($dto);
-            
-            return $this->successResponse($order, ResponseMessage::ORDER_CREATED->get(), 201);
-        });
+            return $this->ordersUseCase->createOrder($dto);
+        }, ResponseMessage::ORDER_CREATED->get());
     }
 
     /**

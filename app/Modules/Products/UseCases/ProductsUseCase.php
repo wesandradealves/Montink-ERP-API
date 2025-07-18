@@ -8,6 +8,7 @@ use App\Modules\Products\DTOs\CreateProductDTO;
 use App\Modules\Products\DTOs\UpdateProductDTO;
 use App\Modules\Products\Models\Product;
 use App\Modules\Products\Repositories\ProductRepositoryInterface;
+use App\Modules\Stock\Models\Stock;
 
 class ProductsUseCase
 {
@@ -28,7 +29,16 @@ class ProductsUseCase
         );
 
 
-        return $this->productRepository->create($dto->toArray());
+        $product = $this->productRepository->create($dto->toArray());
+        
+        // Criar registro de estoque com quantidade inicial
+        Stock::create([
+            'product_id' => $product->id,
+            'quantity' => 100, // Quantidade inicial padrão
+            'reserved' => 0
+        ]);
+        
+        return $product;
     }
 
     public function update(int $id, array $data): Product

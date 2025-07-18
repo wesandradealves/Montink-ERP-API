@@ -3,6 +3,7 @@
 namespace App\Modules\Products\Models;
 
 use App\Common\Base\BaseModel;
+use App\Modules\Stock\Models\Stock;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends BaseModel
@@ -29,5 +30,10 @@ class Product extends BaseModel
     public function isActive(): bool
     {
         return $this->active;
+    }
+
+    public function stock()
+    {
+        return $this->hasOne(Stock::class);
     }
 }

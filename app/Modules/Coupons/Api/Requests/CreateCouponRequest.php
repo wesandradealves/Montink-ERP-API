@@ -21,7 +21,7 @@ class CreateCouponRequest extends BaseFormRequest
             'usage_limit' => 'nullable|integer|min:1',
             'valid_from' => 'nullable|date|date_format:Y-m-d',
             'valid_until' => 'nullable|date|date_format:Y-m-d|after_or_equal:valid_from',
-            'active' => 'nullable|boolean'
+            'active' => 'required|boolean'
         ];
     }
 

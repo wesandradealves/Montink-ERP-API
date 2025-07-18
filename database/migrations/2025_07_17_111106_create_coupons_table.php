@@ -16,10 +16,10 @@ return new class extends Migration
             $table->decimal('value', 10, 2);
             $table->decimal('minimum_value', 10, 2)->nullable();
             $table->integer('usage_limit')->nullable();
-            $table->integer('used_count')->default(0);
+            $table->integer('used_count');
             $table->date('valid_from')->nullable();
             $table->date('valid_until')->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('active');
             $table->timestamps();
             
             $table->index('code');

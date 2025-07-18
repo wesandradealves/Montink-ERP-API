@@ -4,6 +4,7 @@ namespace App\Modules\Products\Api\Controllers;
 
 use App\Common\Base\BaseApiController;
 use App\Common\Enums\ResponseMessage;
+use App\Common\Exceptions\ResourceNotFoundException;
 use App\Modules\Products\Api\Requests\CreateProductRequest;
 use App\Modules\Products\Api\Requests\UpdateProductRequest;
 use App\Modules\Products\UseCases\ProductsUseCase;
@@ -96,7 +97,7 @@ class ProductController extends BaseApiController
             $product = $this->productsUseCase->find($id);
             
             if (!$product) {
-                throw new \InvalidArgumentException(ResponseMessage::PRODUCT_NOT_FOUND->get());
+                throw new ResourceNotFoundException(ResponseMessage::PRODUCT_NOT_FOUND->get());
             }
             
             return $product;
