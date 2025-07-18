@@ -184,7 +184,8 @@
                     "Cart"
                 ],
                 "summary": "Obter carrinho atual",
-                "operationId": "e1bc6d03f0b8ceb524a277008581b4c9",
+                "description": "Retorna todos os itens do carrinho da sessão atual com cálculo de frete",
+                "operationId": "getCart",
                 "responses": {
                     "200": {
                         "description": "Carrinho retornado com sucesso",
@@ -224,7 +225,8 @@
                     "Cart"
                 ],
                 "summary": "Adicionar produto ao carrinho",
-                "operationId": "7856fec4cde2bf1409b38b36d6edf2ff",
+                "description": "Adiciona um produto ao carrinho com validação de estoque",
+                "operationId": "addToCart",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -277,7 +279,8 @@
                     "Cart"
                 ],
                 "summary": "Limpar carrinho",
-                "operationId": "3b3b5bfe36351657211aec2e597b36ad",
+                "description": "Remove todos os itens do carrinho da sessão atual",
+                "operationId": "clearCart",
                 "responses": {
                     "200": {
                         "description": "Carrinho limpo com sucesso"
@@ -291,7 +294,8 @@
                     "Cart"
                 ],
                 "summary": "Remover item do carrinho",
-                "operationId": "568d7ed8881e9e40b6e83a6e6df16384",
+                "description": "Remove um item específico do carrinho",
+                "operationId": "removeFromCart",
                 "parameters": [
                     {
                         "name": "id",
@@ -316,7 +320,8 @@
                     "Cart"
                 ],
                 "summary": "Atualizar quantidade de item do carrinho",
-                "operationId": "e53e741fac97b1862e473759b244a09f",
+                "description": "Atualiza a quantidade de um item específico no carrinho com validação de estoque",
+                "operationId": "updateCartItem",
                 "parameters": [
                     {
                         "name": "id",
@@ -352,6 +357,448 @@
                     },
                     "400": {
                         "description": "Erro de validação ou estoque insuficiente"
+                    }
+                }
+            }
+        },
+        "/api/cart/coupon": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Aplicar cupom ao carrinho",
+                "description": "Aplica um cupom de desconto ao carrinho atual",
+                "operationId": "applyCouponToCart",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "code"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "example": "DESCONTO10"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cupom aplicado com sucesso"
+                    },
+                    "400": {
+                        "description": "Cupom inválido ou expirado"
+                    }
+                }
+            }
+        },
+        "/api/coupons": {
+            "get": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Listar cupons",
+                "operationId": "a9e6518bdfe27eb1af20d7536bb34cda",
+                "parameters": [
+                    {
+                        "name": "active",
+                        "in": "query",
+                        "description": "Filtrar por cupons ativos",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "valid",
+                        "in": "query",
+                        "description": "Filtrar apenas cupons válidos",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Buscar por código ou descrição",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de cupons",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Criar novo cupom",
+                "operationId": "a958d7cc35f5de1c2864321307572299",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "code",
+                                    "type",
+                                    "value"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "example": "DESCONTO10"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Cupom de 10% de desconto"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "fixed",
+                                            "percentage"
+                                        ],
+                                        "example": "percentage"
+                                    },
+                                    "value": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 10
+                                    },
+                                    "minimum_value": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 50
+                                    },
+                                    "usage_limit": {
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "valid_from": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2025-01-01"
+                                    },
+                                    "valid_until": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2025-12-31"
+                                    },
+                                    "active": {
+                                        "type": "boolean",
+                                        "example": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cupom criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/coupons/{id}": {
+            "get": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Buscar cupom por ID",
+                "operationId": "7145238ba2384cce8182ca0bf8ae390c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dados do cupom",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cupom não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Excluir cupom",
+                "operationId": "43e4b75d5884ca34954e8e5271ee8be3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cupom excluído com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cupom não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Atualizar cupom",
+                "operationId": "7983dd1cc17bbe5324d94bde86eb6ca1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "fixed",
+                                            "percentage"
+                                        ]
+                                    },
+                                    "value": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "minimum_value": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "usage_limit": {
+                                        "type": "integer"
+                                    },
+                                    "valid_from": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "valid_until": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cupom atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/coupons/code/{code}": {
+            "get": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Buscar cupom por código",
+                "operationId": "7f3b2d7bd963783beecaf3a93cc969ef",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dados do cupom",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cupom não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/coupons/validate": {
+            "post": {
+                "tags": [
+                    "Coupons"
+                ],
+                "summary": "Validar cupom de desconto",
+                "operationId": "38968cb98684b9fe2b66b55fbf9e12b9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "code",
+                                    "value"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "example": "DESCONTO10"
+                                    },
+                                    "value": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 100
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Resultado da validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "valid": {
+                                                    "type": "boolean"
+                                                },
+                                                "message": {
+                                                    "type": "string"
+                                                },
+                                                "discount": {
+                                                    "type": "number"
+                                                },
+                                                "formatted_discount": {
+                                                    "type": "string"
+                                                },
+                                                "final_value": {
+                                                    "type": "number"
+                                                },
+                                                "formatted_final_value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -445,7 +892,7 @@
                     "Orders"
                 ],
                 "summary": "Criar novo pedido",
-                "description": "Finaliza o carrinho e cria um novo pedido",
+                "description": "Finaliza o carrinho e cria um novo pedido. Um email de confirmação será enviado automaticamente para o endereço informado.",
                 "operationId": "createOrder",
                 "requestBody": {
                     "required": true,
@@ -516,7 +963,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Pedido criado com sucesso",
+                        "description": "Pedido criado com sucesso e email de confirmação enviado",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1141,6 +1588,104 @@
     },
     "components": {
         "schemas": {
+            "NotFoundResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Recurso não encontrado"
+                    },
+                    "errors": {
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "ValidationErrorResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Os dados fornecidos são inválidos."
+                    },
+                    "errors": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SuccessResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Operação realizada com sucesso"
+                    }
+                },
+                "type": "object"
+            },
+            "PaginatedResponse": {
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "current_page": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "last_page": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "per_page": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "total": {
+                        "type": "integer",
+                        "example": 50
+                    },
+                    "from": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "to": {
+                        "type": "integer",
+                        "example": 10
+                    }
+                },
+                "type": "object"
+            },
+            "MoneyValue": {
+                "description": "Valor monetário com até 2 casas decimais",
+                "type": "number",
+                "format": "float",
+                "example": 99.99
+            },
+            "CepFormat": {
+                "description": "CEP no formato 00000-000",
+                "type": "string",
+                "pattern": "^\\d{5}-\\d{3}$",
+                "example": "01310-100"
+            },
+            "CpfFormat": {
+                "description": "CPF no formato 000.000.000-00",
+                "type": "string",
+                "pattern": "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$",
+                "example": "123.456.789-00"
+            },
+            "Timestamp": {
+                "description": "Data e hora no formato Y-m-d H:i:s",
+                "type": "string",
+                "format": "date-time",
+                "example": "2025-07-17 12:00:00"
+            },
             "Product": {
                 "title": "Product",
                 "description": "Modelo de Produto",
@@ -1601,6 +2146,135 @@
                 "type": "object"
             }
         },
+        "parameters": {
+            "id": {
+                "name": "id",
+                "in": "path",
+                "description": "ID do recurso",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": 1
+                }
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "description": "Número da página",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "example": 1
+                }
+            },
+            "per_page": {
+                "name": "per_page",
+                "in": "query",
+                "description": "Itens por página",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "example": 10
+                }
+            },
+            "search": {
+                "name": "search",
+                "in": "query",
+                "description": "Termo de busca",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "example": "exemplo"
+                }
+            },
+            "active": {
+                "name": "active",
+                "in": "query",
+                "description": "Filtrar por status ativo",
+                "required": false,
+                "schema": {
+                    "type": "boolean",
+                    "example": true
+                }
+            },
+            "sort": {
+                "name": "sort",
+                "in": "query",
+                "description": "Campo para ordenação",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "example": "created_at"
+                }
+            },
+            "direction": {
+                "name": "direction",
+                "in": "query",
+                "description": "Direção da ordenação",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "example": "desc"
+                }
+            }
+        },
+        "examples": {
+            "product_create": {
+                "summary": "Criar produto",
+                "value": {
+                    "name": "Produto Exemplo",
+                    "sku": "PROD-001",
+                    "price": 99.99,
+                    "description": "Descrição do produto",
+                    "active": true
+                }
+            },
+            "coupon_create": {
+                "summary": "Criar cupom",
+                "value": {
+                    "code": "DESCONTO10",
+                    "description": "Cupom de 10% de desconto",
+                    "type": "percentage",
+                    "value": 10,
+                    "minimum_value": 50,
+                    "usage_limit": 100,
+                    "valid_from": "2025-07-01",
+                    "valid_until": "2025-12-31",
+                    "active": true
+                }
+            },
+            "order_create": {
+                "summary": "Criar pedido",
+                "value": {
+                    "customer_name": "João Silva",
+                    "customer_email": "joao@example.com",
+                    "customer_phone": "(11) 98765-4321",
+                    "customer_cpf": "123.456.789-00",
+                    "customer_cep": "01310-100",
+                    "customer_address": "Av. Paulista, 1000",
+                    "customer_complement": "Apto 101",
+                    "customer_neighborhood": "Bela Vista",
+                    "customer_city": "São Paulo",
+                    "customer_state": "SP",
+                    "coupon_code": "DESCONTO10"
+                }
+            },
+            "cart_add": {
+                "summary": "Adicionar ao carrinho",
+                "value": {
+                    "product_id": 1,
+                    "quantity": 2,
+                    "variations": {
+                        "color": "Azul",
+                        "size": "M"
+                    }
+                }
+            }
+        },
         "securitySchemes": {
             "bearerAuth": {
                 "type": "http",
@@ -1625,6 +2299,10 @@
         {
             "name": "Orders",
             "description": "Endpoints para gestão de pedidos"
+        },
+        {
+            "name": "Coupons",
+            "description": "Endpoints para gestão de cupons de desconto"
         },
         {
             "name": "Health",

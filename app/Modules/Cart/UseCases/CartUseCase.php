@@ -10,19 +10,20 @@ use App\Modules\Cart\DTOs\CartItemDTO;
 use App\Modules\Cart\Models\CartItem;
 use App\Modules\Cart\Services\ShippingService;
 use App\Modules\Products\Models\Product;
-use App\Modules\Stock\Models\Stock;
+use App\Modules\Stock\Services\StockValidationService;
+use App\Common\Base\BaseUseCase;
 
-class CartUseCase
+class CartUseCase extends BaseUseCase
 {
     public function __construct(
-        private ShippingService $shippingService
+        private ShippingService $shippingService,
+        private StockValidationService $stockValidationService
     ) {}
     public function addToCart(AddToCartDTO $dto): CartDTO
     {
         $product = Product::findOrFail($dto->productId);
         
-        // TODO: Implementar validação de estoque quando módulo estiver completo
-        // $this->validateStock($product, $dto->quantity, $dto->variations);
+        $this->stockValidationService->validateStock($product, $dto->quantity, $dto->variations);
         
         $sessionId = SessionService::getCurrentId();
         
@@ -35,8 +36,7 @@ class CartUseCase
 
         if ($existingItem) {
             $newQuantity = $existingItem->quantity + $dto->quantity;
-            // TODO: Implementar validação de estoque quando módulo estiver completo
-            // $this->validateStock($product, $newQuantity, $dto->variations);
+            $this->stockValidationService->validateStock($product, $newQuantity, $dto->variations);
             
             $existingItem->update(['quantity' => $newQuantity]);
         } else {
@@ -71,8 +71,7 @@ class CartUseCase
             ->where('id', $itemId)
             ->firstOrFail();
 
-        // TODO: Implementar validação de estoque quando módulo estiver completo
-        // $this->validateStock($cartItem->product, $quantity, $cartItem->variations);
+        $this->stockValidationService->validateStock($cartItem->product, $quantity, $cartItem->variations);
 
         $cartItem->update(['quantity' => $quantity]);
 
@@ -122,20 +121,4 @@ class CartUseCase
         CartItem::where('session_id', $sessionId)->delete();
     }
 
-    private function validateStock(Product $product, int $quantity, ?array $variations = null): void
-    {
-        $stock = Stock::where('product_id', $product->id)
-            ->when($variations, function ($query) use ($variations) {
-                return $query->where('variations', json_encode($variations));
-            })
-            ->first();
-
-        if (!$stock) {
-            throw new ResourceNotFoundException('Produto', 'estoque');
-        }
-
-        if ($stock->available_quantity < $quantity) {
-            throw new \Exception("Estoque insuficiente. Disponível: {$stock->available_quantity}");
-        }
-    }
 }

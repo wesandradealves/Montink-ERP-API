@@ -13,6 +13,7 @@ Route::prefix('cart')->group(function () {
     Route::patch('/{id}', [\App\Modules\Cart\Api\Controllers\CartController::class, 'update']);
     Route::delete('/{id}', [\App\Modules\Cart\Api\Controllers\CartController::class, 'destroy']);
     Route::delete('/', [\App\Modules\Cart\Api\Controllers\CartController::class, 'clear']);
+    Route::post('/coupon', [\App\Modules\Cart\Api\Controllers\CartController::class, 'applyCoupon']);
 });
 
 Route::prefix('address')->group(function () {
