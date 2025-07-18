@@ -5,6 +5,66 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.9.0] - 2025-07-18
+
+### Adicionado
+- **Sistema de Mensagens Configuráveis**
+  - ENUM `ResponseMessage` com todas as mensagens da aplicação
+  - Arquivo de configuração `config/messages.php`
+  - Suporte a customização via variáveis de ambiente
+  - Fallback automático para mensagens padrão
+  - Documentação de todas as variáveis disponíveis
+
+- **Melhorias de Arquitetura**
+  - Type-safe com PHP 8 ENUMs
+  - Centralização de todas as mensagens de resposta
+  - Preparação para internacionalização futura
+  - Redução de strings hardcoded no código
+
+### Melhorado
+- **Controllers e UseCases**
+  - Refatoração para usar ENUMs ao invés de constantes
+  - `OrderController` usa `ResponseMessage::ORDER_CREATED->get()`
+  - `ProductController` usa `ResponseMessage::PRODUCT_CREATED->get()`
+  - `BaseApiController` usa `ResponseMessage::OPERATION_SUCCESS->get()`
+  - Mensagens de erro também utilizam ENUMs
+
+- **Documentação**
+  - README atualizado com seção sobre mensagens configuráveis
+  - Exemplos de customização via `.env`
+  - Lista de todas as mensagens disponíveis
+
+### Técnico
+- **ResponseMessage ENUM**
+  - Método `get()` retorna mensagem configurada ou padrão
+  - Suporte a todos os módulos do sistema
+  - Categorização por tipo (geral, produto, pedido, etc)
+
+- **Configuração Flexível**
+  - Arquivo `messages.php` mapeia ENUMs para config
+  - Variáveis de ambiente com prefixo `MSG_`
+  - Hot-reload sem necessidade de deploy
+
+### Exemplo de Uso
+```php
+// Antes
+return $this->successResponse($order, 'Pedido criado com sucesso');
+
+// Depois
+return $this->successResponse($order, ResponseMessage::ORDER_CREATED->get());
+```
+
+### Customização
+```env
+# .env
+MSG_ORDER_CREATED="Seu pedido foi realizado!"
+MSG_PRODUCT_CREATED="Produto adicionado ao catálogo!"
+```
+
+---
+
+**Meta da v0.9.0**: Sistema de mensagens totalmente configurável permitindo personalização completa das respostas da API sem alteração de código.
+
 ## [0.8.0] - 2025-07-18
 
 ### Adicionado
