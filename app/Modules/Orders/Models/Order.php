@@ -3,6 +3,7 @@
 namespace App\Modules\Orders\Models;
 
 use App\Common\Base\BaseModel;
+use App\Common\Enums\ResponseMessage;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends BaseModel
@@ -86,7 +87,7 @@ class Order extends BaseModel
     public function cancel(): void
     {
         if (!$this->canBeCancelled()) {
-            throw new \Exception("Pedido não pode ser cancelado no status atual: {$this->status}");
+            throw new \Exception(ResponseMessage::ORDER_CANNOT_CANCEL->get(['status' => $this->status]));
         }
 
         $this->status = 'cancelled';
@@ -98,7 +99,7 @@ class Order extends BaseModel
         $validStatuses = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
         
         if (!in_array($status, $validStatuses)) {
-            throw new \Exception("Status inválido: {$status}");
+            throw new \Exception(ResponseMessage::ORDER_INVALID_STATUS->get(['status' => $status]));
         }
 
         $this->status = $status;

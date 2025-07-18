@@ -3,11 +3,11 @@
 namespace App\Modules\Coupons\Api\Requests;
 
 use App\Common\Base\BaseFormRequest;
-use App\Common\Traits\ValidationMessagesTrait;
+use App\Common\Traits\UnifiedValidationMessages;
 
 class ValidateCouponRequest extends BaseFormRequest
 {
-    use ValidationMessagesTrait;
+    use UnifiedValidationMessages;
 
     public function rules(): array
     {
@@ -19,7 +19,7 @@ class ValidateCouponRequest extends BaseFormRequest
 
     public function messages(): array
     {
-        return array_merge($this->getCommonValidationMessages(), [
+        return array_merge($this->getDefaultValidationMessages(), [
             'value.min' => 'O valor deve ser maior ou igual a zero'
         ]);
     }

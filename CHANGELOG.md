@@ -5,6 +5,88 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.10.1] - 2025-07-18
+
+### Adicionado
+- **Sistema de Mensageria Unificado**
+  - Consolidação de todas as mensagens em único enum `ResponseMessage`
+  - Suporte a parâmetros de substituição (placeholders)
+  - Mensagens de validação integradas ao sistema principal
+  - Trait `UnifiedValidationMessages` para Form Requests
+  - Configuração completa via `.env` com arquivo exemplo
+
+- **Gerenciamento de Sessão para APIs**
+  - `SessionService` para gerenciamento unificado de IDs de sessão
+  - Suporte a cookies para APIs stateless
+  - Fallback automático entre sessão Laravel e cookies
+  - Cookie `session_id` com duração de 24 horas
+  - Integração transparente com carrinho de compras
+
+### Melhorado
+- **Padronização de Mensagens**
+  - TODAS as mensagens hardcoded movidas para o enum
+  - Mensagens com contexto variável (status, valores, etc)
+  - Arquivo `config/messages.php` atualizado com validações
+  - Eliminação de redundância entre 3 sistemas de mensagens
+
+- **Correções de API**
+  - Rota PATCH para atualização de carrinho sem ID
+  - Contador `totalItems` corrigido no carrinho
+  - Respostas de erro padronizadas em JSON
+  - Integração Cart-Order com valores padrão
+  - Campos obrigatórios com fallback automático
+
+### Corrigido
+- **Problemas de Sessão**
+  - Erro "Target class [cookie] does not exist" resolvido
+  - Uso correto de `Symfony\Component\HttpFoundation\Cookie`
+  - Persistência de sessão entre requisições API
+  - Sincronização de cookies com sessão do carrinho
+
+- **Validações e Mensagens**
+  - `ID do item é obrigatório` usando enum
+  - `Código do cupom é obrigatório` usando enum
+  - Mensagens de CEP, status de pedido e estoque padronizadas
+  - ResourceNotFoundException com mensagens do sistema
+
+### Removido
+- **Redundâncias do Sistema**
+  - `MessagesEnum` (substituído por ResponseMessage)
+  - `ValidationMessagesTrait` (substituído por UnifiedValidationMessages)
+  - `CommonValidationMessages` (substituído por UnifiedValidationMessages)
+  - Duplicação de mensagens em múltiplos arquivos
+
+### Técnico
+- **Sistema de Mensageria**
+  - Método `get(array $replace = [])` para substituições
+  - Fallback automático para mensagens padrão
+  - Suporte completo a internacionalização (i18n)
+  - Hot-reload de mensagens via variáveis de ambiente
+
+- **Gerenciamento de Sessão**
+  - Prioridade: Cookie > Sessão Laravel > Novo ID
+  - IDs únicos com prefixo 'cart_'
+  - Compatibilidade com APIs RESTful
+  - Método `withSessionCookie()` em controllers
+
+### Documentação
+- **Arquivo `.env.example.messages`**
+  - Todas as variáveis de mensagens disponíveis
+  - Exemplos de personalização
+  - Placeholders suportados documentados
+  - Instruções de uso claras
+
+### Testes
+- **Taxa de Sucesso: 100%**
+  - Todos os 11 testes passando
+  - Sessão mantida entre requisições
+  - Mensagens padronizadas validadas
+  - Fluxo E2E completo funcionando
+
+---
+
+**Meta da v0.10.1**: Sistema de mensageria completamente unificado e gerenciamento de sessão robusto para APIs, eliminando redundâncias e estabelecendo padrões consistentes para toda a aplicação.
+
 ## [0.10.0] - 2025-07-18
 
 ### Adicionado

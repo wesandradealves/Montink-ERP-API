@@ -3,12 +3,12 @@
 namespace App\Modules\Coupons\Api\Requests;
 
 use App\Common\Base\BaseFormRequest;
-use App\Common\Traits\ValidationMessagesTrait;
+use App\Common\Traits\UnifiedValidationMessages;
 use App\Modules\Coupons\Models\Coupon;
 
 class CreateCouponRequest extends BaseFormRequest
 {
-    use ValidationMessagesTrait;
+    use UnifiedValidationMessages;
 
     public function rules(): array
     {
@@ -27,7 +27,7 @@ class CreateCouponRequest extends BaseFormRequest
 
     public function messages(): array
     {
-        return array_merge($this->getCommonValidationMessages(), [
+        return array_merge($this->getDefaultValidationMessages(), [
             'code.unique' => 'Já existe um cupom com este código',
             'type.in' => 'O tipo de cupom deve ser: fixed (valor fixo) ou percentage (porcentagem)',
             'value.min' => 'O valor do cupom deve ser maior que zero',

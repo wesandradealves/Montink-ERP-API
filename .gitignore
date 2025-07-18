@@ -7,3 +7,4 @@ vendor
 *.txt
 bootstrap/cache/*
 storage/logs/*
+.vscode/*

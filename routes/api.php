@@ -10,6 +10,7 @@ Route::apiResource('products', \App\Modules\Products\Api\Controllers\ProductCont
 Route::prefix('cart')->group(function () {
     Route::get('/', [\App\Modules\Cart\Api\Controllers\CartController::class, 'index']);
     Route::post('/', [\App\Modules\Cart\Api\Controllers\CartController::class, 'store']);
+    Route::patch('/', [\App\Modules\Cart\Api\Controllers\CartController::class, 'update']);
     Route::patch('/{id}', [\App\Modules\Cart\Api\Controllers\CartController::class, 'update']);
     Route::delete('/{id}', [\App\Modules\Cart\Api\Controllers\CartController::class, 'destroy']);
     Route::delete('/', [\App\Modules\Cart\Api\Controllers\CartController::class, 'clear']);
