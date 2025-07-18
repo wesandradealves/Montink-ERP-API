@@ -5,6 +5,75 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.5.0] - 2025-07-17
+
+### Adicionado
+- **Integração Completa com API ViaCEP**
+  - Módulo Address com Clean Architecture
+  - Serviço ViaCepService para consultas de CEP
+  - Endpoints para busca e validação de CEP
+  - Tratamento de erros e timeouts
+  - Respostas padronizadas em português
+
+- **Endpoints de Endereço**
+  - GET /api/address/cep/{cep} - Buscar endereço completo
+  - POST /api/address/validate-cep - Validar se CEP existe
+  - DTOs específicos para endereços
+  - Documentação Swagger completa
+
+- **Infraestrutura DRY**
+  - BaseFormRequest para eliminar authorize() duplicado
+  - ValidationMessagesTrait para mensagens padronizadas
+  - ResourceNotFoundException para erros consistentes
+  - StockValidationService para lógica centralizada
+
+### Melhorado
+- **Documentação Swagger Completa**
+  - Todos os módulos agora aparecem no Swagger
+  - Tags adicionadas para Cart e Address
+  - Schema Address definido
+  - Rotas de Address registradas
+  - Geração automática funcionando
+
+- **Refatoração DRY Aplicada**
+  - Product estende BaseModel (elimina casts duplicados)
+  - CreateProductDTO estende BaseDTO (remove toArray duplicado)
+  - CartController usa handleUseCaseExecution (elimina try-catch)
+  - Requests usam ValidationMessagesTrait (mensagens centralizadas)
+  - Validação de estoque centralizada em serviço
+
+- **Métodos HTTP Melhorados**
+  - Todos endpoints de atualização mudados de PUT para PATCH
+  - UpdateProductRequest usa 'sometimes' para atualizações parciais
+  - Prática RESTful adequada para modificações parciais
+  - Documentação Swagger atualizada com PATCH
+
+### Corrigido
+- **Consistência da API**
+  - Todos os endpoints aparecem no Swagger
+  - Respostas padronizadas em todos os módulos
+  - Tratamento de erros uniformizado
+  - Mensagens de validação em português
+
+### Técnico
+- **Fluxo de Qualidade Obrigatório**
+  - Teste de todos endpoints após implementação
+  - Verificação de consistência no Swagger
+  - Análise de redundâncias DRY
+  - Testes de regressão
+  - Documentação sempre atualizada
+
+- **Padrões Estabelecidos**
+  - Um UseCase por responsabilidade de módulo
+  - Validação única no Request
+  - Métodos privados para lógica compartilhada
+  - Traits para comportamentos comuns
+  - Exceptions customizadas para erros específicos
+
+---
+
+**Meta da v0.5.0**: Sistema com integração ViaCEP funcional e código 100% DRY, estabelecendo padrões de qualidade e consistência para toda a aplicação.
+
 ## [0.4.0] - 2025-07-17
 
 ### Adicionado
