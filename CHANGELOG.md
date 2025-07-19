@@ -5,6 +5,14 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.2.3] - 2025-07-19
+
+### Adicionado
+- **Backup do Banco de Dados**
+  - Arquivo dump.sql com dados completos do sistema
+  - Documentação de backup e restauração no README
+  - Inclui estrutura, dados de teste e configurações
+
 ## [1.2.2] - 2025-07-19
 
 ### Corrigido
