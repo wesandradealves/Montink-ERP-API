@@ -147,7 +147,10 @@ class OrdersUseCase
     {
         $order = Order::findOrFail($orderId);
         
-        if ($status === 'cancelled' && $order->canBeCancelled()) {
+        if ($status === 'cancelled') {
+            if (!$order->canBeCancelled()) {
+                throw new \InvalidArgumentException(ResponseMessage::ORDER_CANNOT_CANCEL->get(['status' => $order->status]));
+            }
             $this->releaseStockReservations($order);
         }
 

@@ -1584,6 +1584,135 @@
                     }
                 }
             }
+        },
+        "/api/webhooks/order-status": {
+            "post": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "summary": "Webhook para atualização de status de pedido",
+                "description": "Recebe notificações externas para atualizar status de pedidos. Se o status for 'cancelado', o pedido é removido do sistema.",
+                "operationId": "webhookOrderStatus",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "order_id",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "order_id": {
+                                        "description": "ID do pedido",
+                                        "type": "integer",
+                                        "example": 123
+                                    },
+                                    "status": {
+                                        "description": "Novo status do pedido",
+                                        "type": "string",
+                                        "enum": [
+                                            "pending",
+                                            "processing",
+                                            "shipped",
+                                            "delivered",
+                                            "cancelled"
+                                        ],
+                                        "example": "processing"
+                                    },
+                                    "timestamp": {
+                                        "description": "Data/hora da mudança (opcional)",
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2025-01-18T10:30:00Z"
+                                    },
+                                    "notes": {
+                                        "description": "Observações adicionais (opcional)",
+                                        "type": "string",
+                                        "example": "Pedido enviado via transportadora X"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Webhook processado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Status do pedido atualizado com sucesso"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "order_id": {
+                                                    "type": "integer",
+                                                    "example": 123
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "processing"
+                                                },
+                                                "action": {
+                                                    "description": "Ação realizada: updated ou deleted",
+                                                    "type": "string",
+                                                    "example": "updated"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Pedido não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -2307,6 +2436,10 @@
         {
             "name": "Health",
             "description": "Endpoints de verificação de saúde da API"
+        },
+        {
+            "name": "Webhooks",
+            "description": "Webhooks"
         }
     ],
     "security": [

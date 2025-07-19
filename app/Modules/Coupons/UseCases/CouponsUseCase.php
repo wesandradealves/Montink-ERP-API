@@ -111,41 +111,28 @@ class CouponsUseCase
 
     public function validateCoupon(ValidateCouponDTO $dto): array
     {
-        try {
-            $coupon = Coupon::where('code', $dto->code)->first();
-            
-            if (!$coupon) {
-                return [
-                    'valid' => false,
-                    'message' => ResponseMessage::COUPON_NOT_FOUND->get()
-                ];
-            }
-
-            $error = $coupon->getValidationError($dto->value);
-            
-            if ($error) {
-                return [
-                    'valid' => false,
-                    'message' => $error
-                ];
-            }
-
-            $discount = $coupon->calculateDiscount($dto->value);
-
-            return [
-                'valid' => true,
-                'coupon' => $this->toCouponDTO($coupon),
-                'discount' => $discount,
-                'formatted_discount' => $this->formatMoney($discount),
-                'final_value' => $dto->value - $discount,
-                'formatted_final_value' => $this->formatMoney($dto->value - $discount)
-            ];
-        } catch (\Exception $e) {
-            return [
-                'valid' => false,
-                'message' => ResponseMessage::COUPON_INVALID->get()
-            ];
+        $coupon = Coupon::where('code', $dto->code)->first();
+        
+        if (!$coupon) {
+            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
         }
+
+        $error = $coupon->getValidationError($dto->value);
+        
+        if ($error) {
+            throw new \InvalidArgumentException($error);
+        }
+
+        $discount = $coupon->calculateDiscount($dto->value);
+
+        return [
+            'valid' => true,
+            'coupon' => $this->toCouponDTO($coupon),
+            'discount' => $discount,
+            'formatted_discount' => $this->formatMoney($discount),
+            'final_value' => $dto->value - $discount,
+            'formatted_final_value' => $this->formatMoney($dto->value - $discount)
+        ];
     }
 
     public function applyCoupon(string $code, float $value): array

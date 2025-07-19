@@ -41,6 +41,10 @@ Route::prefix('coupons')->group(function () {
     Route::post('/validate', [\App\Modules\Coupons\Api\Controllers\CouponController::class, 'validateCoupon']);
 });
 
+Route::prefix('webhooks')->group(function () {
+    Route::post('/order-status', [\App\Modules\Webhooks\Api\Controllers\WebhookController::class, 'orderStatus']);
+});
+
 Route::get('/', function () {
     return redirect('/docs');
 });

@@ -14,6 +14,7 @@ return [
         'found' => env('MSG_PRODUCT_FOUND', 'Produto encontrado com sucesso'),
         'not_found' => env('MSG_PRODUCT_NOT_FOUND', 'Produto não encontrado'),
         'stock_not_found' => env('MSG_PRODUCT_STOCK_NOT_FOUND', 'Produto com identificador \'estoque\' não encontrado'),
+        'variation_required' => env('MSG_PRODUCT_VARIATION_REQUIRED', 'Este produto possui variações. Especifique a variação desejada'),
     ],
     
     'order' => [

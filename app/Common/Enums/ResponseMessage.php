@@ -16,6 +16,7 @@ enum ResponseMessage: string
     case PRODUCT_FOUND = 'messages.product.found';
     case PRODUCT_NOT_FOUND = 'messages.product.not_found';
     case PRODUCT_STOCK_NOT_FOUND = 'messages.product.stock_not_found';
+    case PRODUCT_VARIATION_REQUIRED = 'messages.product.variation_required';
     
     // Mensagens de pedidos
     case ORDER_CREATED = 'messages.order.created';
@@ -110,6 +111,7 @@ enum ResponseMessage: string
             self::PRODUCT_FOUND => 'Produto encontrado com sucesso',
             self::PRODUCT_NOT_FOUND => 'Produto não encontrado',
             self::PRODUCT_STOCK_NOT_FOUND => 'Produto com identificador \'estoque\' não encontrado',
+            self::PRODUCT_VARIATION_REQUIRED => 'Este produto possui variações. Especifique a variação desejada',
             
             // Mensagens de pedidos
             self::ORDER_CREATED => 'Pedido criado com sucesso',
