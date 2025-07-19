@@ -31,12 +31,23 @@ class ProductsUseCase
 
         $product = $this->productRepository->create($dto->toArray());
         
-        // Criar registro de estoque com quantidade inicial
-        Stock::create([
-            'product_id' => $product->id,
-            'quantity' => 100, // Quantidade inicial padrão
-            'reserved' => 0
-        ]);
+        if ($product->variations && is_array($product->variations)) {
+            foreach ($product->variations as $variation) {
+                Stock::create([
+                    'product_id' => $product->id,
+                    'variations' => $variation,
+                    'quantity' => 100,
+                    'reserved' => 0
+                ]);
+            }
+        } else {
+            Stock::create([
+                'product_id' => $product->id,
+                'variations' => null,
+                'quantity' => 100,
+                'reserved' => 0
+            ]);
+        }
         
         return $product;
     }

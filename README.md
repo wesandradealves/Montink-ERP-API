@@ -9,24 +9,32 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 
 ## Funcionalidades
 
-### Implementado (v0.8.0)
-- **API Products** - CRUD completo de produtos com validações
-- **Sistema de Carrinho** - Gestão completa via sessão com cálculo de frete
+### Implementado (v1.0.0)
+- **API Products** - CRUD completo de produtos com validações e suporte a variações
+- **Sistema de Carrinho** - Gestão completa via sessão/cookies com cálculo de frete
 - **Integração ViaCEP** - Busca e validação automática de endereços
-- **Controle de Estoque** - Validação em tempo real com reservas
+- **Controle de Estoque** - Validação em tempo real com reservas e suporte a variações
 - **Sistema de Pedidos** - Finalização de compra com gestão de status
-- **Sistema de Cupons** - Descontos fixos e percentuais com validações
+- **Sistema de Cupons** - Descontos fixos e percentuais com validações completas
 - **Email de Confirmação** - Envio automático ao finalizar pedido via Mailpit
+- **Webhooks** - Recebimento de atualizações de status de pedidos
 - **Documentação Swagger** - Interface interativa para todos os módulos
 - **Health Check** - Monitoramento da saúde da API
-- **Validações** - Sistema robusto com mensagens em português
+- **Sistema de Mensageria** - Unificado com ResponseMessage enum
+- **Gerenciamento de Sessão** - Para APIs stateless com cookies
 - **Responses Padronizadas** - Estrutura JSON consistente com ApiResponseTrait
 - **Arquitetura DRY** - BaseModels, BaseDTOs, Traits reutilizáveis
 
+### Funcionalidades Adicionais
+- **Controle de Estoque por Variação** - Cada variação de produto tem seu próprio estoque
+- **Restrições de Status** - Pedidos enviados não podem ser cancelados
+- **Contador de Uso de Cupons** - Limite de uso implementado e funcional
+- **Mensagens Personalizáveis** - Via variáveis de ambiente
+
 ### Em Desenvolvimento
-- **Webhook** - Atualização de status via webhook
 - **Authentication** - Sistema de autenticação JWT
 - **Testes Automatizados** - Cobertura completa da aplicação
+- **Dashboard Administrativo** - Interface web para gestão
 
 ## Documentação da API
 
@@ -83,6 +91,11 @@ DELETE /api/coupons/{id}       # Excluir cupom
 POST   /api/coupons/validate   # Validar cupom
 ```
 
+#### Webhooks
+```http
+POST   /api/webhooks/order-status # Receber atualização de status de pedido
+```
+
 #### Health Check
 ```http
 GET    /api/health            # Verificar saúde da API
@@ -98,7 +111,12 @@ curl -X POST http://localhost/api/products \
     "name": "Notebook Dell",
     "description": "Notebook para desenvolvimento",
     "price": 2999.90,
-    "sku": "NB-DELL-001"
+    "sku": "NB-DELL-001",
+    "active": true,
+    "variations": [
+      {"size": "14 polegadas", "color": "Prata"},
+      {"size": "15 polegadas", "color": "Preto"}
+    ]
   }'
 ```
 
@@ -119,12 +137,21 @@ curl -X PATCH http://localhost/api/products/1 \
 
 #### Adicionar ao Carrinho
 ```bash
+# Produto sem variações
 curl -X POST http://localhost/api/cart \
   -H "Content-Type: application/json" \
   -d '{
     "product_id": 1,
-    "quantity": 2,
-    "variations": {"cor": "preto", "memoria": "16GB"}
+    "quantity": 2
+  }'
+
+# Produto com variações
+curl -X POST http://localhost/api/cart \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1,
+    "quantity": 1,
+    "variations": {"size": "15 polegadas", "color": "Preto"}
   }'
 ```
 
@@ -148,6 +175,18 @@ curl -X POST http://localhost/api/orders \
     "customer_neighborhood": "Bela Vista",
     "customer_city": "São Paulo",
     "customer_state": "SP"
+  }'
+```
+
+#### Webhook - Atualizar Status de Pedido
+```bash
+curl -X POST http://localhost/api/webhooks/order-status \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_id": 123,
+    "status": "shipped",
+    "timestamp": "2025-07-19T10:30:00Z",
+    "notes": "Pedido enviado via transportadora XYZ"
   }'
 ```
 

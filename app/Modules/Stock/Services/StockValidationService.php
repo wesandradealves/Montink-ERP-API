@@ -14,12 +14,17 @@ class StockValidationService
         $stock = Stock::where('product_id', $product->id);
         
         if ($variations) {
-            $stock->where('variations', json_encode($variations));
+            $stock->whereJsonContains('variations', $variations);
+        } else {
+            $stock->whereNull('variations');
         }
         
         $stock = $stock->first();
         
         if (!$stock) {
+            if ($variations === null && Stock::where('product_id', $product->id)->whereNotNull('variations')->exists()) {
+                throw new \InvalidArgumentException(ResponseMessage::PRODUCT_VARIATION_REQUIRED->get());
+            }
             throw new ResourceNotFoundException(ResponseMessage::PRODUCT_STOCK_NOT_FOUND->get());
         }
         
@@ -35,7 +40,9 @@ class StockValidationService
         $stock = Stock::where('product_id', $productId);
         
         if ($variations) {
-            $stock->where('variations', json_encode($variations));
+            $stock->whereJsonContains('variations', $variations);
+        } else {
+            $stock->whereNull('variations');
         }
         
         $stock = $stock->first();
@@ -52,7 +59,9 @@ class StockValidationService
         $stock = Stock::where('product_id', $productId);
         
         if ($variations) {
-            $stock->where('variations', json_encode($variations));
+            $stock->whereJsonContains('variations', $variations);
+        } else {
+            $stock->whereNull('variations');
         }
         
         $stock = $stock->first();
@@ -67,7 +76,9 @@ class StockValidationService
         $stock = Stock::where('product_id', $productId);
         
         if ($variations) {
-            $stock->where('variations', json_encode($variations));
+            $stock->whereJsonContains('variations', $variations);
+        } else {
+            $stock->whereNull('variations');
         }
         
         $stock = $stock->first();
