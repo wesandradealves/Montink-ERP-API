@@ -10,7 +10,7 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 ## Funcionalidades
 
 ### Implementado (v1.1.0)
-- **API Products** - CRUD completo de produtos com validações e suporte a variações
+- **API Products** - CRUD completo de produtos com validações, suporte a variações e filtros de preço
 - **Sistema de Carrinho** - Gestão completa via sessão/cookies com cálculo de frete
 - **Integração ViaCEP** - Busca e validação automática de endereços
 - **Controle de Estoque** - Validação em tempo real com reservas e suporte a variações
@@ -59,7 +59,7 @@ GET    /api/auth/me           # Dados do usuário autenticado (requer autentica�
 
 #### Products
 ```http
-GET    /api/products          # Listar produtos com filtros
+GET    /api/products          # Listar produtos (filtros: only_active, search, min_price, max_price)
 GET    /api/products/{id}     # Buscar produto específico  
 POST   /api/products          # Criar novo produto
 PATCH  /api/products/{id}     # Atualizar produto (parcial)
@@ -186,7 +186,20 @@ curl -X POST http://localhost/api/products \
 
 #### Listar Produtos
 ```bash
-curl -X GET "http://localhost/api/products?only_active=true&search=notebook"
+# Todos os produtos
+curl -X GET "http://localhost/api/products"
+
+# Filtrar por status ativo
+curl -X GET "http://localhost/api/products?only_active=true"
+
+# Buscar por nome
+curl -X GET "http://localhost/api/products?search=notebook"
+
+# Filtrar por faixa de preço
+curl -X GET "http://localhost/api/products?min_price=100&max_price=500"
+
+# Combinar filtros
+curl -X GET "http://localhost/api/products?only_active=true&min_price=50&max_price=200"
 ```
 
 #### Atualizar Produto (PATCH)

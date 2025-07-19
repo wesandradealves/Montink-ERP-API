@@ -86,4 +86,23 @@ class ProductRepository implements ProductRepositoryInterface
     {
         return Product::where('name', 'LIKE', "%{$name}%")->get()->toArray();
     }
+    
+    public function findByPriceRange(?float $minPrice, ?float $maxPrice, bool $onlyActive = false): array
+    {
+        $query = Product::query();
+        
+        if ($minPrice !== null) {
+            $query->where('price', '>=', $minPrice);
+        }
+        
+        if ($maxPrice !== null) {
+            $query->where('price', '<=', $maxPrice);
+        }
+        
+        if ($onlyActive) {
+            $query->where('active', true);
+        }
+        
+        return $query->get()->toArray();
+    }
 }

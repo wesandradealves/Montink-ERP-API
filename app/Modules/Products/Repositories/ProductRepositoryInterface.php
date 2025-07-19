@@ -12,4 +12,6 @@ interface ProductRepositoryInterface extends BaseRepositoryInterface
     public function findActiveProducts(): array;
     
     public function searchByName(string $name): array;
+    
+    public function findByPriceRange(?float $minPrice, ?float $maxPrice, bool $onlyActive = false): array;
 }

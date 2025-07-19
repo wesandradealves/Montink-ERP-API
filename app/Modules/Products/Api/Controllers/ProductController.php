@@ -39,6 +39,20 @@ class ProductController extends BaseApiController
      *         required=false,
      *         @OA\Schema(type="string")
      *     ),
+     *     @OA\Parameter(
+     *         name="min_price",
+     *         in="query",
+     *         description="Preço mínimo",
+     *         required=false,
+     *         @OA\Schema(type="number", format="float", minimum=0)
+     *     ),
+     *     @OA\Parameter(
+     *         name="max_price",
+     *         in="query",
+     *         description="Preço máximo",
+     *         required=false,
+     *         @OA\Schema(type="number", format="float", minimum=0)
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Lista de produtos retornada com sucesso",
@@ -52,10 +66,20 @@ class ProductController extends BaseApiController
     public function index(Request $request)
     {
         return $this->handleUseCaseExecution(function() use ($request) {
-            $products = $this->productsUseCase->list([
+            $filters = [
                 'only_active' => $request->boolean('only_active'),
                 'search' => $request->get('search'),
-            ]);
+            ];
+            
+            if ($request->has('min_price')) {
+                $filters['min_price'] = (float) $request->get('min_price');
+            }
+            
+            if ($request->has('max_price')) {
+                $filters['max_price'] = (float) $request->get('max_price');
+            }
+            
+            $products = $this->productsUseCase->list($filters);
             return $products;
         });
     }

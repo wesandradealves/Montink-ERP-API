@@ -85,6 +85,12 @@ class ProductsUseCase
     {
         $onlyActive = $filters['only_active'] ?? false;
         $search = $filters['search'] ?? null;
+        $minPrice = $filters['min_price'] ?? null;
+        $maxPrice = $filters['max_price'] ?? null;
+        
+        if ($minPrice !== null || $maxPrice !== null) {
+            return $this->productRepository->findByPriceRange($minPrice, $maxPrice, $onlyActive);
+        }
         
         if ($search) {
             return $this->productRepository->searchByName($search);
