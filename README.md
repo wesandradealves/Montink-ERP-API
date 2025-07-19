@@ -1307,6 +1307,27 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICEN
 - **Erro de conexão BD**: Verifique se os containers estão rodando
 - **Permissões**: Ajuste permissões das pastas `storage/` e `bootstrap/cache/`
 
+## Backup e Restauração
+
+### Criar Backup do Banco de Dados
+```bash
+# Exportar dump do banco de dados
+docker exec montink_erp_mysql mysqldump -u root -proot montink_erp > dump.sql
+```
+
+### Restaurar Backup
+```bash
+# Importar dump para o banco de dados
+docker exec -i montink_erp_mysql mysql -u root -proot montink_erp < dump.sql
+```
+
+### Backup Incluído
+O arquivo `dump.sql` contém um backup completo do banco de dados com:
+- Estrutura completa das tabelas
+- Dados de exemplo e testes
+- Usuários e configurações
+- Produtos, pedidos e transações de teste
+
 ### Contato
 - **Issues**: Use o sistema de issues do repositório
 - **Documentação**: Consulte os arquivos `.md` no projeto
