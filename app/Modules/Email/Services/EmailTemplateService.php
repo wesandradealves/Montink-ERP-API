@@ -2,13 +2,12 @@
 
 namespace App\Modules\Email\Services;
 
-use App\Common\Base\BaseService;
 use App\Common\Enums\ResponseMessage;
 use App\Common\Traits\MoneyFormatter;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
-class EmailTemplateService extends BaseService
+class EmailTemplateService
 {
     use MoneyFormatter;
 

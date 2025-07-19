@@ -24,9 +24,9 @@ class WebhookUseCase
             }
 
             $oldStatus = $order->status;
-            $newStatus = OrderStatus::from($status);
-
-            if ($newStatus === OrderStatus::CANCELLED) {
+            $newStatusEnum = OrderStatus::from($status);
+            
+            if ($newStatusEnum === OrderStatus::CANCELLED) {
                 $order->delete();
                 
                 Log::info(ResponseMessage::LOG_ORDER_REMOVED_WEBHOOK->get(), [
@@ -44,21 +44,21 @@ class WebhookUseCase
                 ];
             }
 
-            $order->status = $newStatus;
+            $order->status = $newStatusEnum->value;
             $order->save();
 
             Log::info(ResponseMessage::LOG_ORDER_STATUS_UPDATED_WEBHOOK->get(), [
                 'order_id' => $orderId,
-                'old_status' => $oldStatus->value,
-                'new_status' => $newStatus->value,
+                'old_status' => $oldStatus,
+                'new_status' => $newStatusEnum->value,
                 'timestamp' => $timestamp,
                 'notes' => $notes
             ]);
 
             return [
                 'order_id' => $orderId,
-                'old_status' => $oldStatus->value,
-                'new_status' => $newStatus->value,
+                'old_status' => $oldStatus,
+                'new_status' => $newStatusEnum->value,
                 'action' => 'updated',
                 'updated_at' => now()->toISOString()
             ];

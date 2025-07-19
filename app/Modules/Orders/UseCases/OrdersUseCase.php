@@ -90,7 +90,7 @@ class OrdersUseCase
                     'variations' => $cartItem->variations,
                 ]);
 
-                $this->updateStockReservation($cartItem->product_id, $cartItem->quantity, $cartItem->variations);
+                $this->stockValidationService->reserveStock($cartItem->product_id, $cartItem->quantity, $cartItem->variations);
             }
 
             CartItem::where('session_id', $sessionId)->delete();
