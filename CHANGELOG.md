@@ -7,7 +7,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [1.0.0] - 2025-07-19
 
-### 🎉 Primeira Versão Estável
+### Primeira Versão Estável
 
 Sistema Mini ERP completo com todas as funcionalidades obrigatórias e bônus implementadas, seguindo Clean Architecture e princípios DDD.
 
