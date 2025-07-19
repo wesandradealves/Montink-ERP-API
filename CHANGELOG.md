@@ -5,6 +5,13 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.2.2] - 2025-07-19
+
+### Corrigido
+- **ResponseMessage Enum**
+  - Adicionada mensagem COUPON_APPLIED_SUCCESSFULLY que estava faltante
+  - Correção previne erro ao aplicar cupons no carrinho
+
 ## [1.2.1] - 2025-07-19
 
 ### Corrigido
