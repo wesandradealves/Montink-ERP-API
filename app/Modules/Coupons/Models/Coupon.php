@@ -4,6 +4,7 @@ namespace App\Modules\Coupons\Models;
 
 use App\Common\Base\BaseModel;
 use App\Common\Traits\MoneyFormatter;
+use App\Common\Enums\ResponseMessage;
 use Illuminate\Database\Eloquent\Builder;
 
 class Coupon extends BaseModel
@@ -38,8 +39,8 @@ class Coupon extends BaseModel
     public static function getTypes(): array
     {
         return [
-            self::TYPE_FIXED => 'Valor Fixo',
-            self::TYPE_PERCENTAGE => 'Porcentagem'
+            self::TYPE_FIXED => ResponseMessage::COUPON_TYPE_FIXED->get(),
+            self::TYPE_PERCENTAGE => ResponseMessage::COUPON_TYPE_PERCENTAGE->get()
         ];
     }
 
@@ -65,89 +66,45 @@ class Coupon extends BaseModel
         return $query->where('code', $code);
     }
 
-    public function isValid(): bool
+    // Métodos simplificados para acesso a dados apenas
+    
+    public function isActive(): bool
     {
-        if (!$this->active) {
+        return $this->active;
+    }
+
+    public function isWithinValidityPeriod(): bool
+    {
+        $now = now();
+        
+        if ($this->valid_from && $this->valid_from->isAfter($now)) {
             return false;
         }
 
-        if ($this->valid_from && $this->valid_from->isFuture()) {
-            return false;
-        }
-
-        if ($this->valid_until && $this->valid_until->isPast()) {
-            return false;
-        }
-
-        if ($this->usage_limit && $this->used_count >= $this->usage_limit) {
+        if ($this->valid_until && $this->valid_until->isBefore($now)) {
             return false;
         }
 
         return true;
     }
 
-    public function canBeUsedWithValue(float $value): bool
+    public function hasReachedUsageLimit(): bool
     {
-        if (!$this->isValid()) {
-            return false;
-        }
-
-        if ($this->minimum_value && $value < $this->minimum_value) {
-            return false;
-        }
-
-        return true;
+        return $this->usage_limit && $this->used_count >= $this->usage_limit;
     }
 
-    public function calculateDiscount(float $value): float
+    public function hasMinimumValue(): bool
     {
-        if (!$this->canBeUsedWithValue($value)) {
-            return 0;
-        }
-
-        if ($this->type === self::TYPE_FIXED) {
-            return min($this->value, $value);
-        }
-
-        return $value * ($this->value / 100);
+        return $this->minimum_value > 0;
     }
 
-    public function incrementUsage(): void
+    public function isFixedType(): bool
     {
-        $this->increment('used_count');
+        return $this->type === self::TYPE_FIXED;
     }
 
-    public function getFormattedValue(): string
+    public function isPercentageType(): bool
     {
-        if ($this->type === self::TYPE_FIXED) {
-            return $this->formatMoney($this->value);
-        }
-
-        return $this->value . '%';
-    }
-
-    public function getValidationError(float $value = 0): ?string
-    {
-        if (!$this->active) {
-            return 'Cupom inativo';
-        }
-
-        if ($this->valid_from && $this->valid_from->isFuture()) {
-            return 'Cupom ainda não está válido';
-        }
-
-        if ($this->valid_until && $this->valid_until->isPast()) {
-            return 'Cupom expirado';
-        }
-
-        if ($this->usage_limit && $this->used_count >= $this->usage_limit) {
-            return 'Cupom já atingiu o limite de uso';
-        }
-
-        if ($this->minimum_value && $value < $this->minimum_value) {
-            return 'Valor mínimo de ' . $this->formatMoney($this->minimum_value) . ' não atingido';
-        }
-
-        return null;
+        return $this->type === self::TYPE_PERCENTAGE;
     }
 }

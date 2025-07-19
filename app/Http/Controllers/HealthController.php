@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Common\Base\BaseApiController;
+use App\Common\Enums\ResponseMessage;
+use Illuminate\Http\JsonResponse;
 
-class HealthController extends Controller
+class HealthController extends BaseApiController
 {
     /**
      * @OA\Get(
@@ -20,12 +22,44 @@ class HealthController extends Controller
      *     )
      * )
      */
-    public function check(): array
+    public function check(): JsonResponse
     {
-        return [
+        $data = [
             'status' => 'healthy',
-            'timestamp' => date('c'),
-            'version' => '0.4.0'
+            'timestamp' => now()->toIso8601String(),
+            'version' => config('app.version', '1.1.0'),
+            'environment' => config('app.env'),
+            'database' => $this->checkDatabase(),
+            'cache' => $this->checkCache()
         ];
+
+        return $this->successResponse($data);
+    }
+
+    /**
+     * Verifica conexão com banco de dados
+     */
+    private function checkDatabase(): string
+    {
+        try {
+            \DB::connection()->getPdo();
+            return 'connected';
+        } catch (\Exception $e) {
+            return 'disconnected';
+        }
+    }
+
+    /**
+     * Verifica conexão com cache
+     */
+    private function checkCache(): string
+    {
+        try {
+            cache()->store()->put('health_check', true, 1);
+            cache()->store()->forget('health_check');
+            return 'working';
+        } catch (\Exception $e) {
+            return 'not working';
+        }
     }
 }

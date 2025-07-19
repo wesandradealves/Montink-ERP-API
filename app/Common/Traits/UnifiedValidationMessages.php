@@ -46,6 +46,13 @@ trait UnifiedValidationMessages
             'size' => ResponseMessage::VALIDATION_SIZE->get(),
             'gt' => ResponseMessage::VALIDATION_GT->get(),
             'after' => ResponseMessage::VALIDATION_AFTER->get(),
+            
+            // Mensagens específicas para campos
+            'customer_cpf.size' => ResponseMessage::VALIDATION_CPF_FORMAT->get(),
+            'customer_cep.size' => ResponseMessage::VALIDATION_CEP_FORMAT->get(),
+            'customer_state.size' => ResponseMessage::VALIDATION_STATE_FORMAT->get(),
+            'sku.unique' => ResponseMessage::PRODUCT_SKU_ALREADY_EXISTS->get(),
+            'price.min' => ResponseMessage::PRODUCT_PRICE_MIN_ERROR->get(),
         ];
     }
 

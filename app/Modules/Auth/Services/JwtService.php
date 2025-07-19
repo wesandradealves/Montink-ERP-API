@@ -3,6 +3,7 @@
 namespace App\Modules\Auth\Services;
 
 use App\Modules\Auth\Models\User;
+use App\Common\Enums\ResponseMessage;
 
 class JwtService
 {
@@ -43,7 +44,7 @@ class JwtService
         $parts = explode('.', $token);
         
         if (count($parts) !== 3) {
-            throw new \InvalidArgumentException('Token inválido');
+            throw new \InvalidArgumentException(ResponseMessage::AUTH_TOKEN_INVALID_FORMAT->get());
         }
 
         list($header, $payload, $signature) = $parts;
@@ -53,17 +54,17 @@ class JwtService
         );
 
         if ($signature !== $validSignature) {
-            throw new \InvalidArgumentException('Assinatura inválida');
+            throw new \InvalidArgumentException(ResponseMessage::AUTH_TOKEN_SIGNATURE_INVALID->get());
         }
 
         $payloadData = json_decode($this->base64UrlDecode($payload), true);
 
         if (!$payloadData) {
-            throw new \InvalidArgumentException('Payload inválido');
+            throw new \InvalidArgumentException(ResponseMessage::AUTH_TOKEN_PAYLOAD_INVALID->get());
         }
 
         if (isset($payloadData['exp']) && $payloadData['exp'] < time()) {
-            throw new \InvalidArgumentException('Token expirado');
+            throw new \InvalidArgumentException(ResponseMessage::AUTH_TOKEN_EXPIRED->get());
         }
 
         return $payloadData;

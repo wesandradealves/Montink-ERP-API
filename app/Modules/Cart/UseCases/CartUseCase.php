@@ -17,7 +17,8 @@ class CartUseCase extends BaseUseCase
 {
     public function __construct(
         private ShippingService $shippingService,
-        private StockValidationService $stockValidationService
+        private StockValidationService $stockValidationService,
+        private SessionService $sessionService
     ) {}
     public function addToCart(AddToCartDTO $dto): CartDTO
     {
@@ -25,7 +26,7 @@ class CartUseCase extends BaseUseCase
         
         $this->stockValidationService->validateStock($product, $dto->quantity, $dto->variations);
         
-        $sessionId = SessionService::getCurrentId();
+        $sessionId = $this->sessionService->getCurrentId();
         
         $existingItem = CartItem::where('session_id', $sessionId)
             ->where('product_id', $dto->productId)
@@ -54,7 +55,7 @@ class CartUseCase extends BaseUseCase
 
     public function removeFromCart(int $itemId): CartDTO
     {
-        $sessionId = SessionService::getCurrentId();
+        $sessionId = $this->sessionService->getCurrentId();
         
         CartItem::where('session_id', $sessionId)
             ->where('id', $itemId)
@@ -65,7 +66,7 @@ class CartUseCase extends BaseUseCase
 
     public function updateQuantity(int $itemId, int $quantity): CartDTO
     {
-        $sessionId = SessionService::getCurrentId();
+        $sessionId = $this->sessionService->getCurrentId();
         
         $cartItem = CartItem::where('session_id', $sessionId)
             ->where('id', $itemId)
@@ -80,7 +81,7 @@ class CartUseCase extends BaseUseCase
 
     public function getCart(): CartDTO
     {
-        $sessionId = SessionService::getCurrentId();
+        $sessionId = $this->sessionService->getCurrentId();
         
         $cartItems = CartItem::with('product')
             ->where('session_id', $sessionId)
@@ -116,7 +117,7 @@ class CartUseCase extends BaseUseCase
 
     public function clearCart(): void
     {
-        $sessionId = SessionService::getCurrentId();
+        $sessionId = $this->sessionService->getCurrentId();
         
         CartItem::where('session_id', $sessionId)->delete();
     }

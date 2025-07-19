@@ -223,7 +223,7 @@ class CartController extends BaseApiController
             // Por enquanto, apenas retorna sucesso para teste
             return [
                 'success' => true,
-                'message' => 'Cupom aplicado com sucesso',
+                'message' => ResponseMessage::COUPON_APPLIED_SUCCESSFULLY->get(),
                 'discount' => 10
             ];
         });

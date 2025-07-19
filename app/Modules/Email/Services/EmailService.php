@@ -4,6 +4,7 @@ namespace App\Modules\Email\Services;
 
 use App\Common\Traits\MoneyFormatter;
 use App\Common\Traits\DocumentFormatter;
+use App\Common\Enums\ResponseMessage;
 use App\Modules\Email\DTOs\OrderConfirmationEmailDTO;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
@@ -11,25 +12,24 @@ use Illuminate\Support\Facades\Log;
 class EmailService
 {
     use MoneyFormatter, DocumentFormatter;
+    
+    private EmailTemplateService $templateService;
+    
+    public function __construct(EmailTemplateService $templateService)
+    {
+        $this->templateService = $templateService;
+    }
 
     public function sendOrderConfirmationEmail(OrderConfirmationEmailDTO $dto): bool
     {
-        try {
-            $data = $this->prepareEmailData($dto);
-            
-            Mail::send('emails.order-confirmation', $data, function ($message) use ($dto) {
-                $message->to($dto->customerEmail, $dto->customerName)
-                    ->subject('Confirmação de Pedido #' . $dto->orderNumber);
-            });
-
-            return true;
-        } catch (\Exception $e) {
-            Log::error('Erro ao enviar email de confirmação: ' . $e->getMessage(), [
-                'order_number' => $dto->orderNumber,
-                'customer_email' => $dto->customerEmail
-            ]);
-            return false;
-        }
+        $data = $this->prepareEmailData($dto);
+        
+        return $this->templateService->send(
+            'order_confirmation',
+            $dto->customerEmail,
+            $data,
+            $dto->customerName
+        );
     }
 
     private function prepareEmailData(OrderConfirmationEmailDTO $dto): array

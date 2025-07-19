@@ -16,8 +16,5 @@ class UpdateOrderStatusRequest extends BaseFormRequest
         ];
     }
 
-    protected array $customMessages = [
-        'status.required' => 'O status é obrigatório',
-        'status.in' => 'Status inválido. Valores aceitos: pending, processing, shipped, delivered, cancelled',
-    ];
+    protected array $customMessages = [];
 }
