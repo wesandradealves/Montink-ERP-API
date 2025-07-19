@@ -5,6 +5,15 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.2.1] - 2025-07-19
+
+### Corrigido
+- **WebhookUseCase**
+  - Correção no uso correto de Enum para status de pedidos
+  - Conversão adequada de string para OrderStatus Enum
+  - Mantém compatibilidade com modelo que armazena status como string
+  - Remove acesso incorreto à propriedade ->value em strings
+
 ## [1.2.0] - 2025-07-19
 
 ### Melhorias Significativas de Qualidade e DRY Compliance
