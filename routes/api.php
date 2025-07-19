@@ -5,6 +5,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/health', [\App\Http\Controllers\HealthController::class, 'check']);
 
+Route::prefix('auth')->group(function () {
+    Route::post('/login', [\App\Modules\Auth\Api\Controllers\AuthController::class, 'login']);
+    Route::post('/register', [\App\Modules\Auth\Api\Controllers\AuthController::class, 'register']);
+    Route::post('/refresh', [\App\Modules\Auth\Api\Controllers\AuthController::class, 'refresh']);
+    
+    Route::middleware('jwt.auth')->group(function () {
+        Route::post('/logout', [\App\Modules\Auth\Api\Controllers\AuthController::class, 'logout']);
+        Route::get('/me', [\App\Modules\Auth\Api\Controllers\AuthController::class, 'me']);
+    });
+});
+
 Route::apiResource('products', \App\Modules\Products\Api\Controllers\ProductController::class);
 
 Route::prefix('cart')->group(function () {

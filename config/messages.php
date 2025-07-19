@@ -66,6 +66,21 @@ return [
         'insufficient_available' => env('MSG_STOCK_INSUFFICIENT_AVAILABLE', 'Estoque insuficiente. Disponível: :available'),
     ],
     
+    'auth' => [
+        'login_success' => env('MSG_AUTH_LOGIN_SUCCESS', 'Login realizado com sucesso'),
+        'logout_success' => env('MSG_AUTH_LOGOUT_SUCCESS', 'Logout realizado com sucesso'),
+        'register_success' => env('MSG_AUTH_REGISTER_SUCCESS', 'Usuário registrado com sucesso'),
+        'invalid_credentials' => env('MSG_AUTH_INVALID_CREDENTIALS', 'Credenciais inválidas'),
+        'user_not_found' => env('MSG_AUTH_USER_NOT_FOUND', 'Usuário não encontrado'),
+        'user_inactive' => env('MSG_AUTH_USER_INACTIVE', 'Usuário inativo'),
+        'token_invalid' => env('MSG_AUTH_TOKEN_INVALID', 'Token inválido'),
+        'token_expired' => env('MSG_AUTH_TOKEN_EXPIRED', 'Token expirado'),
+        'token_refreshed' => env('MSG_AUTH_TOKEN_REFRESHED', 'Token atualizado com sucesso'),
+        'unauthorized' => env('MSG_AUTH_UNAUTHORIZED', 'Não autorizado'),
+        'email_already_exists' => env('MSG_AUTH_EMAIL_ALREADY_EXISTS', 'Este email já está em uso'),
+        'token_not_provided' => env('MSG_AUTH_TOKEN_NOT_PROVIDED', 'Token não fornecido'),
+    ],
+    
     'validation' => [
         'required' => env('MSG_VALIDATION_REQUIRED', 'O campo :attribute é obrigatório'),
         'string' => env('MSG_VALIDATION_STRING', 'O campo :attribute deve ser um texto'),

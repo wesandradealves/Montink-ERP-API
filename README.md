@@ -24,6 +24,7 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 - **Gerenciamento de Sessão** - Para APIs stateless com cookies
 - **Responses Padronizadas** - Estrutura JSON consistente com ApiResponseTrait
 - **Arquitetura DRY** - BaseModels, BaseDTOs, Traits reutilizáveis
+- **Autenticação JWT** - Sistema completo com login, registro, refresh e logout
 
 ### Funcionalidades Adicionais
 - **Controle de Estoque por Variação** - Cada variação de produto tem seu próprio estoque
@@ -32,7 +33,6 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 - **Mensagens Personalizáveis** - Via variáveis de ambiente
 
 ### Em Desenvolvimento
-- **Authentication** - Sistema de autenticação JWT
 - **Testes Automatizados** - Cobertura completa da aplicação
 - **Dashboard Administrativo** - Interface web para gestão
 
@@ -45,6 +45,15 @@ A documentação Swagger está disponível em:
 - **Redirecionamentos**: `/` e `/api/` → `/docs`
 
 ### Endpoints Disponíveis
+
+#### Authentication (JWT)
+```http
+POST   /api/auth/register     # Registrar novo usuário
+POST   /api/auth/login        # Fazer login (retorna token)
+POST   /api/auth/refresh      # Renovar token expirado
+POST   /api/auth/logout       # Fazer logout (requer autenticação)
+GET    /api/auth/me           # Dados do usuário autenticado (requer autenticação)
+```
 
 #### Products
 ```http
@@ -102,6 +111,59 @@ GET    /api/health            # Verificar saúde da API
 ```
 
 ### Exemplos de Uso
+
+#### Autenticação
+
+##### Registrar Usuário
+```bash
+curl -X POST http://localhost/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "João Silva",
+    "email": "joao@example.com",
+    "password": "senha123",
+    "password_confirmation": "senha123"
+  }'
+```
+
+##### Fazer Login
+```bash
+curl -X POST http://localhost/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "joao@example.com",
+    "password": "senha123"
+  }'
+
+# Resposta incluirá:
+# {
+#   "data": {
+#     "accessToken": "eyJ0eXAiOiJKV1...",
+#     "refreshToken": "c64aec473c2461...",
+#     "tokenType": "Bearer",
+#     "expiresIn": 3600,
+#     "user": {...}
+#   }
+# }
+```
+
+##### Usar Endpoints Autenticados
+```bash
+# Usar o accessToken retornado no login
+TOKEN="eyJ0eXAiOiJKV1..."
+
+curl -X GET http://localhost/api/auth/me \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+##### Renovar Token
+```bash
+curl -X POST http://localhost/api/auth/refresh \
+  -H "Content-Type: application/json" \
+  -d '{
+    "refresh_token": "c64aec473c2461..."
+  }'
+```
 
 #### Criar Produto
 ```bash

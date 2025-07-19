@@ -30,6 +30,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
         \L5Swagger\L5SwaggerServiceProvider::class,
         App\Infrastructure\Providers\AppServiceProvider::class,
         App\Infrastructure\Providers\RouteServiceProvider::class,
@@ -38,6 +39,7 @@ return [
         App\Modules\Orders\Providers\OrdersServiceProvider::class,
         App\Modules\Coupons\Providers\CouponsServiceProvider::class,
         App\Modules\Email\Providers\EmailServiceProvider::class,
+        App\Modules\Auth\Providers\AuthServiceProvider::class,
     ],
 
     'aliases' => [

@@ -13,5 +13,7 @@ class Kernel extends HttpKernel
         'api' => [],
     ];
 
-    protected $middlewareAliases = [];
+    protected $middlewareAliases = [
+        'jwt.auth' => \App\Modules\Auth\Api\Middleware\JwtAuthMiddleware::class,
+    ];
 }

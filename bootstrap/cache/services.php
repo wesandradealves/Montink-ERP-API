@@ -16,21 +16,23 @@
     12 => 'Illuminate\\Translation\\TranslationServiceProvider',
     13 => 'Illuminate\\Validation\\ValidationServiceProvider',
     14 => 'Illuminate\\View\\ViewServiceProvider',
-    15 => 'L5Swagger\\L5SwaggerServiceProvider',
-    16 => 'Laravel\\Sail\\SailServiceProvider',
-    17 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    18 => 'Carbon\\Laravel\\ServiceProvider',
-    19 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    20 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    21 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    22 => 'L5Swagger\\L5SwaggerServiceProvider',
-    23 => 'App\\Infrastructure\\Providers\\AppServiceProvider',
-    24 => 'App\\Infrastructure\\Providers\\RouteServiceProvider',
-    25 => 'App\\Modules\\Products\\Providers\\ProductsServiceProvider',
-    26 => 'App\\Modules\\Cart\\Providers\\CartServiceProvider',
-    27 => 'App\\Modules\\Orders\\Providers\\OrdersServiceProvider',
-    28 => 'App\\Modules\\Coupons\\Providers\\CouponsServiceProvider',
-    29 => 'App\\Modules\\Email\\Providers\\EmailServiceProvider',
+    15 => 'Illuminate\\Hashing\\HashServiceProvider',
+    16 => 'L5Swagger\\L5SwaggerServiceProvider',
+    17 => 'Laravel\\Sail\\SailServiceProvider',
+    18 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    19 => 'Carbon\\Laravel\\ServiceProvider',
+    20 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    21 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    22 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
+    23 => 'L5Swagger\\L5SwaggerServiceProvider',
+    24 => 'App\\Infrastructure\\Providers\\AppServiceProvider',
+    25 => 'App\\Infrastructure\\Providers\\RouteServiceProvider',
+    26 => 'App\\Modules\\Products\\Providers\\ProductsServiceProvider',
+    27 => 'App\\Modules\\Cart\\Providers\\CartServiceProvider',
+    28 => 'App\\Modules\\Orders\\Providers\\OrdersServiceProvider',
+    29 => 'App\\Modules\\Coupons\\Providers\\CouponsServiceProvider',
+    30 => 'App\\Modules\\Email\\Providers\\EmailServiceProvider',
+    31 => 'App\\Modules\\Auth\\Providers\\AuthServiceProvider',
   ),
   'eager' => 
   array (
@@ -54,6 +56,7 @@
     17 => 'App\\Modules\\Orders\\Providers\\OrdersServiceProvider',
     18 => 'App\\Modules\\Coupons\\Providers\\CouponsServiceProvider',
     19 => 'App\\Modules\\Email\\Providers\\EmailServiceProvider',
+    20 => 'App\\Modules\\Auth\\Providers\\AuthServiceProvider',
   ),
   'deferred' => 
   array (
@@ -89,6 +92,8 @@
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'Illuminate\\Contracts\\Validation\\UncompromisedVerifier' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'hash' => 'Illuminate\\Hashing\\HashServiceProvider',
+    'hash.driver' => 'Illuminate\\Hashing\\HashServiceProvider',
     'Laravel\\Sail\\Console\\InstallCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'Laravel\\Sail\\Console\\PublishCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
@@ -117,6 +122,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Hashing\\HashServiceProvider' => 
     array (
     ),
     'Laravel\\Sail\\SailServiceProvider' => 

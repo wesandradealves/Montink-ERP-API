@@ -83,6 +83,20 @@ enum ResponseMessage: string
     case VALIDATION_GT = 'messages.validation.gt';
     case VALIDATION_AFTER = 'messages.validation.after';
     
+    // Mensagens de autenticação
+    case AUTH_LOGIN_SUCCESS = 'messages.auth.login_success';
+    case AUTH_LOGOUT_SUCCESS = 'messages.auth.logout_success';
+    case AUTH_REGISTER_SUCCESS = 'messages.auth.register_success';
+    case AUTH_INVALID_CREDENTIALS = 'messages.auth.invalid_credentials';
+    case AUTH_USER_NOT_FOUND = 'messages.auth.user_not_found';
+    case AUTH_USER_INACTIVE = 'messages.auth.user_inactive';
+    case AUTH_TOKEN_INVALID = 'messages.auth.token_invalid';
+    case AUTH_TOKEN_EXPIRED = 'messages.auth.token_expired';
+    case AUTH_TOKEN_REFRESHED = 'messages.auth.token_refreshed';
+    case AUTH_UNAUTHORIZED = 'messages.auth.unauthorized';
+    case AUTH_EMAIL_ALREADY_EXISTS = 'messages.auth.email_already_exists';
+    case AUTH_TOKEN_NOT_PROVIDED = 'messages.auth.token_not_provided';
+    
     public function get(array $replace = []): string
     {
         $message = config($this->value) ?? $this->getDefault();
@@ -177,6 +191,20 @@ enum ResponseMessage: string
             self::VALIDATION_SIZE => 'O campo :attribute deve ter :size caracteres',
             self::VALIDATION_GT => 'O campo :attribute deve ser maior que :value',
             self::VALIDATION_AFTER => 'O campo :attribute deve ser uma data posterior a :date',
+            
+            // Mensagens de autenticação
+            self::AUTH_LOGIN_SUCCESS => 'Login realizado com sucesso',
+            self::AUTH_LOGOUT_SUCCESS => 'Logout realizado com sucesso',
+            self::AUTH_REGISTER_SUCCESS => 'Usuário registrado com sucesso',
+            self::AUTH_INVALID_CREDENTIALS => 'Credenciais inválidas',
+            self::AUTH_USER_NOT_FOUND => 'Usuário não encontrado',
+            self::AUTH_USER_INACTIVE => 'Usuário inativo',
+            self::AUTH_TOKEN_INVALID => 'Token inválido',
+            self::AUTH_TOKEN_EXPIRED => 'Token expirado',
+            self::AUTH_TOKEN_REFRESHED => 'Token atualizado com sucesso',
+            self::AUTH_UNAUTHORIZED => 'Não autorizado',
+            self::AUTH_EMAIL_ALREADY_EXISTS => 'Este email já está em uso',
+            self::AUTH_TOKEN_NOT_PROVIDED => 'Token não fornecido',
         };
     }
 }
