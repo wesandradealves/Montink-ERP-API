@@ -67,6 +67,7 @@ enum ResponseMessage: string
     case COUPON_NOT_YET_VALID = 'messages.coupon.not_yet_valid';
     case COUPON_TYPE_FIXED = 'messages.coupon.type_fixed';
     case COUPON_TYPE_PERCENTAGE = 'messages.coupon.type_percentage';
+    case COUPON_APPLIED_SUCCESSFULLY = 'messages.coupon.applied_successfully';
     
     // Mensagens de endereço
     case ADDRESS_FOUND = 'messages.address.found';

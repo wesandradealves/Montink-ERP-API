@@ -68,6 +68,7 @@ return [
         'not_yet_valid' => env('MSG_COUPON_NOT_YET_VALID', 'Cupom ainda não está válido'),
         'type_fixed' => env('MSG_COUPON_TYPE_FIXED', 'Valor Fixo'),
         'type_percentage' => env('MSG_COUPON_TYPE_PERCENTAGE', 'Porcentagem'),
+        'applied_successfully' => env('MSG_COUPON_APPLIED_SUCCESSFULLY', 'Cupom aplicado com sucesso'),
     ],
     
     'address' => [
