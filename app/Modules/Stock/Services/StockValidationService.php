@@ -4,22 +4,32 @@ namespace App\Modules\Stock\Services;
 
 use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
+use App\Common\Traits\FindsResources;
 use App\Modules\Products\Models\Product;
 use App\Modules\Stock\Models\Stock;
 
 class StockValidationService
 {
-    public function validateStock(Product $product, int $quantity, ?array $variations = null): void
+    use FindsResources;
+    
+    /**
+     * Busca stock por produto e variações
+     */
+    private function findStock(int $productId, ?array $variations = null): ?Stock
     {
-        $stock = Stock::where('product_id', $product->id);
+        $query = Stock::where('product_id', $productId);
         
         if ($variations) {
-            $stock->whereJsonContains('variations', $variations);
+            $query->whereJsonContains('variations', $variations);
         } else {
-            $stock->whereNull('variations');
+            $query->whereNull('variations');
         }
         
-        $stock = $stock->first();
+        return $query->first();
+    }
+    public function validateStock(Product $product, int $quantity, ?array $variations = null): void
+    {
+        $stock = $this->findStock($product->id, $variations);
         
         if (!$stock) {
             if ($variations === null && Stock::where('product_id', $product->id)->whereNotNull('variations')->exists()) {
@@ -37,15 +47,7 @@ class StockValidationService
 
     public function getAvailableQuantity(int $productId, ?array $variations = null): int
     {
-        $stock = Stock::where('product_id', $productId);
-        
-        if ($variations) {
-            $stock->whereJsonContains('variations', $variations);
-        } else {
-            $stock->whereNull('variations');
-        }
-        
-        $stock = $stock->first();
+        $stock = $this->findStock($productId, $variations);
         
         if (!$stock) {
             return 0;
@@ -56,15 +58,7 @@ class StockValidationService
 
     public function reserveStock(int $productId, int $quantity, ?array $variations = null): void
     {
-        $stock = Stock::where('product_id', $productId);
-        
-        if ($variations) {
-            $stock->whereJsonContains('variations', $variations);
-        } else {
-            $stock->whereNull('variations');
-        }
-        
-        $stock = $stock->first();
+        $stock = $this->findStock($productId, $variations);
         
         if ($stock) {
             $stock->increment('reserved', $quantity);
@@ -73,15 +67,7 @@ class StockValidationService
 
     public function releaseStock(int $productId, int $quantity, ?array $variations = null): void
     {
-        $stock = Stock::where('product_id', $productId);
-        
-        if ($variations) {
-            $stock->whereJsonContains('variations', $variations);
-        } else {
-            $stock->whereNull('variations');
-        }
-        
-        $stock = $stock->first();
+        $stock = $this->findStock($productId, $variations);
         
         if ($stock) {
             $stock->decrement('reserved', $quantity);

@@ -3,8 +3,12 @@
 return [
     'general' => [
         'operation_success' => env('MSG_OPERATION_SUCCESS', 'Operação realizada com sucesso'),
+        'operation_error' => env('MSG_OPERATION_ERROR', 'Ocorreu um erro ao processar a operação'),
         'resource_not_found' => env('MSG_RESOURCE_NOT_FOUND', 'Recurso não encontrado'),
         'validation_error' => env('MSG_VALIDATION_ERROR', 'Erro de validação'),
+        'default_success' => env('MSG_DEFAULT_SUCCESS', 'Success'),
+        'default_error' => env('MSG_DEFAULT_ERROR', 'Error'),
+        'default_created' => env('MSG_DEFAULT_CREATED', 'Criado com sucesso'),
     ],
     
     'product' => [
@@ -15,6 +19,8 @@ return [
         'not_found' => env('MSG_PRODUCT_NOT_FOUND', 'Produto não encontrado'),
         'stock_not_found' => env('MSG_PRODUCT_STOCK_NOT_FOUND', 'Produto com identificador \'estoque\' não encontrado'),
         'variation_required' => env('MSG_PRODUCT_VARIATION_REQUIRED', 'Este produto possui variações. Especifique a variação desejada'),
+        'sku_already_exists' => env('MSG_PRODUCT_SKU_ALREADY_EXISTS', 'Este SKU já está em uso'),
+        'price_min_error' => env('MSG_PRODUCT_PRICE_MIN_ERROR', 'O preço deve ser maior que zero'),
     ],
     
     'order' => [
@@ -26,10 +32,18 @@ return [
         'empty_cart' => env('MSG_ORDER_EMPTY_CART', 'Carrinho vazio. Adicione produtos antes de finalizar o pedido.'),
         'cannot_cancel' => env('MSG_ORDER_CANNOT_CANCEL', 'Pedido não pode ser cancelado no status atual: :status'),
         'invalid_status' => env('MSG_ORDER_INVALID_STATUS', 'Status inválido: :status'),
+        'default_customer_name' => env('MSG_ORDER_DEFAULT_CUSTOMER_NAME', 'Cliente'),
+        'default_customer_email' => env('MSG_ORDER_DEFAULT_CUSTOMER_EMAIL', 'pedido@montystorepro.com'),
+        'default_customer_cep' => env('MSG_ORDER_DEFAULT_CUSTOMER_CEP', '00000-000'),
+        'default_customer_address' => env('MSG_ORDER_DEFAULT_CUSTOMER_ADDRESS', 'Endereço não informado'),
+        'default_customer_neighborhood' => env('MSG_ORDER_DEFAULT_CUSTOMER_NEIGHBORHOOD', 'Bairro'),
+        'default_customer_city' => env('MSG_ORDER_DEFAULT_CUSTOMER_CITY', 'Cidade'),
+        'default_customer_state' => env('MSG_ORDER_DEFAULT_CUSTOMER_STATE', 'SP'),
     ],
     
     'cart' => [
         'item_added' => env('MSG_CART_ITEM_ADDED', 'Produto adicionado ao carrinho'),
+        'product_added' => env('MSG_CART_PRODUCT_ADDED', 'Produto adicionado ao carrinho'),
         'item_updated' => env('MSG_CART_ITEM_UPDATED', 'Quantidade atualizada no carrinho'),
         'item_removed' => env('MSG_CART_ITEM_REMOVED', 'Produto removido do carrinho'),
         'cleared' => env('MSG_CART_CLEARED', 'Carrinho limpo com sucesso'),
@@ -50,6 +64,10 @@ return [
         'usage_limit_reached' => env('MSG_COUPON_USAGE_LIMIT_REACHED', 'Limite de uso do cupom atingido'),
         'already_exists' => env('MSG_COUPON_ALREADY_EXISTS', 'Cupom com este código já existe'),
         'invalid_with_reason' => env('MSG_COUPON_INVALID_WITH_REASON', 'Cupom inválido: :reason'),
+        'inactive' => env('MSG_COUPON_INACTIVE', 'Cupom inativo'),
+        'not_yet_valid' => env('MSG_COUPON_NOT_YET_VALID', 'Cupom ainda não está válido'),
+        'type_fixed' => env('MSG_COUPON_TYPE_FIXED', 'Valor Fixo'),
+        'type_percentage' => env('MSG_COUPON_TYPE_PERCENTAGE', 'Porcentagem'),
     ],
     
     'address' => [
@@ -79,6 +97,9 @@ return [
         'unauthorized' => env('MSG_AUTH_UNAUTHORIZED', 'Não autorizado'),
         'email_already_exists' => env('MSG_AUTH_EMAIL_ALREADY_EXISTS', 'Este email já está em uso'),
         'token_not_provided' => env('MSG_AUTH_TOKEN_NOT_PROVIDED', 'Token não fornecido'),
+        'token_invalid_format' => env('MSG_AUTH_TOKEN_INVALID_FORMAT', 'Token em formato inválido'),
+        'token_signature_invalid' => env('MSG_AUTH_TOKEN_SIGNATURE_INVALID', 'Assinatura do token inválida'),
+        'token_payload_invalid' => env('MSG_AUTH_TOKEN_PAYLOAD_INVALID', 'Payload do token inválido'),
     ],
     
     'validation' => [
@@ -100,5 +121,19 @@ return [
         'size' => env('MSG_VALIDATION_SIZE', 'O campo :attribute deve ter :size caracteres'),
         'gt' => env('MSG_VALIDATION_GT', 'O campo :attribute deve ser maior que :value'),
         'after' => env('MSG_VALIDATION_AFTER', 'O campo :attribute deve ser uma data posterior a :date'),
+        'cpf_format' => env('MSG_VALIDATION_CPF_FORMAT', 'O CPF deve ter 14 caracteres (incluindo pontos e traço)'),
+        'cep_format' => env('MSG_VALIDATION_CEP_FORMAT', 'O CEP deve ter 9 caracteres (incluindo traço)'),
+        'state_format' => env('MSG_VALIDATION_STATE_FORMAT', 'O estado deve ter 2 caracteres (ex: SP)'),
+    ],
+    
+    'email' => [
+        'order_confirmation_subject' => env('MSG_EMAIL_ORDER_CONFIRMATION_SUBJECT', 'Confirmação de Pedido #:orderNumber'),
+        'send_error' => env('MSG_EMAIL_SEND_ERROR', 'Erro ao enviar email de confirmação'),
+        'template_not_found' => env('MSG_EMAIL_TEMPLATE_NOT_FOUND', 'Template de email \':template\' não encontrado'),
+    ],
+    
+    'log' => [
+        'order_removed_webhook' => env('MSG_LOG_ORDER_REMOVED_WEBHOOK', 'Pedido removido via webhook'),
+        'order_status_updated_webhook' => env('MSG_LOG_ORDER_STATUS_UPDATED_WEBHOOK', 'Status do pedido atualizado via webhook'),
     ],
 ];

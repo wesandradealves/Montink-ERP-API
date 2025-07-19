@@ -21,8 +21,5 @@ class CreateProductRequest extends BaseFormRequest
         ];
     }
 
-    protected array $customMessages = [
-        'sku.unique' => 'Este SKU já está em uso',
-        'price.min' => 'O preço deve ser maior que zero',
-    ];
+    protected array $customMessages = [];
 }

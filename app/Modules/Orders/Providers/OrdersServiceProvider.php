@@ -14,7 +14,9 @@ class OrdersServiceProvider extends ServiceProvider
                 return new \App\Modules\Orders\UseCases\OrdersUseCase(
                     $app->make(\App\Modules\Cart\Services\ShippingService::class),
                     $app->make(\App\Modules\Coupons\UseCases\CouponsUseCase::class),
-                    $app->make(\App\Modules\Email\Services\EmailService::class)
+                    $app->make(\App\Modules\Email\Services\EmailService::class),
+                    $app->make(\App\Common\Services\SessionService::class),
+                    $app->make(\App\Modules\Stock\Services\StockValidationService::class)
                 );
             }
         );

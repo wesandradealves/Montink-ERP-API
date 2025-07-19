@@ -5,6 +5,7 @@ namespace App\Modules\Coupons\UseCases;
 use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
 use App\Common\Traits\MoneyFormatter;
+use App\Common\Traits\FindsResources;
 use App\Modules\Coupons\DTOs\CouponDTO;
 use App\Modules\Coupons\DTOs\CreateCouponDTO;
 use App\Modules\Coupons\DTOs\UpdateCouponDTO;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class CouponsUseCase
 {
-    use MoneyFormatter;
+    use MoneyFormatter, FindsResources;
 
     public function createCoupon(CreateCouponDTO $dto): CouponDTO
     {
@@ -111,19 +112,15 @@ class CouponsUseCase
 
     public function validateCoupon(ValidateCouponDTO $dto): array
     {
-        $coupon = Coupon::where('code', $dto->code)->first();
-        
-        if (!$coupon) {
-            throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
-        }
+        $coupon = $this->findByOrFail(Coupon::class, 'code', $dto->code, ResponseMessage::COUPON_NOT_FOUND->get());
 
-        $error = $coupon->getValidationError($dto->value);
+        $error = $this->validateCouponUsage($coupon, $dto->value);
         
         if ($error) {
             throw new \InvalidArgumentException($error);
         }
 
-        $discount = $coupon->calculateDiscount($dto->value);
+        $discount = $this->calculateCouponDiscount($coupon, $dto->value);
 
         return [
             'valid' => true,
@@ -144,13 +141,13 @@ class CouponsUseCase
                 throw new ResourceNotFoundException(ResponseMessage::COUPON_NOT_FOUND->get());
             }
 
-            $error = $coupon->getValidationError($value);
+            $error = $this->validateCouponUsage($coupon, $value);
             if ($error) {
                 throw new \InvalidArgumentException($error);
             }
 
-            $discount = $coupon->calculateDiscount($value);
-            $coupon->incrementUsage();
+            $discount = $this->calculateCouponDiscount($coupon, $value);
+            $coupon->increment('used_count');
 
             return [
                 'coupon_id' => $coupon->id,
@@ -177,10 +174,91 @@ class CouponsUseCase
             valid_from: $coupon->valid_from?->format('Y-m-d'),
             valid_until: $coupon->valid_until?->format('Y-m-d'),
             active: $coupon->active,
-            formatted_value: $coupon->getFormattedValue(),
-            is_valid: $coupon->isValid(),
+            formatted_value: $this->formatCouponValue($coupon),
+            is_valid: $this->isCouponValid($coupon),
             created_at: $coupon->created_at?->format('Y-m-d H:i:s'),
             updated_at: $coupon->updated_at?->format('Y-m-d H:i:s')
         );
+    }
+
+    /**
+     * Valida se o cupom pode ser usado com o valor fornecido
+     */
+    private function validateCouponUsage(Coupon $coupon, float $value = 0): ?string
+    {
+        if (!$coupon->active) {
+            return ResponseMessage::COUPON_INACTIVE->get();
+        }
+
+        if ($coupon->valid_from && $coupon->valid_from->isFuture()) {
+            return ResponseMessage::COUPON_NOT_YET_VALID->get();
+        }
+
+        if ($coupon->valid_until && $coupon->valid_until->isPast()) {
+            return ResponseMessage::COUPON_EXPIRED->get();
+        }
+
+        if ($coupon->usage_limit && $coupon->used_count >= $coupon->usage_limit) {
+            return ResponseMessage::COUPON_USAGE_LIMIT_REACHED->get();
+        }
+
+        if ($coupon->minimum_value && $value < $coupon->minimum_value) {
+            return ResponseMessage::COUPON_MINIMUM_NOT_MET->get();
+        }
+
+        return null;
+    }
+
+    /**
+     * Calcula o desconto do cupom
+     */
+    private function calculateCouponDiscount(Coupon $coupon, float $value): float
+    {
+        // Verifica se o cupom pode ser usado
+        if ($this->validateCouponUsage($coupon, $value) !== null) {
+            return 0;
+        }
+
+        if ($coupon->type === Coupon::TYPE_FIXED) {
+            return min($coupon->value, $value);
+        }
+
+        return $value * ($coupon->value / 100);
+    }
+
+    /**
+     * Verifica se o cupom está válido (sem considerar o valor)
+     */
+    private function isCouponValid(Coupon $coupon): bool
+    {
+        if (!$coupon->active) {
+            return false;
+        }
+
+        if ($coupon->valid_from && $coupon->valid_from->isFuture()) {
+            return false;
+        }
+
+        if ($coupon->valid_until && $coupon->valid_until->isPast()) {
+            return false;
+        }
+
+        if ($coupon->usage_limit && $coupon->used_count >= $coupon->usage_limit) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Formata o valor do cupom para exibição
+     */
+    private function formatCouponValue(Coupon $coupon): string
+    {
+        if ($coupon->type === Coupon::TYPE_FIXED) {
+            return $this->formatMoney($coupon->value);
+        }
+
+        return $coupon->value . '%';
     }
 }

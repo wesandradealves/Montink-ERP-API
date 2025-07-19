@@ -12,11 +12,12 @@ abstract class BaseApiController extends Controller
 {
     use ApiResponseTrait;
 
-    protected function handleUseCaseExecution(callable $callback): JsonResponse
+    protected function handleUseCaseExecution(callable $callback, ?string $successMessage = null, int $statusCode = 200): JsonResponse
     {
         try {
             $result = $callback();
-            return $this->successResponse($result, ResponseMessage::OPERATION_SUCCESS->get());
+            $message = $successMessage ?? ResponseMessage::OPERATION_SUCCESS->get();
+            return $this->successResponse($result, $message, $statusCode);
         } catch (ResourceNotFoundException $e) {
             return $this->errorResponse($e->getMessage(), 404);
         } catch (\InvalidArgumentException $e) {
@@ -28,29 +29,11 @@ abstract class BaseApiController extends Controller
 
     protected function handleUseCaseExecutionWithMessage(callable $callback, string $successMessage): JsonResponse
     {
-        try {
-            $result = $callback();
-            return $this->successResponse($result, $successMessage);
-        } catch (ResourceNotFoundException $e) {
-            return $this->errorResponse($e->getMessage(), 404);
-        } catch (\InvalidArgumentException $e) {
-            return $this->errorResponse($e->getMessage(), 422);
-        } catch (\Exception $e) {
-            return $this->errorResponse($e->getMessage(), 500);
-        }
+        return $this->handleUseCaseExecution($callback, $successMessage);
     }
 
-    protected function handleUseCaseCreation(callable $callback, string $successMessage = 'Criado com sucesso'): JsonResponse
+    protected function handleUseCaseCreation(callable $callback, ?string $successMessage = null): JsonResponse
     {
-        try {
-            $result = $callback();
-            return $this->successResponse($result, $successMessage, 201);
-        } catch (ResourceNotFoundException $e) {
-            return $this->errorResponse($e->getMessage(), 404);
-        } catch (\InvalidArgumentException $e) {
-            return $this->errorResponse($e->getMessage(), 422);
-        } catch (\Exception $e) {
-            return $this->errorResponse($e->getMessage(), 500);
-        }
+        return $this->handleUseCaseExecution($callback, $successMessage ?? ResponseMessage::DEFAULT_CREATED->get(), 201);
     }
 }

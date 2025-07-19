@@ -241,7 +241,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($request, $id) {
             $order = $this->ordersUseCase->updateOrderStatus($id, $request->status);
-            return $this->successResponse($order, 'Status do pedido atualizado com sucesso');
+            return $this->successResponse($order, ResponseMessage::ORDER_STATUS_UPDATED->get());
         });
     }
 
@@ -281,7 +281,7 @@ class OrderController extends BaseApiController
     {
         return $this->handleUseCaseExecution(function() use ($id) {
             $order = $this->ordersUseCase->cancelOrder($id);
-            return $this->successResponse($order, 'Pedido cancelado com sucesso');
+            return $this->successResponse($order, ResponseMessage::ORDER_CANCELLED->get());
         });
     }
 }

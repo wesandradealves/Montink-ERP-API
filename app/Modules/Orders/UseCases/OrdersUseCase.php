@@ -11,6 +11,7 @@ use App\Modules\Orders\Models\OrderItem;
 use App\Modules\Cart\Models\CartItem;
 use App\Modules\Cart\Services\ShippingService;
 use App\Modules\Stock\Models\Stock;
+use App\Modules\Stock\Services\StockValidationService;
 use App\Modules\Coupons\UseCases\CouponsUseCase;
 use App\Modules\Email\Services\EmailService;
 use App\Modules\Email\DTOs\OrderConfirmationEmailDTO;
@@ -21,13 +22,15 @@ class OrdersUseCase
     public function __construct(
         private ShippingService $shippingService,
         private CouponsUseCase $couponsUseCase,
-        private EmailService $emailService
+        private EmailService $emailService,
+        private SessionService $sessionService,
+        private StockValidationService $stockValidationService
     ) {}
 
     public function createOrder(CreateOrderDTO $dto): OrderDTO
     {
         return DB::transaction(function () use ($dto) {
-            $sessionId = SessionService::getCurrentId();
+            $sessionId = $this->sessionService->getCurrentId();
             
             $cartItems = CartItem::with('product')
                 ->where('session_id', $sessionId)
@@ -55,16 +58,16 @@ class OrdersUseCase
 
             $order = Order::create([
                 'order_number' => Order::generateOrderNumber(),
-                'customer_name' => $dto->customerName ?: 'Cliente',
-                'customer_email' => $dto->customerEmail ?: 'pedido@montystorepro.com',
+                'customer_name' => $dto->customerName ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_NAME->get(),
+                'customer_email' => $dto->customerEmail ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_EMAIL->get(),
                 'customer_phone' => $dto->customerPhone,
                 'customer_cpf' => $dto->customerCpf,
-                'customer_cep' => $dto->customerCep ?: '00000-000',
-                'customer_address' => $dto->customerAddress ?: 'Endereço não informado',
+                'customer_cep' => $dto->customerCep ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_CEP->get(),
+                'customer_address' => $dto->customerAddress ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_ADDRESS->get(),
                 'customer_complement' => $dto->customerComplement,
-                'customer_neighborhood' => $dto->customerNeighborhood ?: 'Bairro',
-                'customer_city' => $dto->customerCity ?: 'Cidade',
-                'customer_state' => $dto->customerState ?: 'SP',
+                'customer_neighborhood' => $dto->customerNeighborhood ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_NEIGHBORHOOD->get(),
+                'customer_city' => $dto->customerCity ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_CITY->get(),
+                'customer_state' => $dto->customerState ?: ResponseMessage::ORDER_DEFAULT_CUSTOMER_STATE->get(),
                 'subtotal' => $subtotal,
                 'discount' => $discount,
                 'shipping_cost' => $shippingCost,
@@ -171,33 +174,10 @@ class OrdersUseCase
     }
 
 
-    private function updateStockReservation(int $productId, int $quantity, ?array $variations = null): void
-    {
-        $stock = Stock::where('product_id', $productId)
-            ->when($variations, function ($query) use ($variations) {
-                return $query->where('variations', json_encode($variations));
-            })
-            ->first();
-
-        if ($stock) {
-            $stock->reserved += $quantity;
-            $stock->save();
-        }
-    }
-
     private function releaseStockReservations(Order $order): void
     {
         foreach ($order->items as $item) {
-            $stock = Stock::where('product_id', $item->product_id)
-                ->when($item->variations, function ($query) use ($item) {
-                    return $query->where('variations', json_encode($item->variations));
-                })
-                ->first();
-
-            if ($stock) {
-                $stock->reserved = max(0, $stock->reserved - $item->quantity);
-                $stock->save();
-            }
+            $this->stockValidationService->releaseStock($item->product_id, $item->quantity, $item->variations);
         }
     }
 

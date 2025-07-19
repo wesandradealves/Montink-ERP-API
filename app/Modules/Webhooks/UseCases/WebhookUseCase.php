@@ -29,7 +29,7 @@ class WebhookUseCase
             if ($newStatus === OrderStatus::CANCELLED) {
                 $order->delete();
                 
-                Log::info('Pedido removido via webhook', [
+                Log::info(ResponseMessage::LOG_ORDER_REMOVED_WEBHOOK->get(), [
                     'order_id' => $orderId,
                     'action' => 'deleted',
                     'timestamp' => $timestamp,
@@ -47,7 +47,7 @@ class WebhookUseCase
             $order->status = $newStatus;
             $order->save();
 
-            Log::info('Status do pedido atualizado via webhook', [
+            Log::info(ResponseMessage::LOG_ORDER_STATUS_UPDATED_WEBHOOK->get(), [
                 'order_id' => $orderId,
                 'old_status' => $oldStatus->value,
                 'new_status' => $newStatus->value,

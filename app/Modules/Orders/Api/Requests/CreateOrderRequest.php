@@ -5,16 +5,17 @@ namespace App\Modules\Orders\Api\Requests;
 use App\Common\Base\BaseFormRequest;
 use App\Common\Traits\DocumentFormatter;
 use App\Common\Traits\UnifiedValidationMessages;
+use App\Common\Traits\EmailValidationTrait;
 
 class CreateOrderRequest extends BaseFormRequest
 {
-    use UnifiedValidationMessages, DocumentFormatter;
+    use UnifiedValidationMessages, DocumentFormatter, EmailValidationTrait;
 
     public function rules(): array
     {
         return [
             'customer_name' => ['required', 'string', 'max:255'],
-            'customer_email' => ['required', 'email', 'max:255'],
+            'customer_email' => array_merge(['required'], $this->emailRules(), ['max:255']),
             'customer_phone' => ['nullable', 'string', 'max:20'],
             'customer_cpf' => ['nullable', 'string', 'size:14'],
             'customer_cep' => ['required', 'string', 'size:9'],
@@ -27,11 +28,7 @@ class CreateOrderRequest extends BaseFormRequest
         ];
     }
 
-    protected array $customMessages = [
-        'customer_cpf.size' => 'O CPF deve ter 14 caracteres (incluindo pontos e traço)',
-        'customer_cep.size' => 'O CEP deve ter 9 caracteres (incluindo traço)',
-        'customer_state.size' => 'O estado deve ter 2 caracteres (ex: SP)',
-    ];
+    protected array $customMessages = [];
 
     public function prepareForValidation(): void
     {

@@ -19128,3 +19128,1083 @@
 #4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #5 {main}
 "} 
+[2025-07-19 13:44:26] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:45:36] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:46:43] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:47:51] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:48:59] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:50:07] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:51:15] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:52:23] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:53:31] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:54:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:55:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:56:57] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:58:05] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 13:59:14] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:00:21] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:01:30] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:02:38] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:03:45] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:04:53] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:06:04] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:07:12] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:08:19] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:09:27] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:10:35] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:11:43] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:12:51] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:13:59] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:15:07] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:16:17] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:17:25] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:18:33] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:19:41] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:20:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:21:56] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:23:04] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:24:13] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:25:21] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:26:29] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:27:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:28:48] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:29:56] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:31:03] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:32:11] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:33:19] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:34:27] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:35:35] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:36:43] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:37:53] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:39:01] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:40:09] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:41:17] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:42:25] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:43:33] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:44:41] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:45:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:46:57] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:48:07] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:49:15] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:50:23] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:51:31] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:52:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:53:47] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:54:55] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:56:04] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:57:12] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:58:20] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 14:59:31] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:00:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:01:47] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:02:55] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:04:03] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:05:11] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:06:20] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:07:28] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:08:36] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:09:46] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:10:54] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:12:02] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:13:10] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:14:18] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:15:26] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:16:35] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:17:43] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:18:51] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:20:01] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:21:09] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:22:17] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:23:25] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:24:33] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:25:41] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:26:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:27:57] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:29:05] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:30:13] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:31:24] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:32:32] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:33:41] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:34:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:35:57] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:37:05] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:38:14] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:39:22] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:40:30] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:41:41] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:42:49] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:43:58] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:45:06] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:46:14] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:47:22] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:48:30] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:49:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:50:47] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:51:57] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:53:06] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:54:14] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:55:22] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:56:31] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:57:39] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:58:47] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2025-07-19 15:59:55] local.ERROR: There are no commands defined in the "queue" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"queue\" namespace. at /var/www/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('queue')
+#1 /var/www/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('queue:work')
+#2 /var/www/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/artisan(15): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
