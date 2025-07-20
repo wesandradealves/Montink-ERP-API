@@ -5,6 +5,23 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.3.0] - 2025-07-20
+
+### Adicionado
+- **Filtro de Preço na API de Produtos**
+  - Parâmetros `min_price` e `max_price` no endpoint GET /api/products
+  - Método `findByPriceRange` no ProductRepository
+  - Lógica de filtro implementada no ProductsUseCase
+  - Documentação Swagger atualizada com novos parâmetros
+  - Exemplos de uso no README
+
+- **Estrutura Completa de Testes**
+  - Testes unitários para JwtService, AuthUseCase e ProductsUseCase
+  - Testes de feature para APIs: Health, Auth, Products, Cart e Orders
+  - Configuração de ambiente de teste com banco separado (.env.testing)
+  - Factories para User e Order
+  - Estrutura organizada em Unit/ e Feature/
+
 ## [1.2.3] - 2025-07-19
 
 ### Adicionado
