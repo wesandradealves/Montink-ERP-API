@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Common\Traits\ApiResponseTrait;
 use App\Common\Enums\ResponseMessage;
 use App\Common\Exceptions\ResourceNotFoundException;
+use App\Common\Exceptions\AuthenticationException;
 use Illuminate\Http\JsonResponse;
 
 abstract class BaseApiController extends Controller
@@ -20,6 +21,8 @@ abstract class BaseApiController extends Controller
             return $this->successResponse($result, $message, $statusCode);
         } catch (ResourceNotFoundException $e) {
             return $this->errorResponse($e->getMessage(), 404);
+        } catch (AuthenticationException $e) {
+            return $this->errorResponse($e->getMessage(), 401);
         } catch (\InvalidArgumentException $e) {
             return $this->errorResponse($e->getMessage(), 422);
         } catch (\Exception $e) {

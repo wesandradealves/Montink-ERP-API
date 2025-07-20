@@ -3,6 +3,7 @@
 namespace App\Modules\Auth\UseCases;
 
 use App\Common\Enums\ResponseMessage;
+use App\Common\Exceptions\AuthenticationException;
 use App\Modules\Auth\DTOs\AuthResponseDTO;
 use App\Modules\Auth\DTOs\LoginDTO;
 use App\Modules\Auth\DTOs\RegisterDTO;
@@ -25,11 +26,11 @@ class AuthUseCase
         $user = User::where('email', $dto->email)->first();
 
         if (!$user || !Hash::check($dto->password, $user->password)) {
-            throw new \InvalidArgumentException(ResponseMessage::AUTH_INVALID_CREDENTIALS->get());
+            throw new AuthenticationException(ResponseMessage::AUTH_INVALID_CREDENTIALS->get());
         }
 
         if (!$user->isActive()) {
-            throw new \InvalidArgumentException(ResponseMessage::AUTH_USER_INACTIVE->get());
+            throw new AuthenticationException(ResponseMessage::AUTH_USER_INACTIVE->get());
         }
 
         return $this->generateAuthResponse($user, $dto->ipAddress, $dto->userAgent);
@@ -60,13 +61,13 @@ class AuthUseCase
         $token = $this->refreshTokenService->findByToken($refreshToken);
 
         if (!$token || !$token->isValid()) {
-            throw new \InvalidArgumentException(ResponseMessage::AUTH_TOKEN_INVALID->get());
+            throw new AuthenticationException(ResponseMessage::AUTH_TOKEN_INVALID->get());
         }
 
         $user = $token->user;
 
         if (!$user->isActive()) {
-            throw new \InvalidArgumentException(ResponseMessage::AUTH_USER_INACTIVE->get());
+            throw new AuthenticationException(ResponseMessage::AUTH_USER_INACTIVE->get());
         }
 
         $this->refreshTokenService->revokeToken($refreshToken);

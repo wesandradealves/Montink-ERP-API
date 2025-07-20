@@ -128,7 +128,7 @@ class AuthTest extends TestCase
             'password' => 'wrongpassword'
         ]);
         
-        $response->assertStatus(422)
+        $response->assertStatus(401)
             ->assertJson(['error' => ResponseMessage::AUTH_INVALID_CREDENTIALS->get()]);
     }
 
@@ -146,7 +146,7 @@ class AuthTest extends TestCase
             'password' => $this->testUser['password']
         ]);
         
-        $response->assertStatus(422)
+        $response->assertStatus(401)
             ->assertJson(['error' => ResponseMessage::AUTH_USER_INACTIVE->get()]);
     }
 

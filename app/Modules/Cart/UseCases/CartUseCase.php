@@ -3,6 +3,7 @@
 namespace App\Modules\Cart\UseCases;
 
 use App\Common\Exceptions\ResourceNotFoundException;
+use App\Common\Enums\ResponseMessage;
 use App\Common\Services\SessionService;
 use App\Modules\Cart\DTOs\AddToCartDTO;
 use App\Modules\Cart\DTOs\CartDTO;
@@ -22,7 +23,11 @@ class CartUseCase extends BaseUseCase
     ) {}
     public function addToCart(AddToCartDTO $dto): CartDTO
     {
-        $product = Product::findOrFail($dto->productId);
+        $product = Product::find($dto->productId);
+        
+        if (!$product) {
+            throw new ResourceNotFoundException(ResponseMessage::PRODUCT_NOT_FOUND->get());
+        }
         
         $this->stockValidationService->validateStock($product, $dto->quantity, $dto->variations);
         
@@ -70,7 +75,11 @@ class CartUseCase extends BaseUseCase
         
         $cartItem = CartItem::where('session_id', $sessionId)
             ->where('id', $itemId)
-            ->firstOrFail();
+            ->first();
+
+        if (!$cartItem) {
+            throw new ResourceNotFoundException(ResponseMessage::RESOURCE_NOT_FOUND->get());
+        }
 
         $this->stockValidationService->validateStock($cartItem->product, $quantity, $cartItem->variations);
 
