@@ -6,6 +6,8 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Common\Enums\ResponseMessage;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -20,6 +22,14 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+        
+        $this->renderable(function (ModelNotFoundException $e, Request $request) {
+            if ($request->expectsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'message' => ResponseMessage::RESOURCE_NOT_FOUND->get(),
+                ], 404);
+            }
         });
         
         $this->renderable(function (ValidationException $e, Request $request) {

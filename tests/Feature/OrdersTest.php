@@ -246,7 +246,7 @@ class OrdersTest extends TestCase
     {
         $response = $this->getJson('/api/orders/999999');
         
-        $response->assertStatus(500)
+        $response->assertStatus(404)
             ->assertJsonStructure(['error']);
     }
 
