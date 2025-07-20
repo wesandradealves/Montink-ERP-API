@@ -1313,6 +1313,87 @@ Consulte `README-SWAGGER.md` para:
 
 Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
+## Testes
+
+### Estrutura de Testes
+
+O projeto possui uma estrutura completa de testes organizados em:
+
+```
+tests/
+├── Feature/          # Testes de integração/API
+│   ├── AddressTest.php
+│   ├── ApplicationTest.php
+│   ├── AuthTest.php
+│   ├── CartTest.php
+│   ├── CompleteFlowTest.php
+│   ├── CouponsTest.php
+│   ├── OrdersTest.php
+│   ├── ProductsTest.php
+│   └── WebhookTest.php
+└── Unit/            # Testes unitários
+    └── Services/
+        ├── EmailServiceTest.php
+        └── StockValidationServiceTest.php
+```
+
+### Executando os Testes
+
+```bash
+# Executar todos os testes
+docker exec montink_erp_app ./vendor/bin/phpunit
+
+# Executar testes específicos
+docker exec montink_erp_app ./vendor/bin/phpunit tests/Feature/ProductsTest.php
+
+# Executar com filtro
+docker exec montink_erp_app ./vendor/bin/phpunit --filter test_can_create_product
+
+# Executar testes em paralelo
+docker exec montink_erp_app php artisan test --parallel
+```
+
+### Cobertura de Testes
+
+Os testes cobrem 100% das funcionalidades principais:
+
+- **Autenticação**: Login, registro, refresh token, logout
+- **Produtos**: CRUD completo, filtros, variações
+- **Carrinho**: Adicionar, remover, atualizar, limpar
+- **Pedidos**: Criação, listagem, atualização de status
+- **Cupons**: Validação, aplicação, tipos (fixo/percentual)
+- **Endereços**: Busca por CEP, validação
+- **Webhooks**: Atualização de status de pedidos
+- **Fluxo E2E**: Teste completo de compra
+
+### Características dos Testes
+
+- **Sistema de Mensageria**: Todos os testes utilizam `ResponseMessage` enum
+- **Isolamento**: Cada teste é independente e limpa seus dados
+- **Factories**: Uso de factories para geração de dados
+- **Banco de Testes**: Banco separado configurado em `.env.testing`
+- **Validações**: Testes cobrem casos de sucesso e erro
+
+### Exemplo de Teste
+
+```php
+public function test_can_create_product(): void
+{
+    $productData = [
+        'name' => 'Produto Teste',
+        'sku' => 'TEST-001',
+        'price' => 99.90,
+        'active' => true
+    ];
+    
+    $response = $this->postJson('/api/products', $productData);
+    
+    $response->assertStatus(201)
+        ->assertJsonStructure(['data' => ['id', 'name', 'sku']])
+        ->assertJsonPath('message', ResponseMessage::PRODUCT_CREATED->get());
+}
+```
+
 ## Suporte
 
 ### Problemas Comuns

@@ -9,3 +9,5 @@ bootstrap/cache/*
 storage/logs/*
 .vscode/*
 ./frontend
+.phpunit.result.cache
+storage/logs/laravel.log

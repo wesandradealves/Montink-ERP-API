@@ -5,6 +5,48 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.4.0] - 2025-07-20
+
+### Adicionado
+- **Sistema de Mensageria Completo nos Testes**
+  - Todos os testes agora utilizam ResponseMessage enum
+  - Eliminação de strings hardcoded nas mensagens
+  - Consistência total com o sistema de mensageria da aplicação
+
+- **Novos Testes de Feature**
+  - AddressTest: Testes completos para API de CEP
+  - ApplicationTest: Testes de health check e configuração
+  - AuthTest: Testes de autenticação com JWT
+  - CartTest: Testes completos do carrinho de compras
+  - CompleteFlowTest: Teste E2E do fluxo completo de compra
+  - CouponsTest: Testes completos de cupons de desconto
+  - OrdersTest: Testes completos de pedidos
+  - ProductsTest: Testes completos de produtos
+  - WebhookTest: Testes de webhooks para atualização de status
+
+- **Novos Testes Unitários**
+  - EmailServiceTest: Testes do serviço de email
+  - StockValidationServiceTest: Testes de validação de estoque
+
+### Modificado
+- **Refatoração Completa dos Testes**
+  - Remoção de todos os comentários dos arquivos de teste
+  - Correção do nome do cookie de sessão de 'laravel_session' para 'session_id'
+  - Ajuste das estruturas de resposta para corresponder ao formato real da API
+  - Correção de problemas de foreign key nos tearDown
+  - Padronização de expectativas de status HTTP
+
+- **Melhorias na Estrutura de Testes**
+  - Organização consistente de setUp e tearDown
+  - Uso correto de factories e seeds
+  - Limpeza apropriada de dados entre testes
+  - Cobertura de 100% das funcionalidades principais
+
+### Removido
+- Testes antigos que não seguiam o padrão de mensageria
+- Comentários desnecessários nos arquivos de teste
+- Strings hardcoded substituídas por ResponseMessage
+
 ## [1.3.0] - 2025-07-20
 
 ### Adicionado
