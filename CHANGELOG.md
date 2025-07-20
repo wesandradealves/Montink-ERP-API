@@ -5,6 +5,27 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.4.1] - 2025-07-20
+
+### Corrigido
+- **Respostas HTTP de Autenticação**
+  - Login com credenciais inválidas retorna 401 (não 422)
+  - Usuário inativo retorna 401 (não 422)
+  - Criada AuthenticationException para erros de autenticação
+  - BaseApiController atualizado para tratar exceção com status correto
+
+- **Tratamento de Recursos Não Encontrados**
+  - Produto inexistente no carrinho retorna 404 (não 422)
+  - Item de carrinho não encontrado retorna 404 (não 422)
+  - Uso consistente de ResourceNotFoundException
+  - Mensagens usando sistema ResponseMessage
+
+### Modificado
+- **Testes de Autenticação**
+  - Ajustados para esperar status HTTP 401
+  - Mantém 100% de cobertura de testes
+  - Todos os 120 testes passando
+
 ## [1.4.0] - 2025-07-20
 
 ### Adicionado
