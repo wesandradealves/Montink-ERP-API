@@ -9,7 +9,7 @@ Sistema Mini ERP desenvolvido em Laravel seguindo princípios de Clean Architect
 
 ## Funcionalidades
 
-### Implementado (v1.1.0)
+### Implementado (v1.4.1)
 - **API Products** - CRUD completo de produtos com validações, suporte a variações e filtros de preço
 - **Sistema de Carrinho** - Gestão completa via sessão/cookies com cálculo de frete
 - **Integração ViaCEP** - Busca e validação automática de endereços
@@ -284,6 +284,41 @@ curl -X POST http://localhost/api/webhooks/order-status \
     "timestamp": "2025-07-17T10:30:00Z",
     "version": "0.3.0"
   }
+}
+```
+
+### Códigos de Resposta HTTP
+
+A API retorna os seguintes códigos de status:
+
+- **200 OK** - Requisição bem-sucedida
+- **201 Created** - Recurso criado com sucesso
+- **401 Unauthorized** - Falha de autenticação (credenciais inválidas, usuário inativo, token inválido)
+- **404 Not Found** - Recurso não encontrado (produto, pedido, CEP, etc.)
+- **422 Unprocessable Entity** - Erro de validação dos dados enviados
+- **500 Internal Server Error** - Erro interno do servidor
+
+#### Exemplo de Erro 401 (Autenticação)
+```json
+{
+  "error": "Credenciais inválidas",
+  "code": 401
+}
+```
+
+#### Exemplo de Erro 404 (Recurso não encontrado)
+```json
+{
+  "error": "Produto não encontrado",
+  "code": 404
+}
+```
+
+#### Exemplo de Erro 422 (Validação)
+```json
+{
+  "error": "O campo nome é obrigatório",
+  "code": 422
 }
 ```
 
