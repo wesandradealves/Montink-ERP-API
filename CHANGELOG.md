@@ -5,6 +5,26 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.4.2] - 2025-07-20
+
+### Corrigido
+- **ModelNotFoundException Retorna 404**
+  - Pedidos inexistentes agora retornam 404 (não 500)
+  - BaseApiController atualizado para capturar ModelNotFoundException
+  - Usa sistema de mensageria: ResponseMessage::RESOURCE_NOT_FOUND
+  - Teste unitário atualizado para esperar novo comportamento
+
+- **Script de Teste de Regressão**
+  - Corrigido teste de autenticação JWT com header Accept: application/json
+  - Atualizada extração do token para usar accessToken
+  - Taxa de sucesso agora 100% em todos os testes
+
+### Adicionado
+- **Documentação de Testes no README**
+  - Seção de Testes Funcionais E2E com resultados detalhados
+  - Relatório completo de Teste de Regressão
+  - Taxa de sucesso de 100% em 120 testes (17.167 asserções)
+
 ## [1.4.1] - 2025-07-20
 
 ### Corrigido
