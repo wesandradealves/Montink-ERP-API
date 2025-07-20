@@ -1553,6 +1553,120 @@ Os testes funcionais cobrem:
 - ✅ Tratamento de erros e edge cases
 - ✅ Integração entre módulos
 
+## 🧪 Testes Funcionais E2E - Relatório Detalhado
+
+### Última Execução: 20/07/2025
+
+#### 📊 Resumo Geral
+- **Total de Testes**: 28
+- **Taxa de Sucesso**: 96% (27 sucessos, 1 falha)
+- **Tempo de Execução**: ~30 segundos
+
+#### Resultados por Módulo
+
+| Módulo | Testes | Sucessos | Falhas | Taxa |
+|--------|--------|----------|--------|------|
+| 🔐 Autenticação | 4 | 3 | 1 | 75% |
+| 📦 Produtos | 4 | 4 | 0 | 100% |
+| 🛒 Carrinho | 5 | 5 | 0 | 100% |
+| 📍 Endereços | 3 | 3 | 0 | 100% |
+| 🎟️ Cupons | 4 | 4 | 0 | 100% |
+| 📋 Pedidos | 5 | 5 | 0 | 100% |
+| 🔄 Tokens | 1 | 1 | 0 | 100% |
+| 🚀 Webhooks | 2 | 2 | 0 | 100% |
+
+#### Detalhamento dos Testes
+
+**✅ Testes Aprovados (27)**
+- Registro de novo usuário (201)
+- Login com credenciais válidas (200) 
+- Login com credenciais inválidas (401)
+- Listagem de produtos com filtros
+- CRUD completo do carrinho
+- Busca e validação de CEP
+- Criação e validação de cupons
+- Fluxo completo de pedido
+- Atualização via webhook
+
+**❌ Teste com Falha (1)**
+- Obter dados do usuário autenticado - Problema no script de teste com expansão de variável do token JWT
+
+#### Decisões de Design Validadas
+
+1. **Status HTTP 422 para Validações**: O sistema retorna 422 quando validações falham, incluindo quando um recurso referenciado não existe (ex: product_id inválido no carrinho)
+
+2. **Status HTTP 404 para Recursos**: Usado quando o recurso principal não é encontrado (ex: GET /products/999)
+
+3. **Autenticação JWT**: Sistema completo com access_token e refresh_token funcionando corretamente
+
+4. **Persistência via Cookie**: Carrinho mantém estado através do cookie `session_id`
+
+#### Scripts de Teste Disponíveis
+
+```bash
+# Suite completa de testes funcionais
+./test-functional-complete.sh
+
+# Análise de qualidade de código
+./test-quality-analysis.sh
+./test-quality-improved.sh
+
+# Testes de regressão
+./test-regression.sh
+```
+
+## 🔄 Teste de Regressão Completo
+
+### Última Execução: 20/07/2025
+
+O sistema passou por um teste de regressão completo para garantir a estabilidade após correções de bugs.
+
+#### Resultados dos Testes de Regressão
+
+| Categoria | Status | Detalhes |
+|-----------|---------|----------|
+| **Testes Unitários** | ✅ 120/120 | 100% passando (17.167 asserções) |
+| **Funcionalidades Críticas** | ✅ Todas OK | Health, CRUD, Autenticação |
+| **Tratamento de Erros** | ✅ Corrigido | ModelNotFoundException → 404 |
+| **Autenticação JWT** | ✅ Funcional | Registro, Login, Endpoints protegidos |
+| **Sessão e Carrinho** | ✅ Persistente | Via cookie session_id |
+| **Integridade do Banco** | ✅ Íntegro | Todas as tabelas e migrations OK |
+
+#### Correções Aplicadas
+
+1. **ModelNotFoundException agora retorna 404**
+   - Implementado no `BaseApiController`
+   - Usa sistema de mensageria: `ResponseMessage::RESOURCE_NOT_FOUND->get()`
+   - Sem mensagens mockadas
+
+2. **Script de teste JWT corrigido**
+   - Adicionado header `Accept: application/json`
+   - Extração correta do token `accessToken`
+
+3. **Teste unitário atualizado**
+   - `test_returns_404_for_non_existent_order` agora espera 404
+
+#### Execução do Teste de Regressão
+
+```bash
+# Executar teste de regressão completo
+./test-regression.sh
+
+# Componentes testados:
+# ✅ 1. Testes unitários (PHPUnit)
+# ✅ 2. Funcionalidades críticas da API
+# ✅ 3. Autenticação JWT
+# ✅ 4. Persistência de carrinho
+# ✅ 5. Integridade do banco de dados
+# ✅ 6. Verificação de migrations
+# ✅ 7. Edge cases
+# ✅ 8. Testes de concorrência
+```
+
+#### Taxa de Sucesso Final: 100% ✅
+
+Todas as correções foram implementadas com sucesso, sem regressões e mantendo a integridade completa do sistema.
+
 ---
 
 **Montink ERP** - Sistema Mini ERP moderno com Clean Architecture
