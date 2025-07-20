@@ -8,6 +8,6 @@ vendor
 bootstrap/cache/*
 storage/logs/*
 .vscode/*
-./frontend
+frontend
 .phpunit.result.cache
 storage/logs/laravel.log
